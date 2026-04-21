@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | AquaDesign - Aquascaping Experts</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    .about-hero {
+      background-image: linear-gradient(rgba(2, 12, 27, 0.7), rgba(10, 37, 64, 0.5)), url('../assets/img/hero-about.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 10rem 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-hero h1 {
+      color: white;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-hero p {
+      color: rgba(244, 241, 222, 0.95);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .about-section {
+      padding: 4rem 2rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .about-image {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, #2EC4B6 0%, #0A2540 100%);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .team-member {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .team-avatar {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: var(--bg-secondary);
+      border: 3px solid var(--aqua-teal-light);
+    }
+
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .team-member h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .team-role {
+      color: var(--aqua-teal);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .timeline-horizontal {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .timeline-dot {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      text-align: center;
+      border-left: 4px solid var(--aqua-teal);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-dot:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .timeline-year {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--aqua-teal);
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .value-card {
+      background: var(--bg-secondary);
+      padding: 2rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+    }
+
+    .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .value-card h4 {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-custom">
+      <a class="navbar-brand" href="../index.html">🌊 AquaDesign</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-4">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="maintenance.html">Maintenance</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+        </ul>
+        <div class="nav-utility">
+          <button class="theme-toggle" title="Toggle Theme">☀️</button>
+          <button class="rtl-toggle" title="Toggle RTL">⇋</button>
+          <a href="login.html" class="btn-login-nav">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="about-hero">
+    <div class="container-custom">
+      <h1>About AquaDesign</h1>
+      <p>15 years of expertise in creating stunning aquascapes that transform spaces and bring joy to thousands of
+        clients worldwide.</p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="about-section">
+    <div class="container-custom">
+      <div class="about-grid">
+        <div>
+          <h2>Our Story</h2>
+          <p style="color: var(--text-secondary); font-size: 1.05rem;">
+            Founded in 2009, AquaDesign started with a simple passion: creating beautiful, thriving aquatic ecosystems.
+            What began as a small aquascaping studio has grown into a leading design firm, trusted by homeowners,
+            businesses, and interior designers worldwide.
+          </p>
+          <p style="color: var(--text-secondary); font-size: 1.05rem;">
+            Our journey has been defined by continuous learning, innovation, and an unwavering commitment to excellence.
+            We combine artistic vision with scientific knowledge to create aquariums that are as healthy as they are
+            beautiful.
+          </p>
+          <p style="color: var(--text-secondary); font-size: 1.05rem;">
+            Today, we've designed over 500 aquascapes, each one a unique masterpiece. From intimate nano tanks to
+            spectacular 2000+ gallon installations, we bring the beauty of nature into every space we touch.
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="../assets/img/service-aquascaping.png" alt="Our Legacy"
+            style="width: 100%; height: 100%; object-fit: cover; border-radius: 1rem;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise -->
+  <section class="about-section" style="background: var(--bg-secondary);">
+    <div class="container-custom">
+      <h2 style="text-align: center; margin-bottom: 1rem;">Our Expertise</h2>
+      <p
+        style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        We specialize in multiple aquascaping styles and technical setups.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div class="card">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🌿</div>
+          <h5>Planted Tanks</h5>
+          <p style="font-size: 0.95rem;">Expert design and CO2 management for lush, thriving planted aquariums from nano
+            to large formats.</p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🌿</div>
+          <h5>Hardscape Design</h5>
+          <p style="font-size: 0.95rem;">Beautiful rocky landscapes with driftwood and stone. Japanese style, Dutch
+            style, and nature-inspired layouts.</p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🌊</div>
+          <h5>Aquatic Systems</h5>
+          <p style="font-size: 0.95rem;">Complete knowledge of filtration, circulation, lighting, and water chemistry
+            for optimal tank health.</p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🌿</div>
+          <h5>Bioload Management</h5>
+          <p style="font-size: 0.95rem;">Expert stocking recommendations and biological balance for thriving aquatic
+            ecosystems.</p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🔬</div>
+          <h5>Water Chemistry</h5>
+          <p style="font-size: 0.95rem;">Advanced understanding of pH, hardness, nutrients, and water parameters for
+            specific aquatic needs.</p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🎨</div>
+          <h5>Aesthetic Design</h5>
+          <p style="font-size: 0.95rem;">Artistic composition using color, texture, and spatial design principles to
+            create visual masterpieces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="about-section">
+    <div class="container-custom">
+      <h2 style="text-align: center; margin-bottom: 0.5rem;">Our Journey</h2>
+      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">Key milestones in our growth</p>
+
+      <div class="timeline-horizontal">
+        <div class="timeline-dot">
+          <div class="timeline-year">2009</div>
+          <p style="margin-bottom: 0; font-size: 0.95rem;">Founded AquaDesign with a vision to transform spaces through
+            aquascaping.</p>
+        </div>
+        <div class="timeline-dot">
+          <div class="timeline-year">2012</div>
+          <p style="margin-bottom: 0; font-size: 0.95rem;">Expanded services to include full installation and
+            maintenance support.</p>
+        </div>
+        <div class="timeline-dot">
+          <div class="timeline-year">2015</div>
+          <p style="margin-bottom: 0; font-size: 0.95rem;">Launched client dashboard for real-time tank monitoring and
+            tracking.</p>
+        </div>
+        <div class="timeline-dot">
+          <div class="timeline-year">2019</div>
+          <p style="margin-bottom: 0; font-size: 0.95rem;">Reached 500+ aquascape designs and expanded nationwide
+            operations.</p>
+        </div>
+        <div class="timeline-dot">
+          <div class="timeline-year">2024</div>
+          <p style="margin-bottom: 0; font-size: 0.95rem;">Recognized as industry leaders with 98% client satisfaction
+            rate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="about-section" style="background: var(--bg-secondary);">
+    <div class="container-custom">
+      <h2 style="text-align: center; margin-bottom: 3rem;">Our Core Values</h2>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🎨</div>
+          <h4>Excellence</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 0;">We maintain the highest standards in every design,
+            installation, and interaction with clients.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🌿</div>
+          <h4>Sustainability</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 0;">Committed to eco-friendly practices and promoting
+            healthy, natural aquatic ecosystems.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">💡</div>
+          <h4>Innovation</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 0;">Continuously learning and implementing the latest
+            techniques and technologies in aquascaping.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🌿</div>
+          <h4>Partnership</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 0;">We work closely with clients as partners in
+            creating their aquatic vision from start to finish.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">📚</div>
+          <h4>Education</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 0;">Empowering clients with knowledge about
+            aquascaping, maintenance, and aquatic life care.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🌿</div>
+          <h4>Dedication</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 0;">Long-term support and commitment to the success of
+            every aquascape we create.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="about-section">
+    <div class="container-custom">
+      <h2 style="text-align: center; margin-bottom: 1rem;">Our Expert Team</h2>
+      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem;">Passionate professionals
+        dedicated to aquascaping excellence</p>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80" alt="Marcus Thompson">
+          </div>
+          <h4>Marcus Thompson</h4>
+          <div class="team-role">Creative Director & Founder</div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">15+ years in aquascaping design. Specializes in
+            artistic composition and exotic planted tanks.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80" alt="Dr. Elena Martinez">
+          </div>
+          <h4>Dr. Elena Martinez</h4>
+          <div class="team-role">Aquatic Biologist</div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">PhD in Aquatic Sciences. Expert in water
+            chemistry, bioload management, and ecosystem health.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80" alt="James Patterson">
+          </div>
+          <h4>James Patterson</h4>
+          <div class="team-role">Installation Manager</div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">12+ years installing and setting up aquariums.
+            Ensures perfect execution on every project.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&h=400&q=80" alt="Sarah Chen">
+          </div>
+          <h4>Sarah Chen</h4>
+          <div class="team-role">Client Experience Lead</div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Dedicated to ensuring every client experience
+            exceeds expectations. Manages all consultations.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=400&q=80" alt="Michael Green">
+          </div>
+          <h4>Michael Green</h4>
+          <div class="team-role">Maintenance Specialist</div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Expert in long-term tank care and plant health.
+            Manages all maintenance accounts.</p>
+        </div>
+
+        <div class="team-member">
+          <div class="team-avatar">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&h=400&q=80" alt="David Kim">
+          </div>
+          <h4>David Kim</h4>
+          <div class="team-role">Digital Strategist</div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Manages our technology platform, client
+            dashboard, and digital communication systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section
+    style="background: linear-gradient(135deg, #0A2540 0%, #2EC4B6 100%); padding: 4rem 2rem; color: white; text-align: center;">
+    <div class="container-custom">
+      <h2 style="color: white; margin-bottom: 1rem;">Ready to Work With Us?</h2>
+      <p
+        style="color: rgba(244, 241, 222, 0.9); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Let's create something beautiful together. Schedule a consultation with our team today.
+      </p>
+      <a href="pages/contact.html" class="btn btn-white">Get Started Today</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="fade-in">
+    <div class="container-custom">
+      <div class="footer-grid">
+        <!-- Brand Section -->
+        <div class="footer-brand">
+          <a href="../index.html" style="text-decoration: none;">
+            <h2>🌊 AquaDesign</h2>
+          </a>
+          <p>
+            Crafting living masterpieces for discerning clients. Our passion for aquascaping combines nature's beauty
+            with architectural precision to transform any space into a serene sanctuary.
+          </p>
+          <div class="social-icons-v2">
+            <a href="#" class="social-icon-v2" title="Facebook">f</a>
+            <a href="#" class="social-icon-v2" title="Instagram">📷</a>
+            <a href="#" class="social-icon-v2" title="YouTube">🎬</a>
+            <a href="#" class="social-icon-v2" title="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="about.html" class="footer-link">Our Story</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+            <li><a href="process.html" class="footer-link">Our Process</a></li>
+            <li><a href="pricing.html" class="footer-link">Pricing</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-section">
+          <h4>Expertise</h4>
+          <ul class="footer-links">
+            <li><a href="services.html" class="footer-link">Aquascape Design</a></li>
+            <li><a href="services.html" class="footer-link">Professional Setup</a></li>
+            <li><a href="maintenance.html" class="footer-link">Maintenance Plans</a></li>
+            <li><a href="services.html" class="footer-link">Consultation</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-section">
+          <h4>Mailing List</h4>
+          <div class="newsletter-v2">
+            <p>Join our exclusive community for seasonal maintenance tips and new project reveals.</p>
+            <form class="newsletter-form-v2">
+              <input type="email" placeholder="Email Address" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-v2">
+        <p>&copy; 2024 AquaDesign. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="#" class="footer-legal-link">Privacy Policy</a>
+          <a href="#" class="footer-legal-link">Terms of Service</a>
+          <a href="contact.html" class="footer-legal-link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

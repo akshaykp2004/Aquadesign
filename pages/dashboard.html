@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Dashboard | AquaDesign</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    body {
+      background: var(--bg-primary);
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .dashboard-container {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Styles */
+    .dashboard-sidebar {
+      width: 280px;
+      min-width: 280px;
+      background: var(--dark-navy);
+      color: white;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      z-index: 1000;
+    }
+
+    .sidebar-brand {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white-pure);
+      text-decoration: none;
+      margin-bottom: 3rem;
+      display: block;
+    }
+
+    .sidebar-profile {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--aqua-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 1rem;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .profile-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .profile-tier {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--aqua-teal);
+      font-weight: 700;
+    }
+
+    .sidebar-category {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.3);
+      margin: 1.5rem 0 1rem;
+    }
+
+    .sidebar-link {
+      background: transparent;
+      border: 1px solid transparent;
+      color: rgba(255, 255, 255, 0.6);
+      width: 100%;
+      text-align: left;
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .sidebar-link:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+    }
+
+    .sidebar-link.active {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Content Area Styles */
+    .dashboard-main {
+      flex: 1;
+      padding: 2.5rem 3rem;
+      background: var(--bg-secondary);
+      max-width: calc(100% - 280px);
+    }
+
+    .welcome-banner {
+      background: var(--gradient-aqua);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem;
+      color: white;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome-banner h1 {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: white; /* Explicitly set to white */
+    }
+
+    .welcome-banner p {
+      font-size: 1.1rem;
+      opacity: 1; /* Increased opacity for visibility */
+      max-width: 600px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.95); /* Explicitly set to light color */
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .stat-card-v2 {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: transform var(--transition-normal);
+    }
+
+    .stat-card-v2:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-card-v2 .icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gray-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      color: var(--primary-dark);
+    }
+
+    .stat-card-v2 .value {
+      font-size: 2rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-card-v2 .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+      font-weight: 600;
+    }
+
+    /* Project Detail Card */
+    .project-card-v2 {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .project-header {
+      background: var(--bg-tertiary);
+      padding: 1.5rem 2.5rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .status-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      padding: 0.4rem 0.85rem;
+      border-radius: 100px;
+      background: var(--dark-navy);
+      color: var(--white-pure);
+      letter-spacing: 1px;
+    }
+
+    .project-body {
+      padding: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .project-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem 4rem;
+    }
+
+    .info-group label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-group p {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .countdown-timer {
+      text-align: center;
+      padding-left: 3rem;
+      border-left: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .countdown-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-tertiary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .timer-units {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .timer-unit {
+      text-align: center;
+    }
+
+    .timer-unit .num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .timer-unit .txt {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+    }
+
+    .dashboard-tab {
+      display: none;
+    }
+
+    .dashboard-tab.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @media (max-width: 1200px) {
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .project-body {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .countdown-timer {
+        padding-left: 0;
+        border-left: none;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-color);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .dashboard-sidebar {
+        width: 80px;
+        min-width: 80px;
+        padding: 2rem 0.5rem;
+        align-items: center;
+      }
+      .sidebar-brand, .sidebar-profile, .sidebar-category, .sidebar-link span {
+        display: none;
+      }
+      .sidebar-link {
+        justify-content: center;
+        padding: 1rem;
+      }
+      .dashboard-main {
+        max-width: calc(100% - 80px);
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-container {
+        flex-direction: column;
+      }
+      .dashboard-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 1rem;
+      }
+      .dashboard-main {
+        max-width: 100%;
+      }
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Logout Modal Styles */
+    .logout-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(2, 12, 27, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .logout-modal-card {
+      background: var(--dark-navy);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .logout-brand-logo {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--white-pure);
+      margin-bottom: 2rem;
+      display: inline-block;
+    }
+
+    .logout-modal-card h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .logout-modal-card p {
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+    }
+
+    .logout-btn-group {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .btn-logout-stay {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-logout-stay:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: white;
+    }
+
+    .btn-logout-confirm {
+      background: var(--coral-accent);
+      border: 1px solid var(--coral-accent);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      transition: all var(--transition-fast);
+      text-decoration: none;
+    }
+
+    .btn-logout-confirm:hover {
+      background: #FF6B35;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255, 127, 80, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="dashboard-container">
+    <!-- Sidebar Navigation -->
+    <aside class="dashboard-sidebar">
+      <a href="../index.html" class="sidebar-brand">🌊 AquaDesign</a>
+      
+      <div class="sidebar-profile">
+        <div class="profile-avatar">👤</div>
+        <div class="profile-name">Sarah Jenkins</div>
+        <div class="profile-tier">Elite Enthusiast</div>
+      </div>
+
+      <div class="sidebar-category">Main</div>
+      <button class="sidebar-link active" onclick="switchTab('overview', this)">
+        <span>📊 Dashboard Overview</span>
+      </button>
+      <button class="sidebar-link" onclick="switchTab('tank', this)">
+        <span>🌿 Tank Specifications</span>
+      </button>
+      <button class="sidebar-link" onclick="switchTab('design', this)">
+        <span>🎨 Design Approval</span>
+      </button>
+
+      <div style="margin-top: auto; padding-top: 2rem;">
+        <button onclick="toggleLogoutModal(true)" class="sidebar-link" style="color: var(--coral-accent); background: transparent; border: none;">
+          <span>🚪 Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-main">
+      <div class="welcome-banner">
+        <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 0.5rem; color: white;">Welcome back,</p>
+        <h1>Good Morning, Sarah</h1>
+        <p>Your Rainforest Canopy Aquascape is currently in <strong>Peak Growth Phase</strong>. Your next maintenance visit is scheduled for <strong>April 26</strong>. Take a moment to review the latest biological statistics below.</p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card-v2">
+          <div class="icon">📅</div>
+          <span class="value">42</span>
+          <span class="label">Days Active</span>
+        </div>
+        <div class="stat-card-v2">
+          <div class="icon">🌿</div>
+          <span class="value">85%</span>
+          <span class="label">Growth Target</span>
+        </div>
+        <div class="stat-card-v2">
+          <div class="icon">💧</div>
+          <span class="value">7.2</span>
+          <span class="label">pH Level</span>
+        </div>
+        <div class="stat-card-v2">
+          <div class="icon">🏆</div>
+          <span class="value">EXCL.</span>
+          <span class="label">Care Plan Active</span>
+        </div>
+      </div>
+
+      <!-- Overview Tab -->
+      <div class="dashboard-tab active" id="tab-overview">
+        <!-- Active Project Card -->
+        <div class="project-card-v2">
+          <div class="project-header">
+            <div class="project-title">
+              <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-tertiary); display: block; margin-bottom: 0.2rem;">Currently Managing</span>
+              Rainforest Canopy Masterpiece
+            </div>
+            <span class="status-badge">In Progress</span>
+          </div>
+          <div class="project-body">
+            <div class="project-info-grid">
+              <div class="info-group">
+                <label>Date Started</label>
+                <p>Mar 10, 2024</p>
+              </div>
+              <div class="info-group">
+                <label>Total Investment</label>
+                <p>$4,850.00</p>
+              </div>
+              <div class="info-group">
+                <label>Est. Maturity</label>
+                <p>June 15, 2024</p>
+              </div>
+              <div class="info-group">
+                <label>Project ID</label>
+                <p>AD-2024-0847</p>
+              </div>
+            </div>
+
+            <div class="countdown-timer">
+              <span class="countdown-label">Days to Next Service</span>
+              <div class="timer-units">
+                <div class="timer-unit">
+                  <span class="num">02</span>
+                  <span class="txt">Days</span>
+                </div>
+                <div class="timer-unit">
+                  <span class="num">14</span>
+                  <span class="txt">Hours</span>
+                </div>
+                <div class="timer-unit">
+                  <span class="num">35</span>
+                  <span class="txt">Mins</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tank Specifications Tab -->
+      <div class="dashboard-tab" id="tab-tank">
+        <h2 style="font-family: var(--font-display); margin-bottom: 2rem;">Tank Specifications</h2>
+        <div style="background: var(--card-bg); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+          <form id="tankForm">
+            <div class="form-section" style="border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; margin-bottom: 2rem;">
+              <h4 style="font-family: var(--font-display);"><span style="color: var(--aqua-teal);">🌿</span> Tank Dimensions</h4>
+              <div class="row mt-4">
+                <div class="col-md-4"><label class="form-label">Length</label><input type="text" class="form-control" value="48 inches" readonly></div>
+                <div class="col-md-4"><label class="form-label">Width</label><input type="text" class="form-control" value="24 inches" readonly></div>
+                <div class="col-md-4"><label class="form-label">Height</label><input type="text" class="form-control" value="18 inches" readonly></div>
+              </div>
+              <div class="mt-4">
+                <label class="form-label">Location</label>
+                <p class="text-secondary">Main Reception Hall - Aquatic Centerpiece</p>
+              </div>
+            </div>
+            <div class="form-section">
+              <h4 style="font-family: var(--font-display);"><span style="color: var(--aqua-teal);">⚙️</span> Filtration & Lighting</h4>
+              <p class="text-secondary mt-3">Using EHEIM Professionel 4+ 600 Canister and ADA Solar RGB System.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Design Approval Tab -->
+      <div class="dashboard-tab" id="tab-design">
+        <h2 style="font-family: var(--font-display); margin-bottom: 2rem;">Design Concepts & Approval</h2>
+        <div class="gallery-thumbs">
+          <div class="thumb" style="background-image: url('../assets/img/portfolio/aquatic_meadow.png'); background-size: cover; background-position: center;"></div>
+          <div class="thumb" style="background-image: url('../assets/img/portfolio/stone_garden.png'); background-size: cover; background-position: center;"></div>
+          <div class="thumb" style="background-image: url('../assets/img/portfolio/grand_display.png'); background-size: cover; background-position: center;"></div>
+        </div>
+        <div class="project-card-v2 mt-4" style="padding: 2.5rem;">
+          <h5 style="font-family: var(--font-display);">Nature Aquarium Style</h5>
+          <p class="text-secondary">Your approved design focuses on a driftwood-centric layout with heavy moss coverage and high-density stem plants in the background.</p>
+          <div class="alert alert-success mt-4">
+             <span>✓</span>
+             <div>Design approved by Sarah on April 1, 2024</div>
+          </div>
+        </div>
+      </div>
+
+
+    </main>
+  </div>
+
+  <!-- Logout Confirmation Modal -->
+  <div class="logout-modal-overlay" id="logoutModal">
+    <div class="logout-modal-card">
+      <div class="logout-brand-logo">🌊 AquaDesign</div>
+      <h3>Wait, leaving so soon?</h3>
+      <p>Are you sure you want to end your session? We'll be here whenever you're ready to grow your masterpiece.</p>
+      <div class="logout-btn-group">
+        <button class="btn-logout-stay" onclick="toggleLogoutModal(false)">Stay</button>
+        <a href="../index.html" class="btn-logout-confirm">Log out</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+
+  <script>
+    function toggleLogoutModal(show) {
+      const modal = document.getElementById('logoutModal');
+      modal.style.display = show ? 'flex' : 'none';
+    }
+
+    function switchTab(tabName, element) {
+      // Hide all tabs
+      document.querySelectorAll('.dashboard-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+
+      // Remove active from all sidebar links
+      document.querySelectorAll('.sidebar-link').forEach(link => {
+        link.classList.remove('active');
+      });
+
+      // Show selected tab
+      const targetTab = document.getElementById('tab-' + tabName);
+      if (targetTab) {
+        targetTab.classList.add('active');
+      }
+      
+      if (element) {
+        element.classList.add('active');
+      }
+    }
+  </script>
+</body>
+
+</html>

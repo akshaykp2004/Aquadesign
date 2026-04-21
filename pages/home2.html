@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alternative Aquascaping Landing Page">
+  <title>Aquascaping & Custom Aquarium Design | Home 2</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    .hero-video {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(2, 12, 27, 0.7), rgba(10, 37, 64, 0.5)), url('../assets/img/hero-home2.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      z-index: -1;
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(2, 12, 27, 0.5);
+      z-index: 1;
+    }
+
+    .hero-video-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero-video h1 {
+      color: white;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-video-subtitle {
+      color: rgba(244, 241, 222, 0.95);
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      animation: fadeInUp 1s ease-out 0.2s backwards;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease-out 0.4s backwards;
+    }
+
+    .minimal-section {
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .minimal-card {
+      background: var(--card-bg);
+      padding: 3rem 2rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .minimal-card:hover {
+      transform: translateY(-15px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .minimal-card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .minimal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-highlight {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin: 4rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .feature-highlight {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .minimal-section {
+        padding: 4rem 1.5rem;
+      }
+    }
+
+    .feature-image {
+      width: 100%;
+      height: 480px;
+      background: linear-gradient(rgba(10, 37, 64, 0.4), rgba(10, 37, 64, 0.6)), url('../assets/img/feature-experience.png');
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .feature-image:hover {
+      transform: scale(1.02);
+    }
+
+    .stat-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2EC4B6, #FF7F50);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin: 0 auto 1rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      font-family: var(--font-display);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .gradient-text-animated {
+      background: linear-gradient(90deg, #2EC4B6 0%, #FF7F50 50%, #2EC4B6 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 3s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% center;
+      }
+
+      50% {
+        background-position: 100% center;
+      }
+
+      100% {
+        background-position: 0% center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================
+     NAVIGATION
+     ============================================ -->
+  <nav class="navbar navbar-expand-lg fixed-top" style="z-index: 1000;">
+    <div class="container-custom">
+      <a class="navbar-brand" href="../index.html">🌊 AquaDesign</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-4">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="home2.html">Home 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pricing.html">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="maintenance.html">Maintenance</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="dashboard.html">Dashboard</a>
+          </li>
+        </ul>
+        <div class="nav-utility">
+          <button class="theme-toggle" title="Toggle Theme">☀️</button>
+          <button class="rtl-toggle" title="Toggle RTL">⇋</button>
+          <a href="login.html" class="btn-login-nav">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================
+     FULLSCREEN HERO SECTION
+     ============================================ -->
+  <section class="hero-video">
+    <div class="hero-video-bg"></div>
+    <div class="hero-video-overlay"></div>
+
+    <div class="hero-video-content">
+      <div>
+        <h1>Underwater Beauty Starts Here</h1>
+        <p class="hero-video-subtitle">
+          Premium aquascaping and custom aquarium design. Expertise meets artistry in every tank we create.
+        </p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-white">Start Your Project</a>
+          <a href="portfolio.html" class="btn btn-white">Explore Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+     STATISTICS SECTION
+     ============================================ -->
+  <section class="minimal-section" style="background: var(--bg-secondary);">
+    <div class="container-custom">
+      <h2 style="margin-bottom: 3rem;">Our Impact</h2>
+
+      <div class="minimal-grid">
+        <div>
+          <div class="stat-circle">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Designs</div>
+          </div>
+          <p style="color: var(--text-secondary);">Stunning aquascapes created</p>
+        </div>
+
+        <div>
+          <div class="stat-circle">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Satisfied</div>
+          </div>
+          <p style="color: var(--text-secondary);">Client satisfaction rate</p>
+        </div>
+
+        <div>
+          <div class="stat-circle">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Years</div>
+          </div>
+          <p style="color: var(--text-secondary);">Of expertise in design</p>
+        </div>
+
+        <div>
+          <div class="stat-circle">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Support</div>
+          </div>
+          <p style="color: var(--text-secondary);">Always here for you</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+     SIGNATURE SERVICE
+     ============================================ -->
+  <section class="minimal-section">
+    <div class="container-custom">
+      <div class="feature-highlight">
+        <div>
+          <h2 style="text-align: left;">The <span class="gradient-text-animated">Complete Experience</span></h2>
+          <p style="text-align: left; color: var(--text-secondary); font-size: 1.1rem; margin-top: 1.5rem;">
+            From initial consultation to lifetime support, we handle every aspect of your aquascaping journey. Our
+            expert team combines artistic vision with technical expertise to create aquariums that are not just
+            beautiful, but thriving ecosystems.
+          </p>
+          <div style="margin-top: 2rem; text-align: left;">
+            <div style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
+              <div
+                style="width: 30px; height: 30px; background: #2EC4B6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                ✓</div>
+              <span>Custom aquascape design & planning</span>
+            </div>
+            <div style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
+              <div
+                style="width: 30px; height: 30px; background: #2EC4B6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                ✓</div>
+              <span>Professional equipment selection</span>
+            </div>
+            <div style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
+              <div
+                style="width: 30px; height: 30px; background: #2EC4B6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                ✓</div>
+              <span>Expert on-site installation</span>
+            </div>
+            <div style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
+              <div
+                style="width: 30px; height: 30px; background: #2EC4B6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                ✓</div>
+              <span>Ongoing maintenance & support</span>
+            </div>
+          </div>
+          <a href="services.html" class="btn btn-primary" style="margin-top: 2rem;">Learn More</a>
+        </div>
+
+        <div class="card card-with-bg feature-image"
+          style="background-image: url('../assets/img/feature-experience.png'); border: none; min-height: 480px; font-size: 2.2rem; font-weight: 700;">
+          🌿 Aquatic Paradise
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+     CORE SERVICES
+     ============================================ -->
+  <section class="minimal-section" style="background: var(--bg-secondary);">
+    <div class="container-custom">
+      <h2 style="margin-bottom: 1rem;">What We Offer</h2>
+      <p
+        style="color: var(--text-secondary); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Complete aquascaping solutions tailored to your unique vision and lifestyle.
+      </p>
+
+      <div class="minimal-grid">
+        <div class="minimal-card">
+          <img src="../assets/img/card-design.png" alt="Design & Planning"
+            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
+          <h4>Design & Planning</h4>
+          <p style="color: var(--text-secondary);">Bespoke aquascape designs tailored to your space and aesthetic
+            preferences. Multiple mockups and revisions included.</p>
+        </div>
+
+        <div class="minimal-card">
+          <img src="../assets/img/card-premium.png" alt="Installation"
+            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
+          <h4>Installation</h4>
+          <p style="color: var(--text-secondary);">Professional, stress-free installation. Equipment setup, landscaping,
+            planting, and water conditioning all handled by experts.</p>
+        </div>
+
+        <div class="minimal-card">
+          <img src="../assets/img/card-maintenance.png" alt="Maintenance"
+            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
+          <h4>Maintenance</h4>
+          <p style="color: var(--text-secondary);">Monthly or bi-weekly maintenance packages. Keep your aquarium
+            thriving with our expert care and monitoring.</p>
+        </div>
+
+        <div class="minimal-card">
+          <img src="../assets/img/feature-dashboard.png" alt="Tracking & Support"
+            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
+          <h4>Tracking & Support</h4>
+          <p style="color: var(--text-secondary);">Access our client dashboard for real-time monitoring, growth
+            tracking, and maintenance scheduling.</p>
+        </div>
+
+        <div class="minimal-card">
+          <img src="../assets/img/service-consultation.png" alt="Consultation"
+            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
+          <h4>Consultation</h4>
+          <p style="color: var(--text-secondary);">In-depth consultations to understand your vision, space, and goals.
+            Expert guidance every step of the way.</p>
+        </div>
+
+        <div class="minimal-card">
+          <img src="../assets/img/portfolio-jungle.png" alt="Eco-Friendly"
+            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
+          <h4>Eco-Friendly</h4>
+          <p style="color: var(--text-secondary);">Sustainable, nature-inspired designs that promote healthy ecosystems
+            and thriving aquatic life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+     CTA SECTION
+     ============================================ -->
+  <section
+    style="background: linear-gradient(135deg, #0A2540 0%, #2EC4B6 100%); padding: 4rem 2rem; color: white; text-align: center;">
+    <div class="container-custom">
+      <h2 style="color: white; margin-bottom: 1rem;">Transform Your Space Today</h2>
+      <p
+        style="color: rgba(244, 241, 222, 0.9); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Let's create your aquatic masterpiece. Schedule a free consultation with our design experts.
+      </p>
+      <a href="contact.html" class="btn btn-white">Schedule Free Consultation</a>
+    </div>
+  </section>
+
+  <!-- ============================================
+     FOOTER
+     ============================================ -->
+  <!-- Footer -->
+  <footer class="fade-in">
+    <div class="container-custom">
+      <div class="footer-grid">
+        <!-- Brand Section -->
+        <div class="footer-brand">
+          <a href="../index.html" style="text-decoration: none;">
+            <h2>🌊 AquaDesign</h2>
+          </a>
+          <p>
+            Crafting living masterpieces for discerning clients. Our passion for aquascaping combines nature's beauty
+            with architectural precision to transform any space into a serene sanctuary.
+          </p>
+          <div class="social-icons-v2">
+            <a href="#" class="social-icon-v2" title="Facebook">f</a>
+            <a href="#" class="social-icon-v2" title="Instagram">📷</a>
+            <a href="#" class="social-icon-v2" title="YouTube">🎬</a>
+            <a href="#" class="social-icon-v2" title="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="about.html" class="footer-link">Our Story</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+            <li><a href="process.html" class="footer-link">Our Process</a></li>
+            <li><a href="pricing.html" class="footer-link">Pricing</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-section">
+          <h4>Expertise</h4>
+          <ul class="footer-links">
+            <li><a href="services.html" class="footer-link">Aquascape Design</a></li>
+            <li><a href="services.html" class="footer-link">Professional Setup</a></li>
+            <li><a href="maintenance.html" class="footer-link">Maintenance Plans</a></li>
+            <li><a href="services.html" class="footer-link">Consultation</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-section">
+          <h4>Mailing List</h4>
+          <div class="newsletter-v2">
+            <p>Join our exclusive community for seasonal maintenance tips and new project reveals.</p>
+            <form class="newsletter-form-v2">
+              <input type="email" placeholder="Email Address" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-v2">
+        <p>&copy; 2024 AquaDesign. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="#" class="footer-legal-link">Privacy Policy</a>
+          <a href="#" class="footer-legal-link">Terms of Service</a>
+          <a href="contact.html" class="footer-legal-link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

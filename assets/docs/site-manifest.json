@@ -1,0 +1,8 @@
+{
+  "project": "AquaDesign Website",
+  "structure": {
+    "root": ["index.html"],
+    "pages": ["about.html", "contact.html", "dashboard.html", "home2.html", "maintenance.html", "portfolio.html", "pricing.html", "process.html", "services.html"],
+    "assets": ["css", "js", "images", "docs"]
+  }
+}
