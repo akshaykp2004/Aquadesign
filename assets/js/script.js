@@ -87,7 +87,9 @@ class RTLManager {
   updateToggleIcon() {
     const toggle = document.querySelector('.rtl-toggle');
     if (toggle) {
-      toggle.textContent = '⇋'; // Unique bidirectional icon
+      toggle.textContent = this.isRTL ? 'LTR' : 'RTL';
+      toggle.style.fontSize = '0.8rem'; // Slightly smaller font for text labels
+      toggle.style.fontWeight = '700';
     }
   }
 
@@ -307,12 +309,11 @@ class TestimonialSlider {
   createControls(container) {
     const controls = document.createElement('div');
     controls.className = 'testimonial-controls';
-    controls.style.cssText = 'display: flex; gap: 10px; justify-content: center; margin-top: 20px;';
 
     for (let i = 0; i < this.totalSlides; i++) {
       const dot = document.createElement('button');
       dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
-      dot.style.cssText = 'width: 12px; height: 12px; border-radius: 50%; border: none; cursor: pointer; background: rgba(46, 196, 182, 0.5); transition: all 0.3s ease;';
+      dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
       dot.addEventListener('click', () => {
         this.currentIndex = i;
         this.showSlide(i);
@@ -328,11 +329,15 @@ class TestimonialSlider {
       slide.style.opacity = i === index ? '1' : '0';
       slide.style.position = i === index ? 'relative' : 'absolute';
       slide.style.visibility = i === index ? 'visible' : 'hidden';
-      slide.style.transition = 'opacity 0.5s ease';
+      slide.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
     });
 
     document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
-      dot.style.background = i === index ? '#2EC4B6' : 'rgba(46, 196, 182, 0.5)';
+      if (i === index) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
     });
   }
 
@@ -652,7 +657,39 @@ class PageTransition {
 }
 
 // ============================================
-// 12. UTILITY FUNCTIONS
+// 12. FAQ ACCORDION
+// ============================================
+
+class FAQAccordion {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    const faqItems = document.querySelectorAll('[data-faq-item]');
+    if (faqItems.length === 0) return;
+
+    faqItems.forEach(item => {
+      const toggle = item.querySelector('[data-faq-toggle]');
+      toggle.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          otherItem.classList.remove('active');
+        });
+
+        // Toggle current item
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  }
+}
+
+// ============================================
+// 13. UTILITY FUNCTIONS
 // ============================================
 
 const Utils = {
@@ -703,6 +740,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const lazyLoadImages = new LazyLoadImages();
   const scrollAnimation = new ScrollAnimation();
   const pageTransition = new PageTransition();
+  const faqAccordion = new FAQAccordion();
 
   // Add stagger animation to card elements
   Utils.addAnimationDelay('[data-animate-card]', 0.1);

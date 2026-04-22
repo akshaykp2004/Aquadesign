@@ -15,7 +15,7 @@ A premium, multi-page website for Aquascaping & Custom Aquarium Design.
 
 ## 📦 Project Structure
 
-### HTML Pages (10 Total)
+### HTML Pages (9 Total)
 | File | Description |
 | :--- | :--- |
 | `index.html` | Primary landing page |
@@ -23,7 +23,6 @@ A premium, multi-page website for Aquascaping & Custom Aquarium Design.
 | `pages/about.html` | Company story & expertise |
 | `pages/services.html` | Service details & packages |
 | `pages/portfolio.html` | Project gallery (Before/After) |
-| `pages/process.html` | Aquascaping methodology |
 | `pages/maintenance.html`| Subscription plan details |
 | `pages/pricing.html` | Cost breakdown & FAQs |
 | `pages/contact.html` | Contact form & map |

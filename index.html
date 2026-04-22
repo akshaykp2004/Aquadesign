@@ -142,22 +142,20 @@
             <a class="nav-link" href="pages/portfolio.html">Portfolio</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="pages/maintenance.html">Maintenance</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="pages/pricing.html">Pricing</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/contact.html">Contact</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/maintenance.html">Maintenance</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/dashboard.html">Dashboard</a>
-          </li>
         </ul>
         <div class="nav-utility">
-          <button class="theme-toggle" title="Toggle Theme">☀️</button>
-          <button class="rtl-toggle" title="Toggle RTL">⇋</button>
+          <a href="pages/dashboard.html" class="btn-dashboard-nav">Dashboard</a>
           <a href="pages/login.html" class="btn-login-nav">Login</a>
+          <button class="theme-toggle" title="Toggle Theme">☀️</button>
+          <button class="rtl-toggle" title="Toggle RTL">RTL</button>
         </div>
       </div>
     </div>
@@ -357,47 +355,6 @@
     </div>
   </section>
 
-  <!-- ============================================
-     TESTIMONIALS
-     ============================================ -->
-  <section class="section-padding" style="background: var(--bg-secondary);">
-    <div class="container-custom">
-      <div style="text-align: center; margin-bottom: 3rem;">
-        <h2>Client Testimonials</h2>
-        <div class="section-title-underline"></div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-          <div class="testimonial-carousel" data-testimonial-slider>
-            <div class="testimonial-card" data-testimonial-slide style="opacity: 1;">
-              <div class="stars">★★★★★</div>
-              <p class="testimonial-text">"The team transformed my office space with a stunning 120-gallon aquascape.
-                The attention to detail and professionalism was exceptional. Highly recommended!"</p>
-              <p class="testimonial-author">Sarah Mitchell</p>
-              <p class="testimonial-role">Interior Designer, Chicago</p>
-            </div>
-
-            <div class="testimonial-card" data-testimonial-slide style="opacity: 0;">
-              <div class="stars">★★★★★</div>
-              <p class="testimonial-text">"Best decision I made for my home. Not only is the aquascape beautiful, but
-                the maintenance service keeps it thriving. Thank you for the expertise!"</p>
-              <p class="testimonial-author">James Chen</p>
-              <p class="testimonial-role">Business Owner, New York</p>
-            </div>
-
-            <div class="testimonial-card" data-testimonial-slide style="opacity: 0;">
-              <div class="stars">★★★★★</div>
-              <p class="testimonial-text">"From initial consultation to final installation, everything was smooth and
-                professional. My planted aquarium is beyond expectations. Worth every penny!"</p>
-              <p class="testimonial-author">Emma Rodriguez</p>
-              <p class="testimonial-role">Aquarium Enthusiast, Los Angeles</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ============================================
      PROCESS SECTION
@@ -448,13 +405,80 @@
     </div>
   </section>
 
+
+  <!-- ============================================
+     FAQ SECTION
+     ============================================ -->
+  <section class="section-padding faq-section">
+    <div class="container-custom">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <h2 class="fade-in">Common Questions</h2>
+        <div class="section-title-underline"></div>
+        <p style="color: var(--text-secondary);">Everything you need to know about our luxury aquascaping services.</p>
+      </div>
+
+      <div class="faq-container">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item" data-faq-item>
+          <div class="faq-header" data-faq-toggle>
+            <h4>How long does a custom installation take?</h4>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Typically, a professional installation takes between 4 to 8 hours depending on the complexity of the design and the size of the aquarium. This includes hardscaping, planting, and initial water conditioning.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item" data-faq-item>
+          <div class="faq-header" data-faq-toggle>
+            <h4>Do I need to be an expert to maintain my aquascape?</h4>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Not at all! We design our systems for various skill levels. Additionally, our comprehensive maintenance plans handle all the complex tasks like trimming, water chemistry, and equipment servicing for you.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item" data-faq-item>
+          <div class="faq-header" data-faq-toggle>
+            <h4>What is the benefit of a professional design?</h4>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Professional design ensures long-term biological stability and aesthetic harmony. We use Golden Ratio principles and deep biological expertise to create an ecosystem that thrives rather than just survives.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item" data-faq-item>
+          <div class="faq-header" data-faq-toggle>
+            <h4>Do you offer international consultations?</h4>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              Yes, we provide virtual design consultations worldwide. For physical installations, we currently serve the greater metropolitan areas, but we can arrange travel for large-scale premium projects.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================================
      CALL-TO-ACTION SECTION
      ============================================ -->
-  <section
-    style="background: var(--bg-primary); padding: 4rem 2rem; margin: 3rem 0 0 0; color: var(--text-primary);">
+  <section style="background: var(--bg-primary); padding: 5rem 2rem; color: var(--text-primary); border-top: 1px solid var(--border-color);">
     <div class="container-custom" style="text-align: center;">
-      <h2 style="color: white; margin-bottom: 1rem;">Ready to Create Your Aquatic Paradise?</h2>
+      <h2 style="color: var(--text-primary); margin-bottom: 1rem;">Ready to Create Your Aquatic Paradise?</h2>
       <p
         style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
         Join hundreds of satisfied clients who have transformed their spaces with our expert aquascaping services.
@@ -497,7 +521,6 @@
             <li><a href="pages/about.html" class="footer-link">Our Story</a></li>
             <li><a href="pages/services.html" class="footer-link">Services</a></li>
             <li><a href="pages/portfolio.html" class="footer-link">Portfolio</a></li>
-            <li><a href="pages/process.html" class="footer-link">Our Process</a></li>
             <li><a href="pages/pricing.html" class="footer-link">Pricing</a></li>
           </ul>
         </div>
@@ -527,7 +550,7 @@
       </div>
 
       <div class="footer-bottom-v2">
-        <p>&copy; 2024 AquaDesign. All rights reserved.</p>
+        <p>&copy; 2026 AquaDesign. All rights reserved.</p>
         <div class="footer-legal-links">
           <a href="#" class="footer-legal-link">Privacy Policy</a>
           <a href="#" class="footer-legal-link">Terms of Service</a>

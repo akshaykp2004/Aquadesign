@@ -338,6 +338,12 @@ a:hover {
   gap: 2rem;
 }
 
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .navbar-brand {
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -513,7 +519,7 @@ a:hover {
    ============================================ */
 
 /* Base Button Reset & Global styles */
-button, 
+button,
 .btn,
 .btn-auth,
 .btn-social,
@@ -564,12 +570,10 @@ button::before,
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg, 
-    transparent, 
-    rgba(255, 255, 255, 0.2), 
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent);
   transition: left 0.6s ease;
   z-index: -1;
 }
@@ -657,6 +661,28 @@ button:hover::before,
 
 .btn-login-nav:hover {
   background: var(--aqua-light) !important;
+}
+
+.btn-dashboard-nav {
+  background: transparent !important;
+  color: var(--aqua-teal) !important;
+  padding: 0.4rem 1.2rem !important;
+  font-weight: 600 !important;
+  border-radius: var(--radius-sm);
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+  border: 1px solid var(--aqua-teal) !important;
+  white-space: nowrap;
+  min-height: 36px;
+}
+
+.btn-dashboard-nav:hover {
+  background: var(--aqua-teal) !important;
+  color: var(--dark-navy) !important;
 }
 
 .btn-white {
@@ -914,39 +940,145 @@ button:hover::before,
    9. TESTIMONIALS
    ============================================ */
 
-.testimonial-card {
-  background: var(--card-bg);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-xl);
-  text-align: center;
-  transition: all var(--transition-normal);
+.testimonial-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-secondary);
 }
 
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+.testimonial-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(46, 196, 182, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: calc(var(--radius-lg) * 1.5);
+  padding: 3rem;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  transition: all var(--transition-normal);
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .testimonial-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-card::after {
+  content: '"';
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 8rem;
+  font-family: var(--font-display);
+  color: var(--aqua-teal);
+  opacity: 0.1;
+  line-height: 1;
+}
+
+@media (min-width: 992px) {
+  .testimonial-card {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    padding: 4rem;
+  }
+}
+
+.testimonial-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 4px solid var(--aqua-teal);
+  box-shadow: 0 8px 25px rgba(46, 196, 182, 0.2);
+}
+
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-content {
+  flex-grow: 1;
 }
 
 .stars {
   color: var(--coral-accent);
-  margin-bottom: var(--spacing-md);
-  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
 }
 
 .testimonial-text {
-  font-style: italic;
-  margin-bottom: var(--spacing-md);
-  color: var(--text-secondary);
+  font-style: normal;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.testimonial-meta {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
 }
 
 .testimonial-author {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.25rem;
   color: var(--text-primary);
+  margin-bottom: 0.25rem;
 }
 
 .testimonial-role {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--aqua-teal);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Redesigned Pagination Dots to Pills */
+.testimonial-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.testimonial-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  border: none;
+  background: var(--border-color);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.testimonial-dot.active {
+  width: 40px;
+  background: var(--aqua-teal);
+  box-shadow: 0 4px 10px rgba(46, 196, 182, 0.3);
 }
 
 /* ============================================
@@ -1244,7 +1376,8 @@ textarea {
    ============================================ */
 
 footer {
-  background: #020C1B; /* Fixed Midnight Navy regardless of theme */
+  background: #020C1B;
+  /* Fixed Midnight Navy regardless of theme */
   color: rgba(255, 255, 255, 0.6);
   padding: 6rem 0 2rem;
   margin-top: 6rem;
@@ -1476,22 +1609,22 @@ footer::before {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .footer-section h4::after {
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .social-icons-v2 {
     justify-content: center;
   }
-  
+
   .footer-bottom-v2 {
     flex-direction: column;
     gap: 1.5rem;
     text-align: center;
   }
-  
+
   .footer-legal-links {
     justify-content: center;
   }
@@ -1653,8 +1786,241 @@ footer::before {
   background: var(--coral-accent);
 }
 
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-white {
+  background: transparent;
+  color: var(--primary-dark) !important;
+  border: 2px solid var(--primary-dark);
+}
+
+.btn-white:hover {
+  background: var(--primary-dark);
+  color: var(--white-pure) !important;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+[data-theme="dark"] .btn-white {
+  color: var(--white-pure) !important;
+  border-color: var(--white-pure);
+}
+
+
+[data-theme="dark"] .btn-white:hover {
+  background: var(--white-pure);
+  color: var(--primary-dark) !important;
+}
+
 /* ============================================
-   19. PRINT STYLES
+   HERO BUTTONS SYNCHRONIZATION
+   Ensures all hero buttons have a consistent, 
+   premium solid fill that stands out on dark 
+   background images across all pages.
+   ============================================ */
+
+.hero .btn-white,
+.hero-video .btn-white,
+.about-hero .btn-white,
+.services-hero .btn-white,
+.portfolio-hero .btn-white,
+.maintenance-hero .btn-white,
+.pricing-hero .btn-white,
+.contact-hero .btn-white {
+  background: var(--white-pure);
+  color: var(--primary-dark) !important;
+  border: 2px solid var(--white-pure);
+}
+
+/* Hover: Turn white and change text to black as requested */
+.hero .btn-white:hover,
+.hero-video .btn-white:hover,
+.about-hero .btn-white:hover,
+.services-hero .btn-white:hover,
+.portfolio-hero .btn-white:hover,
+.maintenance-hero .btn-white:hover,
+.pricing-hero .btn-white:hover,
+.contact-hero .btn-white:hover {
+  background: var(--white-pure) !important;
+  color: #000000 !important;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--white-pure);
+}
+
+/* Specific request: light blue in light mode for the hero buttons */
+[data-theme="light"] .hero .btn-white,
+[data-theme="light"] .hero-video .btn-white,
+[data-theme="light"] .about-hero .btn-white,
+[data-theme="light"] .services-hero .btn-white,
+[data-theme="light"] .portfolio-hero .btn-white,
+[data-theme="light"] .maintenance-hero .btn-white,
+[data-theme="light"] .pricing-hero .btn-white,
+[data-theme="light"] .contact-hero .btn-white {
+  background: #4da6ff;
+  color: var(--white-pure) !important;
+  border-color: #4da6ff;
+}
+
+[data-theme="light"] .hero .btn-white:hover,
+[data-theme="light"] .hero-video .btn-white:hover,
+[data-theme="light"] .about-hero .btn-white:hover,
+[data-theme="light"] .services-hero .btn-white:hover,
+[data-theme="light"] .portfolio-hero .btn-white:hover,
+[data-theme="light"] .maintenance-hero .btn-white:hover,
+[data-theme="light"] .pricing-hero .btn-white:hover,
+[data-theme="light"] .contact-hero .btn-white:hover {
+  background: var(--white-pure) !important;
+  color: #000000 !important;
+  border-color: var(--white-pure);
+}
+
+[data-theme="dark"] .hero .btn-white,
+[data-theme="dark"] .hero-video .btn-white,
+[data-theme="dark"] .about-hero .btn-white,
+[data-theme="dark"] .services-hero .btn-white,
+[data-theme="dark"] .portfolio-hero .btn-white,
+[data-theme="dark"] .maintenance-hero .btn-white,
+[data-theme="dark"] .pricing-hero .btn-white,
+[data-theme="dark"] .contact-hero .btn-white {
+  background: var(--white-pure);
+  color: var(--primary-dark) !important;
+  border-color: var(--white-pure);
+}
+
+
+/* ============================================
+   20. INDUSTRY PARTNERS & LUXURY BRANDS
+   ============================================ */
+
+.partner-section {
+  padding: 5rem 0;
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.partner-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem 6rem;
+}
+
+.partner-item {
+  opacity: 0.5;
+  filter: grayscale(1);
+  transition: all var(--transition-normal);
+  text-align: center;
+}
+
+.partner-item:hover {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: translateY(-5px);
+}
+
+.partner-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* ============================================
+   21. FAQ ACCORDION
+   ============================================ */
+
+.faq-section {
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item:hover {
+  border-color: var(--aqua-teal);
+  transform: translateX(10px);
+}
+
+.faq-header {
+  padding: 1.75rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.faq-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  color: var(--aqua-teal);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+  color: var(--coral-accent);
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(46, 196, 182, 0.02);
+}
+
+.faq-item.active .faq-body {
+  max-height: 1000px;
+}
+
+.faq-content {
+  padding: 0 2.5rem 2rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+[dir="rtl"] .faq-item:hover {
+  transform: translateX(-10px);
+}
+
+/* ============================================
+   22. PRINT STYLES
    ============================================ */
 
 @media print {

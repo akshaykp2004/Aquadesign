@@ -12,13 +12,12 @@
 
 Your complete website package includes:
 
-📄 HTML PAGES (10 Total):
+📄 HTML PAGES (9 Total):
   ✓ index.html          → Home landing page with hero, services, testimonials
   ✓ home2.html          → Alternate landing with minimalist design
   ✓ about.html          → Company story, expertise, team section
   ✓ services.html       → Detailed service descriptions & packages
   ✓ portfolio.html      → Image gallery with before/after projects
-  ✓ process.html        → Aquascaping process timeline & methodology
   ✓ maintenance.html    → Monthly maintenance subscription plans
   ✓ pricing.html        → Service pricing & package comparison
   ✓ contact.html        → Contact form, map, & business information
@@ -121,7 +120,6 @@ OPTIONAL - ENHANCE THESE:
   • Form submissions with success messages
   • Gallery lightbox/overlay effects
   • Pricing calculator with annual discounts
-  • Process timeline with animations
   • FAQ accordion sections
   • Service filters (portfolio)
   • Before/After sliders mockup

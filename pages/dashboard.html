@@ -144,15 +144,18 @@
       font-size: 2.8rem;
       margin-bottom: 1rem;
       font-weight: 700;
-      color: white; /* Explicitly set to white */
+      color: white;
+      /* Explicitly set to white */
     }
 
     .welcome-banner p {
       font-size: 1.1rem;
-      opacity: 1; /* Increased opacity for visibility */
+      opacity: 1;
+      /* Increased opacity for visibility */
       max-width: 600px;
       line-height: 1.6;
-      color: rgba(255, 255, 255, 0.95); /* Explicitly set to light color */
+      color: rgba(255, 255, 255, 0.95);
+      /* Explicitly set to light color */
     }
 
     .stats-row {
@@ -328,10 +331,12 @@
       .stats-row {
         grid-template-columns: repeat(2, 1fr);
       }
+
       .project-body {
         flex-direction: column;
         gap: 2rem;
       }
+
       .countdown-timer {
         padding-left: 0;
         border-left: none;
@@ -347,13 +352,19 @@
         padding: 2rem 0.5rem;
         align-items: center;
       }
-      .sidebar-brand, .sidebar-profile, .sidebar-category, .sidebar-link span {
+
+      .sidebar-brand,
+      .sidebar-profile,
+      .sidebar-category,
+      .sidebar-link span {
         display: none;
       }
+
       .sidebar-link {
         justify-content: center;
         padding: 1rem;
       }
+
       .dashboard-main {
         max-width: calc(100% - 80px);
         padding: 2rem;
@@ -364,6 +375,7 @@
       .dashboard-container {
         flex-direction: column;
       }
+
       .dashboard-sidebar {
         width: 100%;
         height: auto;
@@ -372,9 +384,11 @@
         overflow-x: auto;
         padding: 1rem;
       }
+
       .dashboard-main {
         max-width: 100%;
       }
+
       .stats-row {
         grid-template-columns: 1fr;
       }
@@ -475,7 +489,7 @@
     <!-- Sidebar Navigation -->
     <aside class="dashboard-sidebar">
       <a href="../index.html" class="sidebar-brand">🌊 AquaDesign</a>
-      
+
       <div class="sidebar-profile">
         <div class="profile-avatar">👤</div>
         <div class="profile-name">Sarah Jenkins</div>
@@ -494,7 +508,12 @@
       </button>
 
       <div style="margin-top: auto; padding-top: 2rem;">
-        <button onclick="toggleLogoutModal(true)" class="sidebar-link" style="color: var(--coral-accent); background: transparent; border: none;">
+        <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; padding: 0 0.5rem;">
+          <button class="theme-toggle" title="Toggle Theme">☀️</button>
+          <button class="rtl-toggle" title="Toggle RTL">RTL</button>
+        </div>
+        <button onclick="toggleLogoutModal(true)" class="sidebar-link"
+          style="color: var(--coral-accent); background: transparent; border: none;">
           <span>🚪 Logout</span>
         </button>
       </div>
@@ -503,9 +522,13 @@
     <!-- Main Content Area -->
     <main class="dashboard-main">
       <div class="welcome-banner">
-        <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 0.5rem; color: white;">Welcome back,</p>
+        <p
+          style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 0.5rem; color: white;">
+          Welcome back,</p>
         <h1>Good Morning, Sarah</h1>
-        <p>Your Rainforest Canopy Aquascape is currently in <strong>Peak Growth Phase</strong>. Your next maintenance visit is scheduled for <strong>April 26</strong>. Take a moment to review the latest biological statistics below.</p>
+        <p>Your Rainforest Canopy Aquascape is currently in <strong>Peak Growth Phase</strong>. Your next maintenance
+          visit is scheduled for <strong>April 26</strong>. Take a moment to review the latest biological statistics
+          below.</p>
       </div>
 
       <div class="stats-row">
@@ -537,7 +560,9 @@
         <div class="project-card-v2">
           <div class="project-header">
             <div class="project-title">
-              <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-tertiary); display: block; margin-bottom: 0.2rem;">Currently Managing</span>
+              <span
+                style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-tertiary); display: block; margin-bottom: 0.2rem;">Currently
+                Managing</span>
               Rainforest Canopy Masterpiece
             </div>
             <span class="status-badge">In Progress</span>
@@ -586,14 +611,20 @@
       <!-- Tank Specifications Tab -->
       <div class="dashboard-tab" id="tab-tank">
         <h2 style="font-family: var(--font-display); margin-bottom: 2rem;">Tank Specifications</h2>
-        <div style="background: var(--card-bg); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+        <div
+          style="background: var(--card-bg); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
           <form id="tankForm">
-            <div class="form-section" style="border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; margin-bottom: 2rem;">
-              <h4 style="font-family: var(--font-display);"><span style="color: var(--aqua-teal);">🌿</span> Tank Dimensions</h4>
+            <div class="form-section"
+              style="border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; margin-bottom: 2rem;">
+              <h4 style="font-family: var(--font-display);"><span style="color: var(--aqua-teal);">🌿</span> Tank
+                Dimensions</h4>
               <div class="row mt-4">
-                <div class="col-md-4"><label class="form-label">Length</label><input type="text" class="form-control" value="48 inches" readonly></div>
-                <div class="col-md-4"><label class="form-label">Width</label><input type="text" class="form-control" value="24 inches" readonly></div>
-                <div class="col-md-4"><label class="form-label">Height</label><input type="text" class="form-control" value="18 inches" readonly></div>
+                <div class="col-md-4"><label class="form-label">Length</label><input type="text" class="form-control"
+                    value="48 inches" readonly></div>
+                <div class="col-md-4"><label class="form-label">Width</label><input type="text" class="form-control"
+                    value="24 inches" readonly></div>
+                <div class="col-md-4"><label class="form-label">Height</label><input type="text" class="form-control"
+                    value="18 inches" readonly></div>
               </div>
               <div class="mt-4">
                 <label class="form-label">Location</label>
@@ -601,7 +632,8 @@
               </div>
             </div>
             <div class="form-section">
-              <h4 style="font-family: var(--font-display);"><span style="color: var(--aqua-teal);">⚙️</span> Filtration & Lighting</h4>
+              <h4 style="font-family: var(--font-display);"><span style="color: var(--aqua-teal);">⚙️</span> Filtration
+                & Lighting</h4>
               <p class="text-secondary mt-3">Using EHEIM Professionel 4+ 600 Canister and ADA Solar RGB System.</p>
             </div>
           </form>
@@ -612,16 +644,23 @@
       <div class="dashboard-tab" id="tab-design">
         <h2 style="font-family: var(--font-display); margin-bottom: 2rem;">Design Concepts & Approval</h2>
         <div class="gallery-thumbs">
-          <div class="thumb" style="background-image: url('../assets/img/portfolio/aquatic_meadow.png'); background-size: cover; background-position: center;"></div>
-          <div class="thumb" style="background-image: url('../assets/img/portfolio/stone_garden.png'); background-size: cover; background-position: center;"></div>
-          <div class="thumb" style="background-image: url('../assets/img/portfolio/grand_display.png'); background-size: cover; background-position: center;"></div>
+          <div class="thumb"
+            style="background-image: url('../assets/img/portfolio/aquatic_meadow.png'); background-size: cover; background-position: center;">
+          </div>
+          <div class="thumb"
+            style="background-image: url('../assets/img/portfolio/stone_garden.png'); background-size: cover; background-position: center;">
+          </div>
+          <div class="thumb"
+            style="background-image: url('../assets/img/portfolio/grand_display.png'); background-size: cover; background-position: center;">
+          </div>
         </div>
         <div class="project-card-v2 mt-4" style="padding: 2.5rem;">
           <h5 style="font-family: var(--font-display);">Nature Aquarium Style</h5>
-          <p class="text-secondary">Your approved design focuses on a driftwood-centric layout with heavy moss coverage and high-density stem plants in the background.</p>
+          <p class="text-secondary">Your approved design focuses on a driftwood-centric layout with heavy moss coverage
+            and high-density stem plants in the background.</p>
           <div class="alert alert-success mt-4">
-             <span>✓</span>
-             <div>Design approved by Sarah on April 1, 2024</div>
+            <span>✓</span>
+            <div>Design approved by Sarah on April 1, 2024</div>
           </div>
         </div>
       </div>
@@ -668,7 +707,7 @@
       if (targetTab) {
         targetTab.classList.add('active');
       }
-      
+
       if (element) {
         element.classList.add('active');
       }
