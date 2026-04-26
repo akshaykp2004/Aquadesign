@@ -392,33 +392,45 @@ a:hover {
   outline: 2px solid var(--aqua-teal);
 }
 
+[data-theme="dark"] .navbar-toggler-icon {
+  filter: invert(1);
+}
+
 .theme-toggle,
 .rtl-toggle {
-  background: #87CEEB;
-  /* Vibrant Light Blue */
   border: none;
   border-radius: 50%;
-  /* Perfect circle */
   width: 40px;
   height: 40px;
   padding: 0;
   cursor: pointer;
   font-size: 1.2rem;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-normal);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1A1A1A !important;
-  /* Dark icons for high contrast */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle {
+  background: #EDF2F7;
+  color: #4A5568 !important;
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: #2D3748;
+  color: #F6E05E !important;
+}
+
+.rtl-toggle {
+  background: #87CEEB;
+  color: #1A1A1A !important;
 }
 
 .theme-toggle:hover,
 .rtl-toggle:hover {
-  background: #60A5FA;
-  /* Slightly deeper blue on hover */
   transform: scale(1.1) translateY(-2px);
-  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* ============================================
@@ -664,8 +676,8 @@ button:hover::before,
 }
 
 .btn-dashboard-nav {
-  background: transparent !important;
-  color: var(--aqua-teal) !important;
+  background: var(--aqua-teal) !important;
+  color: var(--dark-navy) !important;
   padding: 0.4rem 1.2rem !important;
   font-weight: 600 !important;
   border-radius: var(--radius-sm);
@@ -675,14 +687,13 @@ button:hover::before,
   justify-content: center;
   font-size: 0.9rem;
   transition: all var(--transition-fast);
-  border: 1px solid var(--aqua-teal) !important;
+  border: none !important;
   white-space: nowrap;
   min-height: 36px;
 }
 
 .btn-dashboard-nav:hover {
-  background: var(--aqua-teal) !important;
-  color: var(--dark-navy) !important;
+  background: var(--aqua-light) !important;
 }
 
 .btn-white {
