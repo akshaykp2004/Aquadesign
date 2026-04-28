@@ -211,14 +211,17 @@
      ============================================ -->
   <nav class="navbar navbar-expand-lg fixed-top" style="z-index: 1000;">
     <div class="container-custom">
-      <a class="navbar-brand" href="../index.html">🌊 AquaDesign</a>
+      <a class="navbar-brand" href="../index.html">
+        <div class="navbar-logo-icon">🌊</div>
+        AquaDesign
+      </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-4">
+        <ul class="navbar-nav mx-auto">
           <li class="nav-item">
             <a class="nav-link" href="../index.html">Home</a>
           </li>
@@ -247,12 +250,12 @@
         <div class="nav-utility">
           <a href="dashboard.html" class="btn-dashboard-nav">Dashboard</a>
           <a href="login.html" class="btn-login-nav">Login</a>
-          <button class="theme-toggle" title="Toggle Theme"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-              height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-            </svg></button>
           <button class="rtl-toggle" title="Toggle RTL">RTL</button>
+          <button class="theme-toggle" title="Toggle Theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -266,14 +269,15 @@
     <div class="hero-video-overlay"></div>
 
     <div class="hero-video-content">
-      <div>
-        <h1>Underwater Beauty Starts Here</h1>
-        <p class="hero-video-subtitle">
-          Premium aquascaping and custom aquarium design. Expertise meets artistry in every tank we create.
+      <div style="max-width: 800px; margin: 0 auto;">
+        <span class="overline-text fade-in" style="color: var(--aqua-teal);">EXPERTISE IN AQUASCAPING SINCE 2009</span>
+        <h1 class="fade-in" style="font-size: clamp(3rem, 6vw, 5.5rem); text-transform: uppercase; margin: 1rem 0;">Underwater Beauty<br>Starts Here</h1>
+        <p class="hero-video-subtitle fade-in" style="font-size: 1.1rem; color: rgba(255,255,255,0.8); line-height: 1.6;">
+          Premium aquascaping and custom aquarium design. From concept to installation, we breathe life into aquatic masterpieces with precision and passion.
         </p>
-        <div class="cta-buttons">
-          <a href="contact.html" class="btn btn-white">Start Your Project</a>
-          <a href="portfolio.html" class="btn btn-white">Explore Our Work</a>
+        <div class="cta-buttons fade-in">
+          <a href="contact.html" class="btn btn-primary" style="padding: 1rem 2rem;">Start Your Project</a>
+          <a href="portfolio.html" class="btn btn-outline-light" style="padding: 1rem 2rem;">Explore Our Work</a>
         </div>
       </div>
     </div>
@@ -325,48 +329,17 @@
   <!-- ============================================
      SIGNATURE SERVICE
      ============================================ -->
-  <section class="minimal-section">
+  <section class="section-padding">
     <div class="container-custom">
-      <div class="feature-highlight">
-        <div>
-          <h2 style="text-align: left;">The <span class="gradient-text-animated">Complete Experience</span></h2>
-          <p style="text-align: left; color: var(--text-secondary); font-size: 1.1rem; margin-top: 1.5rem;">
-            From initial consultation to lifetime support, we handle every aspect of your aquascaping journey. Our
-            expert team combines artistic vision with technical expertise to create aquariums that are not just
-            beautiful, but thriving ecosystems.
+      <div class="overlapping-layout">
+        <div class="overlapping-image" style="background-image: url('../assets/img/feature-experience.png');"></div>
+        <div class="overlapping-content">
+          <span class="overline-text" style="color: var(--aqua-teal);">Signature Service</span>
+          <h2 style="font-size: 2.5rem; text-transform: uppercase; margin: 1rem 0;">The Complete<br>Experience</h2>
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem;">
+            From initial consultation to lifetime support, we handle every aspect of your aquascaping journey. Our expert team combines artistic vision with technical expertise to create aquariums that are not just beautiful, but thriving ecosystems.
           </p>
-          <div style="margin-top: 2rem; text-align: left;">
-            <div style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
-              <div
-                style="width: 30px; height: 30px; background: #2EC4B6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-                ✓</div>
-              <span>Custom aquascape design & planning</span>
-            </div>
-            <div style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
-              <div
-                style="width: 30px; height: 30px; background: #2EC4B6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-                ✓</div>
-              <span>Professional equipment selection</span>
-            </div>
-            <div style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
-              <div
-                style="width: 30px; height: 30px; background: #2EC4B6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-                ✓</div>
-              <span>Expert on-site installation</span>
-            </div>
-            <div style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
-              <div
-                style="width: 30px; height: 30px; background: #2EC4B6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
-                ✓</div>
-              <span>Ongoing maintenance & support</span>
-            </div>
-          </div>
-          <a href="services.html" class="btn btn-primary" style="margin-top: 2rem;">Learn More</a>
-        </div>
-
-        <div class="card card-with-bg feature-image"
-          style="background-image: url('../assets/img/feature-experience.png'); border: none; min-height: 480px; font-size: 2.2rem; font-weight: 700;">
-          🌿 Aquatic Paradise
+          <a href="services.html" class="btn btn-outline-light" style="padding: 0.8rem 1.5rem;">See Our Process</a>
         </div>
       </div>
     </div>
@@ -375,77 +348,60 @@
   <!-- ============================================
      CORE SERVICES
      ============================================ -->
-  <section class="minimal-section" style="background: var(--bg-secondary);">
+  <section class="section-padding" style="background: var(--bg-secondary);">
     <div class="container-custom">
-      <h2 style="margin-bottom: 1rem;">What We Offer</h2>
-      <p
-        style="color: var(--text-secondary); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        Complete aquascaping solutions tailored to your unique vision and lifestyle.
-      </p>
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <span class="overline-text">Specialties</span>
+        <h2 style="font-size: 2.5rem; text-transform: uppercase;">Featured Aquascaping Specialties</h2>
+        <div class="section-title-underline"></div>
+      </div>
 
-      <div class="minimal-grid">
-        <div class="minimal-card">
-          <img src="../assets/img/card-design.png" alt="Design & Planning"
-            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
-          <h4>Design & Planning</h4>
-          <p style="color: var(--text-secondary);">Bespoke aquascape designs tailored to your space and aesthetic
-            preferences. Multiple mockups included.</p>
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="elegant-card-centered">
+            <div class="elegant-icon-centered">🌿</div>
+            <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Design & Planning</h4>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Bespoke aquascape designs tailored to your space and aesthetic preferences. Multiple mockups included.</p>
+          </div>
         </div>
 
-        <div class="minimal-card">
-          <img src="../assets/img/card-premium.png" alt="Installation"
-            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
-          <h4>Installation</h4>
-          <p style="color: var(--text-secondary);">Professional, stress-free installation. Equipment setup, landscaping,
-            planting, and water conditioning all handled.</p>
+        <!-- Card 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="elegant-card-centered">
+            <div class="elegant-icon-centered">⚙️</div>
+            <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Installation</h4>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Professional, stress-free installation. Equipment setup, landscaping, planting, and water conditioning.</p>
+          </div>
         </div>
 
-        <div class="minimal-card">
-          <img src="../assets/img/card-maintenance.png" alt="Maintenance"
-            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
-          <h4>Maintenance</h4>
-          <p style="color: var(--text-secondary);">Monthly or bi-weekly maintenance packages. Keep your aquarium
-            thriving with our expert care.</p>
+        <!-- Card 3 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="elegant-card-centered">
+            <div class="elegant-icon-centered">💧</div>
+            <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Maintenance</h4>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Monthly or bi-weekly maintenance packages. Keep your aquarium thriving with our expert care.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row g-4 mt-1 justify-content-center">
+        <!-- Card 4 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="elegant-card-centered">
+            <div class="elegant-icon-centered">📊</div>
+            <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Tracking & Support</h4>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Access our client dashboard for real-time monitoring, growth tracking, and scheduling.</p>
+          </div>
         </div>
 
-        <div class="minimal-card">
-          <img src="../assets/img/feature-dashboard.png" alt="Tracking & Support"
-            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
-          <h4>Tracking & Support</h4>
-          <p style="color: var(--text-secondary);">Access our client dashboard for real-time monitoring, growth
-            tracking, and maintenance scheduling.</p>
-        </div>
-
-        <div class="minimal-card">
-          <img src="../assets/img/service-consultation.png" alt="Consultation"
-            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
-          <h4>Consultation</h4>
-          <p style="color: var(--text-secondary);">In-depth consultations to understand your vision, space, and goals.
-            Expert guidance every step of the way.</p>
-        </div>
-
-        <div class="minimal-card">
-          <img src="../assets/img/portfolio-jungle.png" alt="Eco-Friendly"
-            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
-          <h4>Eco-Friendly</h4>
-          <p style="color: var(--text-secondary);">Sustainable, nature-inspired designs that promote healthy ecosystems
-            and thriving aquatic life.</p>
-        </div>
-
-        <div class="minimal-card">
-          <img src="../assets/img/card-restoration.png" alt="Custom Restoration"
-            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
-          <h4>Custom Restoration</h4>
-          <p style="color: var(--text-secondary);">Give your existing aquarium a makeover. We specialize in
-            revitalizing old setups into modern aquascapes.</p>
-        </div>
-
-        <div class="minimal-card">
-          <img src="../assets/img/card-stocking.png" alt="Expert Stocking"
-            style="width: 100%; height: 160px; object-fit: cover; border-radius: 1rem; margin-bottom: 1.5rem;">
-          <h4>Expert Stocking</h4>
-          <p style="color: var(--text-secondary);">Sourcing only the healthiest aquatic life from sustainable partners.
-            We curate the perfect community of fishes.</p>
+        <!-- Card 5 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="elegant-card-centered">
+            <div class="elegant-icon-centered">🔬</div>
+            <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Eco-Friendly</h4>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Sustainable, nature-inspired designs that promote healthy ecosystems and thriving aquatic life.</p>
+          </div>
         </div>
       </div>
     </div>
