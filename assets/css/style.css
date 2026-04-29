@@ -157,6 +157,25 @@ h6 {
   font-size: 1rem;
 }
 
+/* Lucide Icon Global Styles */
+.lucide {
+  width: 1.25em;
+  height: 1.25em;
+  stroke-width: 2;
+  vertical-align: middle;
+  display: inline-block;
+  color: inherit;
+}
+
+.icon-sm .lucide { width: 1rem; height: 1rem; stroke-width: 2; }
+.icon-md .lucide { width: 1.5rem; height: 1.5rem; stroke-width: 2; }
+.icon-lg .lucide { width: 2rem; height: 2rem; stroke-width: 2; }
+.icon-xl .lucide { width: 3rem; height: 3rem; stroke-width: 1.5; }
+
+.icon-aqua .lucide { color: var(--aqua-teal); }
+.icon-coral .lucide { color: var(--coral-accent); }
+
+
 p {
   margin-bottom: var(--spacing-md);
   color: var(--text-secondary);
