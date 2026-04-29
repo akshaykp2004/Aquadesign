@@ -61,6 +61,7 @@
       .about-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+        text-align: center !important;
       }
     }
 
@@ -86,17 +87,25 @@
     }
 
     .team-member {
-      background: var(--card-bg);
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-radius: var(--radius-lg);
-      padding: 2rem;
+      padding: 2.5rem 2rem;
       text-align: center;
-      border: 1px solid var(--border-color);
-      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      height: 100%;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
     .team-member:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-color: var(--aqua-teal);
     }
 
     .team-avatar {
@@ -187,9 +196,8 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-custom">
-      <a class="navbar-brand" href="../index.html">
-        <div class="navbar-logo-icon">🌊</div>
-        AquaDesign
+      <a class="navbar-brand" href="../index.html" style="display: flex; align-items: center; gap: 0.5rem;">
+        🌊 AquaDesign
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -212,9 +220,6 @@
             <a class="nav-link" href="portfolio.html">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="maintenance.html">Maintenance</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="pricing.html">Pricing</a>
           </li>
           <li class="nav-item">
@@ -226,7 +231,8 @@
           <a href="login.html" class="btn-login-nav">Login</a>
           <button class="rtl-toggle" title="Toggle RTL">RTL</button>
           <button class="theme-toggle" title="Toggle Theme">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
             </svg>
           </button>
@@ -239,8 +245,10 @@
   <section class="about-hero">
     <div class="container-custom" style="max-width: 800px; margin: 0 auto;">
       <span class="overline-text fade-in" style="color: var(--aqua-teal);">OUR HERITAGE</span>
-      <h1 class="fade-in" style="font-size: clamp(3rem, 6vw, 4.5rem); text-transform: uppercase; margin: 1rem 0;">About AquaDesign</h1>
-      <p class="fade-in" style="font-size: 1.1rem; line-height: 1.6;">15 years of expertise in creating stunning aquascapes that transform spaces and bring joy to thousands of clients worldwide.</p>
+      <h1 class="fade-in" style="font-size: clamp(3rem, 6vw, 4.5rem); text-transform: uppercase; margin: 1rem 0;">About
+        AquaDesign</h1>
+      <p class="fade-in" style="font-size: 1.1rem; line-height: 1.6;">15 years of expertise in creating stunning
+        aquascapes that transform spaces and bring joy to thousands of clients worldwide.</p>
     </div>
   </section>
 
@@ -253,10 +261,12 @@
           <span class="overline-text" style="color: var(--aqua-teal);">Our Legacy</span>
           <h2 style="font-size: 2.5rem; text-transform: uppercase; margin: 1rem 0;">A Passion for<br>Perfection</h2>
           <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-            Founded in 2009, AquaDesign started with a simple passion: creating beautiful, thriving aquatic ecosystems. What began as a small aquascaping studio has grown into a leading design firm.
+            Founded in 2009, AquaDesign started with a simple passion: creating beautiful, thriving aquatic ecosystems.
+            What began as a small aquascaping studio has grown into a leading design firm.
           </p>
           <p style="color: var(--text-secondary); line-height: 1.8;">
-            We combine artistic vision with scientific knowledge to create aquariums that are as healthy as they are beautiful. Today, we've designed over 500 aquascapes, each one a unique masterpiece.
+            We combine artistic vision with scientific knowledge to create aquariums that are as healthy as they are
+            beautiful. Today, we've designed over 500 aquascapes, each one a unique masterpiece.
           </p>
         </div>
       </div>
@@ -275,66 +285,138 @@
       <div class="row g-4">
         <div class="col-lg-4 col-md-6">
           <div class="elegant-card-left">
-            <span class="overline-text" style="color: var(--text-secondary); margin-bottom: 0.5rem;">BOTANICAL DESIGN</span>
+            <span class="overline-text" style="color: var(--text-secondary); margin-bottom: 0.5rem;">BOTANICAL
+              DESIGN</span>
             <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Planted Tanks</h4>
-            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Expert design and CO2 management for lush, thriving planted aquariums from nano to large formats.</p>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Expert design and CO2
+              management for lush, thriving planted aquariums from nano to large formats.</p>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6">
           <div class="elegant-card-left">
-            <span class="overline-text" style="color: var(--text-secondary); margin-bottom: 0.5rem;">STRUCTURAL DESIGN</span>
+            <span class="overline-text" style="color: var(--text-secondary); margin-bottom: 0.5rem;">STRUCTURAL
+              DESIGN</span>
             <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Hardscape Design</h4>
-            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Beautiful rocky landscapes with driftwood and stone. Japanese style and nature-inspired layouts.</p>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Beautiful rocky landscapes with
+              driftwood and stone. Japanese style and nature-inspired layouts.</p>
           </div>
         </div>
 
         <div class="col-lg-4 col-md-6">
           <div class="elegant-card-left">
-            <span class="overline-text" style="color: var(--text-secondary); margin-bottom: 0.5rem;">BIOLOGICAL BALANCE</span>
+            <span class="overline-text" style="color: var(--text-secondary); margin-bottom: 0.5rem;">BIOLOGICAL
+              BALANCE</span>
             <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Water Chemistry</h4>
-            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Advanced understanding of pH, hardness, nutrients, and water parameters for specific aquatic needs.</p>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Advanced understanding of pH,
+              hardness, nutrients, and water parameters for specific aquatic needs.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Timeline -->
-  <section class="about-section">
-    <div class="container-custom">
-      <h2 style="text-align: center; margin-bottom: 0.5rem;">Our Journey</h2>
-      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">Key milestones in our growth</p>
 
-      <div class="timeline-horizontal">
-        <div class="timeline-dot">
-          <div class="timeline-year">2009</div>
-          <p style="margin-bottom: 0; font-size: 0.95rem;">Founded AquaDesign with a vision to transform spaces through
-            aquascaping.</p>
+  <!-- ============================================
+     OUR JOURNEY (TIMELINE EVOLUTION)
+     ============================================ -->
+  <section class="section-padding" style="background: var(--bg-primary); position: relative; overflow: hidden;">
+    <div class="container-custom">
+      <div style="text-align: center; margin-bottom: 6rem;">
+        <span class="overline-text" style="color: var(--aqua-teal);">Evolution</span>
+        <h2 style="font-size: 2.8rem; text-transform: uppercase;">Our Journey</h2>
+        <div class="section-title-underline"></div>
+      </div>
+
+      <div class="row g-0 justify-content-center">
+        <!-- 2009 -->
+        <div class="col-lg col-md-4">
+          <div style="text-align: center; position: relative; padding: 1.5rem;">
+            <!-- Connector Line (Desktop Only) -->
+            <div class="d-none d-lg-block"
+              style="position: absolute; top: 35px; left: 50%; width: 100%; height: 2px; background: linear-gradient(90deg, var(--aqua-teal), var(--coral-accent)); z-index: 0; opacity: 0.3;">
+            </div>
+
+            <div
+              style="width: 70px; height: 70px; background: var(--bg-secondary); border: 2px solid var(--aqua-teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; position: relative; z-index: 1; box-shadow: 0 0 25px rgba(46, 196, 182, 0.2);">
+              <span
+                style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--aqua-teal);">2009</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; padding: 0 0.5rem;">Founded
+              with a vision to transform spaces.</p>
+          </div>
         </div>
-        <div class="timeline-dot">
-          <div class="timeline-year">2012</div>
-          <p style="margin-bottom: 0; font-size: 0.95rem;">Expanded services to include full installation and
-            maintenance support.</p>
+
+        <!-- 2012 -->
+        <div class="col-lg col-md-4">
+          <div style="text-align: center; position: relative; padding: 1.5rem;">
+            <!-- Connector Line (Desktop Only) -->
+            <div class="d-none d-lg-block"
+              style="position: absolute; top: 35px; left: 50%; width: 100%; height: 2px; background: linear-gradient(90deg, var(--coral-accent), var(--aqua-light)); z-index: 0; opacity: 0.3;">
+            </div>
+
+            <div
+              style="width: 70px; height: 70px; background: var(--bg-secondary); border: 2px solid var(--coral-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; position: relative; z-index: 1; box-shadow: 0 0 25px rgba(255, 127, 80, 0.2);">
+              <span
+                style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--coral-accent);">2012</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; padding: 0 0.5rem;">Expanded
+              into full professional installation.</p>
+          </div>
         </div>
-        <div class="timeline-dot">
-          <div class="timeline-year">2015</div>
-          <p style="margin-bottom: 0; font-size: 0.95rem;">Launched client dashboard for real-time tank monitoring and
-            tracking.</p>
+
+        <!-- 2015 -->
+        <div class="col-lg col-md-4">
+          <div style="text-align: center; position: relative; padding: 1.5rem;">
+            <!-- Connector Line (Desktop Only) -->
+            <div class="d-none d-lg-block"
+              style="position: absolute; top: 35px; left: 50%; width: 100%; height: 2px; background: linear-gradient(90deg, var(--aqua-light), var(--aqua-teal)); z-index: 0; opacity: 0.3;">
+            </div>
+
+            <div
+              style="width: 70px; height: 70px; background: var(--bg-secondary); border: 2px solid var(--aqua-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; position: relative; z-index: 1; box-shadow: 0 0 25px rgba(110, 221, 216, 0.2);">
+              <span
+                style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--aqua-light);">2015</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; padding: 0 0.5rem;">Launched
+              client dashboard for real-time monitoring.</p>
+          </div>
         </div>
-        <div class="timeline-dot">
-          <div class="timeline-year">2019</div>
-          <p style="margin-bottom: 0; font-size: 0.95rem;">Reached 500+ aquascape designs and expanded nationwide
-            operations.</p>
+
+        <!-- 2019 -->
+        <div class="col-lg col-md-4">
+          <div style="text-align: center; position: relative; padding: 1.5rem;">
+            <!-- Connector Line (Desktop Only) -->
+            <div class="d-none d-lg-block"
+              style="position: absolute; top: 35px; left: 50%; width: 100%; height: 2px; background: linear-gradient(90deg, var(--aqua-teal), var(--coral-accent)); z-index: 0; opacity: 0.3;">
+            </div>
+
+            <div
+              style="width: 70px; height: 70px; background: var(--bg-secondary); border: 2px solid var(--aqua-teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; position: relative; z-index: 1; box-shadow: 0 0 25px rgba(46, 196, 182, 0.2);">
+              <span
+                style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--aqua-teal);">2019</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; padding: 0 0.5rem;">Reached
+              500+ designs and nationwide operations.</p>
+          </div>
         </div>
-        <div class="timeline-dot">
-          <div class="timeline-year">2024</div>
-          <p style="margin-bottom: 0; font-size: 0.95rem;">Recognized as industry leaders with 98% client satisfaction
-            rate.</p>
+
+        <!-- 2024 -->
+        <div class="col-lg col-md-4">
+          <div style="text-align: center; position: relative; padding: 1.5rem;">
+            <div
+              style="width: 70px; height: 70px; background: var(--bg-secondary); border: 2px solid var(--coral-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; position: relative; z-index: 1; box-shadow: 0 0 25px rgba(255, 127, 80, 0.2);">
+              <span
+                style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--coral-accent);">2024</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; padding: 0 0.5rem;">Industry
+              leaders with 98% client satisfaction rate.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
 
 
   <!-- Team -->
@@ -351,7 +433,7 @@
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80"
               alt="Marcus Thompson">
           </div>
-          <h4>Marcus Thompson</h4>
+          <h4>Marcus</h4>
           <div class="team-role">Creative Director & Founder</div>
           <p style="color: var(--text-secondary); font-size: 0.95rem;">15+ years in aquascaping design. Specializes in
             artistic composition.</p>
@@ -363,7 +445,7 @@
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80"
               alt="Dr. Elena Martinez">
           </div>
-          <h4>Dr. Elena Martinez</h4>
+          <h4>Dr. Elena</h4>
           <div class="team-role">Aquatic Biologist</div>
           <p style="color: var(--text-secondary); font-size: 0.95rem;">PhD in Aquatic Sciences. Expert in water
             chemistry and ecosystem health.</p>
@@ -375,7 +457,7 @@
               src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80"
               alt="James Patterson">
           </div>
-          <h4>James Patterson</h4>
+          <h4>James</h4>
           <div class="team-role">Installation Manager</div>
           <p style="color: var(--text-secondary); font-size: 0.95rem;">12+ years installing and setting up aquariums.
             Ensures perfect execution on every project.</p>
@@ -459,8 +541,9 @@
       <div class="footer-grid">
         <!-- Brand Section -->
         <div class="footer-brand">
-          <a href="../index.html" style="text-decoration: none;">
-            <h2>🌊 AquaDesign</h2>
+          <a href="../index.html" class="navbar-brand"
+            style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+            🌊 AquaDesign
           </a>
           <p>
             Crafting living masterpieces for discerning clients. Our passion for aquascaping combines nature's beauty
@@ -468,8 +551,10 @@
           </p>
           <div class="social-icons-v2">
             <a href="#" class="social-icon-v2" title="Facebook">f</a>
-            <a href="#" class="social-icon-v2" title="Instagram">📷</a>
-            <a href="#" class="social-icon-v2" title="YouTube">🎬</a>
+            <a href="#" class="social-icon-v2" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="social-icon-v2" title="Twitter">𝕏</a>
             <a href="#" class="social-icon-v2" title="LinkedIn">in</a>
           </div>
         </div>

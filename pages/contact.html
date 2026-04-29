@@ -20,10 +20,10 @@
       background-position: center;
       background-attachment: fixed;
       color: white;
-      padding: 10rem 2rem;
+      padding: 5rem 1rem;
       text-align: center;
       margin-bottom: 3rem;
-      min-height: 50vh;
+      min-height: 40vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -31,8 +31,8 @@
     }
 
     .contact-hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      margin-bottom: 1.5rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
       font-weight: 700;
       color: white;
       text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
@@ -61,6 +61,80 @@
         grid-template-columns: 1fr;
         gap: 2rem;
       }
+
+      .contact-section {
+        padding: 2rem 0 !important;
+      }
+
+      .contact-form {
+        padding: 1.5rem 0.75rem !important;
+        text-align: center !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 16px !important;
+        left: 0 !important;
+        transform: none !important;
+        position: relative !important;
+      }
+
+      .contact-form h2 {
+        font-size: 1.5rem !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+        margin-bottom: 1.5rem !important;
+        display: block !important;
+      }
+
+      .form-label {
+        text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+      }
+
+      .form-control {
+        text-align: center !important;
+      }
+
+      .service-selector {
+        grid-template-columns: 1fr !important;
+      }
+
+      .info-card {
+        padding: 1.5rem 1rem !important;
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        border-radius: 16px !important;
+        margin: 0 0 2rem 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        position: relative !important;
+      }
+
+      .info-card h3 {
+        font-size: 1.3rem !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+        letter-spacing: 0.5px !important;
+      }
+
+      .info-item {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 0.5rem !important;
+        width: 100% !important;
+      }
+
+      .info-icon {
+        margin: 0 0 0.5rem 0 !important;
+      }
     }
 
     .contact-form {
@@ -77,21 +151,69 @@
     }
 
     .info-card {
-      background: var(--card-bg);
-      padding: 2rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.03) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 3rem;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    [data-theme="light"] .info-card {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border: 1px solid rgba(0, 0, 0, 0.05) !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    }
+
+    .info-card:hover {
+      border-color: var(--aqua-teal) !important;
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
     }
 
     .info-card h4 {
-      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 1rem;
       color: var(--text-primary);
+    }
+
+    .info-card h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 1px;
+      background: var(--aqua-teal);
     }
 
     .info-item {
       color: var(--text-secondary);
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .info-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(46, 196, 182, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--aqua-teal);
+      flex-shrink: 0;
+      font-size: 1.2rem;
     }
 
     .info-item a {
@@ -200,7 +322,7 @@
 
     .service-selector {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       margin-top: 1rem;
     }
@@ -210,20 +332,39 @@
     }
 
     .service-label {
-      background: var(--bg-secondary);
-      padding: 1rem;
-      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.03) !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 1.2rem;
+      border-radius: 16px;
       text-align: center;
       cursor: pointer;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    [data-theme="light"] .service-label {
+      background: rgba(0, 0, 0, 0.02) !important;
+      border-color: rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .service-label:hover {
+      border-color: rgba(46, 196, 182, 0.5) !important;
+      background: rgba(46, 196, 182, 0.05) !important;
+      transform: translateY(-3px);
     }
 
     .service-checkbox:checked+.service-label {
-      background: var(--aqua-teal);
-      color: var(--dark-navy);
-      border-color: var(--aqua-teal);
-      font-weight: 600;
+      background: var(--aqua-teal) !important;
+      color: var(--dark-navy) !important;
+      border-color: var(--aqua-teal) !important;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(46, 196, 182, 0.3);
     }
   </style>
 </head>
@@ -233,9 +374,8 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-custom">
-      <a class="navbar-brand" href="../index.html">
-        <div class="navbar-logo-icon">🌊</div>
-        AquaDesign
+      <a class="navbar-brand" href="../index.html" style="display: flex; align-items: center; gap: 0.5rem;">
+        🌊 AquaDesign
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -258,9 +398,6 @@
             <a class="nav-link" href="portfolio.html">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="maintenance.html">Maintenance</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="pricing.html">Pricing</a>
           </li>
           <li class="nav-item">
@@ -272,7 +409,8 @@
           <a href="login.html" class="btn-login-nav">Login</a>
           <button class="rtl-toggle" title="Toggle RTL">RTL</button>
           <button class="theme-toggle" title="Toggle Theme">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
             </svg>
           </button>
@@ -369,21 +507,35 @@
           <div class="info-card">
             <h4>Contact Information</h4>
             <div class="info-item">
-              <strong>🌿 Address</strong><br>
-              123 Aquatic Drive<br>
-              Miami, FL 33139, USA
+              <div class="info-icon">📍</div>
+              <div>
+                <strong style="display: block; color: var(--text-primary); margin-bottom: 0.2rem;">Our Studio</strong>
+                123 Aquatic Drive<br>
+                Miami, FL 33139, USA
+              </div>
             </div>
             <div class="info-item">
-              <strong>🌿 Phone</strong><br>
-              <a href="tel:+1-305-555-0123">+1 (305) 555-0123</a>
+              <div class="info-icon">📞</div>
+              <div>
+                <strong style="display: block; color: var(--text-primary); margin-bottom: 0.2rem;">Phone</strong>
+                <a href="tel:+1-305-555-0123" style="color: var(--aqua-teal); text-decoration: none;">+1 (305)
+                  555-0123</a>
+              </div>
             </div>
             <div class="info-item">
-              <strong>🌿 Email</strong><br>
-              <a href="mailto:hello@aquadesign.com">hello@aquadesign.com</a>
+              <div class="info-icon">✉️</div>
+              <div>
+                <strong style="display: block; color: var(--text-primary); margin-bottom: 0.2rem;">Email</strong>
+                <a href="mailto:hello@aquadesign.com"
+                  style="color: var(--aqua-teal); text-decoration: none;">hello@aquadesign.com</a>
+              </div>
             </div>
-            <div class="info-item">
-              <strong>🌿 Website</strong><br>
-              <a href="#">www.aquadesign.com</a>
+            <div class="info-item" style="margin-bottom: 0;">
+              <div class="info-icon">🌐</div>
+              <div>
+                <strong style="display: block; color: var(--text-primary); margin-bottom: 0.2rem;">Online</strong>
+                <a href="#" style="color: var(--aqua-teal); text-decoration: none;">www.aquadesign.com</a>
+              </div>
             </div>
           </div>
 
@@ -433,8 +585,15 @@
               aquascaping tips and inspiration.</p>
             <div class="social-links">
               <a href="#" class="social-link" title="Facebook">f</a>
-              <a href="#" class="social-link" title="Instagram">📷</a>
-              <a href="#" class="social-link" title="YouTube">🎬</a>
+              <a href="#" class="social-link" title="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" class="social-link" title="Twitter">𝕏</a>
               <a href="#" class="social-link" title="LinkedIn">in</a>
             </div>
           </div>
@@ -466,8 +625,9 @@
       <div class="footer-grid">
         <!-- Brand Section -->
         <div class="footer-brand">
-          <a href="../index.html" style="text-decoration: none;">
-            <h2>🌊 AquaDesign</h2>
+          <a href="../index.html" class="navbar-brand"
+            style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+            🌊 AquaDesign
           </a>
           <p>
             Crafting living masterpieces for discerning clients. Our passion for aquascaping combines nature's beauty
@@ -475,8 +635,15 @@
           </p>
           <div class="social-icons-v2">
             <a href="#" class="social-icon-v2" title="Facebook">f</a>
-            <a href="#" class="social-icon-v2" title="Instagram">📷</a>
-            <a href="#" class="social-icon-v2" title="YouTube">🎬</a>
+            <a href="#" class="social-icon-v2" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="social-icon-v2" title="Twitter">𝕏</a>
             <a href="#" class="social-icon-v2" title="LinkedIn">in</a>
           </div>
         </div>

@@ -171,20 +171,40 @@
     }
 
     .comparison-item {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.05) !important;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      padding: 3rem 2rem;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
       text-align: center;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="light"] .comparison-item {
+      background: rgba(0, 0, 0, 0.02) !important;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .comparison-item:hover {
+      transform: translateY(-10px);
+      border-color: var(--aqua-teal) !important;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
 
     .comparison-item h5 {
       margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      font-size: 1.1rem;
     }
 
     .comparison-item p {
       color: var(--text-secondary);
       font-size: 0.95rem;
+      line-height: 1.7;
       margin-bottom: 0;
     }
 
@@ -196,26 +216,85 @@
     }
 
     .benefit-card {
-      background: var(--bg-secondary);
-      padding: 2rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.03) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 3rem 2rem;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
       text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="light"] .benefit-card {
+      background: rgba(0, 0, 0, 0.02) !important;
+      border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      border-color: var(--aqua-teal) !important;
+      background: rgba(255, 255, 255, 0.06) !important;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
 
     .benefit-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      width: 60px;
+      height: 60px;
+      background: rgba(46, 196, 182, 0.1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(46, 196, 182, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .benefit-card:hover .benefit-icon {
+      background: var(--aqua-teal);
+      transform: rotate(10deg);
+      color: white;
     }
 
     .benefit-card h5 {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1rem;
+      font-weight: 700;
     }
 
     .benefit-card p {
       color: var(--text-secondary);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
       margin-bottom: 0;
+    }
+
+    .section-title-underline {
+      width: 40px;
+      height: 1px;
+      background: var(--aqua-teal);
+      margin: 1rem auto 2rem;
+    }
+
+    .overline-text {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--aqua-teal);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: block;
     }
 
     .faq-section {
@@ -276,9 +355,8 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-custom">
-      <a class="navbar-brand" href="../index.html">
-        <div class="navbar-logo-icon">🌊</div>
-        AquaDesign
+      <a class="navbar-brand" href="../index.html" style="display: flex; align-items: center; gap: 0.5rem;">
+        🌊 AquaDesign
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -299,9 +377,6 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="portfolio.html">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="maintenance.html">Maintenance</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pricing.html">Pricing</a>
@@ -423,9 +498,13 @@
   </section>
 
   <!-- What's Included -->
-  <section class="maintenance-section" style="background: var(--bg-secondary);">
+  <section class="maintenance-section" style="background: var(--bg-secondary); border-top: 1px solid var(--border-color);">
     <div class="container-custom">
-      <h2 style="text-align: center; margin-bottom: 3rem;">What's Included in Every Plan</h2>
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <span class="overline-text">Excellence</span>
+        <h2 style="font-size: 2.8rem; text-transform: uppercase;">What's Included in Every Plan</h2>
+        <div class="section-title-underline"></div>
+      </div>
 
       <div class="benefit-grid">
         <div class="benefit-card">
@@ -482,7 +561,11 @@
   <!-- Service Details -->
   <section class="maintenance-section">
     <div class="container-custom">
-      <h2 style="text-align: center; margin-bottom: 3rem;">Service Details</h2>
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <span class="overline-text">Deep Dive</span>
+        <h2 style="font-size: 2.8rem; text-transform: uppercase;">Service Details</h2>
+        <div class="section-title-underline"></div>
+      </div>
 
       <div class="service-comparison">
         <div class="comparison-item">
@@ -522,8 +605,8 @@
       <div class="footer-grid">
         <!-- Brand Section -->
         <div class="footer-brand">
-          <a href="../index.html" style="text-decoration: none;">
-            <h2>🌊 AquaDesign</h2>
+          <a href="../index.html" class="navbar-brand" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+            🌊 AquaDesign
           </a>
           <p>
             Crafting living masterpieces for discerning clients. Our passion for aquascaping combines nature's beauty
@@ -531,8 +614,10 @@
           </p>
           <div class="social-icons-v2">
             <a href="#" class="social-icon-v2" title="Facebook">f</a>
-            <a href="#" class="social-icon-v2" title="Instagram">📷</a>
-            <a href="#" class="social-icon-v2" title="YouTube">🎬</a>
+            <a href="#" class="social-icon-v2" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="social-icon-v2" title="Twitter">𝕏</a>
             <a href="#" class="social-icon-v2" title="LinkedIn">in</a>
           </div>
         </div>

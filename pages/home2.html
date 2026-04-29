@@ -211,9 +211,8 @@
      ============================================ -->
   <nav class="navbar navbar-expand-lg fixed-top" style="z-index: 1000;">
     <div class="container-custom">
-      <a class="navbar-brand" href="../index.html">
-        <div class="navbar-logo-icon">🌊</div>
-        AquaDesign
+      <a class="navbar-brand" href="../index.html" style="display: flex; align-items: center; gap: 0.5rem;">
+        🌊 AquaDesign
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -238,9 +237,6 @@
             <a class="nav-link" href="portfolio.html">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="maintenance.html">Maintenance</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="pricing.html">Pricing</a>
           </li>
           <li class="nav-item">
@@ -252,7 +248,8 @@
           <a href="login.html" class="btn-login-nav">Login</a>
           <button class="rtl-toggle" title="Toggle RTL">RTL</button>
           <button class="theme-toggle" title="Toggle Theme">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
             </svg>
           </button>
@@ -270,12 +267,12 @@
 
     <div class="hero-video-content">
       <div style="max-width: 800px; margin: 0 auto;">
-        <span class="overline-text fade-in" style="color: var(--aqua-teal);">EXPERTISE IN AQUASCAPING SINCE 2009</span>
-        <h1 class="fade-in" style="font-size: clamp(3rem, 6vw, 5.5rem); text-transform: uppercase; margin: 1rem 0;">Underwater Beauty<br>Starts Here</h1>
-        <p class="hero-video-subtitle fade-in" style="font-size: 1.1rem; color: rgba(255,255,255,0.8); line-height: 1.6;">
+        <span class="overline-text" style="color: var(--aqua-teal); animation: fadeInUp 1s ease-out forwards; opacity: 0;">EXPERTISE IN AQUASCAPING SINCE 2009</span>
+        <h1 style="font-size: clamp(3rem, 6vw, 5.5rem); text-transform: uppercase; margin: 1rem 0; color: white; animation: fadeInUp 1s ease-out forwards 0.2s; opacity: 0;">Underwater Beauty<br>Starts Here</h1>
+        <p class="hero-video-subtitle" style="font-size: 1.1rem; color: rgba(255,255,255,0.8); line-height: 1.6; animation: fadeInUp 1s ease-out forwards 0.4s; opacity: 0;">
           Premium aquascaping and custom aquarium design. From concept to installation, we breathe life into aquatic masterpieces with precision and passion.
         </p>
-        <div class="cta-buttons fade-in">
+        <div class="cta-buttons" style="animation: fadeInUp 1s ease-out forwards 0.6s; opacity: 0;">
           <a href="contact.html" class="btn btn-primary" style="padding: 1rem 2rem;">Start Your Project</a>
           <a href="portfolio.html" class="btn btn-outline-light" style="padding: 1rem 2rem;">Explore Our Work</a>
         </div>
@@ -283,63 +280,90 @@
     </div>
   </section>
 
+
   <!-- ============================================
-     STATISTICS SECTION
+     STATISTICS SECTION (EDITORIAL GRID)
      ============================================ -->
-  <section class="minimal-section" style="background: var(--bg-secondary);">
+  <section class="section-padding" style="background: var(--bg-primary);">
     <div class="container-custom">
-      <h2 style="margin-bottom: 3rem;">Our Impact</h2>
+      <div style="text-align: center; margin-bottom: 5rem;">
+        <span class="overline-text" style="color: var(--aqua-teal);">Track Record</span>
+        <h2 style="font-size: 2.8rem; text-transform: uppercase;">Our Global Impact</h2>
+        <div class="section-title-underline"></div>
+      </div>
 
-      <div class="minimal-grid">
-        <div>
-          <div class="stat-circle">
-            <div class="stat-number">500+</div>
-            <div class="stat-label">Designs</div>
-          </div>
-          <p style="color: var(--text-secondary);">Stunning aquascapes created</p>
+      <div class="row g-0" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 30px; overflow: hidden; box-shadow: var(--shadow-lg);">
+        <!-- Stat 1 -->
+        <div class="col-lg-3 col-md-6" style="border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 5rem 2rem; text-align: center; transition: all 0.3s ease;">
+          <div style="font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--aqua-teal); margin-bottom: 0.5rem; line-height: 1;">500+</div>
+          <h5 style="text-transform: uppercase; letter-spacing: 3px; font-size: 1rem; color: var(--text-primary); margin-top: 1.5rem;">Designs</h5>
+          <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-top: 1rem; line-height: 1.6;">Bespoke aquatic<br>masterpieces created</p>
         </div>
 
-        <div>
-          <div class="stat-circle">
-            <div class="stat-number">98%</div>
-            <div class="stat-label">Satisfied</div>
-          </div>
-          <p style="color: var(--text-secondary);">Client satisfaction rate</p>
+        <!-- Stat 2 -->
+        <div class="col-lg-3 col-md-6" style="border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 5rem 2rem; text-align: center; transition: all 0.3s ease;">
+          <div style="font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--coral-accent); margin-bottom: 0.5rem; line-height: 1;">98%</div>
+          <h5 style="text-transform: uppercase; letter-spacing: 3px; font-size: 1rem; color: var(--text-primary); margin-top: 1.5rem;">Satisfied</h5>
+          <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-top: 1rem; line-height: 1.6;">Unparalleled client<br>satisfaction rate</p>
         </div>
 
-        <div>
-          <div class="stat-circle">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Years</div>
-          </div>
-          <p style="color: var(--text-secondary);">Of expertise in design</p>
+        <!-- Stat 3 -->
+        <div class="col-lg-3 col-md-6" style="border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 5rem 2rem; text-align: center; transition: all 0.3s ease;">
+          <div style="font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--aqua-light); margin-bottom: 0.5rem; line-height: 1;">15+</div>
+          <h5 style="text-transform: uppercase; letter-spacing: 3px; font-size: 1rem; color: var(--text-primary); margin-top: 1.5rem;">Years</h5>
+          <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-top: 1rem; line-height: 1.6;">Of expertise in<br>aquascape engineering</p>
         </div>
 
-        <div>
-          <div class="stat-circle">
-            <div class="stat-number">24/7</div>
-            <div class="stat-label">Support</div>
-          </div>
-          <p style="color: var(--text-secondary);">Always here for you</p>
+        <!-- Stat 4 -->
+        <div class="col-lg-3 col-md-6" style="border-bottom: 1px solid var(--border-color); padding: 5rem 2rem; text-align: center; transition: all 0.3s ease;">
+          <div style="font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1;">24/7</div>
+          <h5 style="text-transform: uppercase; letter-spacing: 3px; font-size: 1rem; color: var(--text-primary); margin-top: 1.5rem;">Support</h5>
+          <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-top: 1rem; line-height: 1.6;">Dedicated ecosystem<br>monitoring & care</p>
         </div>
       </div>
     </div>
   </section>
 
+
+
   <!-- ============================================
-     SIGNATURE SERVICE
+     SIGNATURE SERVICE (CINEMATIC SPLIT)
      ============================================ -->
-  <section class="section-padding">
+  <section class="section-padding" style="background: var(--bg-primary);">
     <div class="container-custom">
-      <div class="overlapping-layout">
-        <div class="overlapping-image" style="background-image: url('../assets/img/feature-experience.png');"></div>
-        <div class="overlapping-content">
-          <span class="overline-text" style="color: var(--aqua-teal);">Signature Service</span>
-          <h2 style="font-size: 2.5rem; text-transform: uppercase; margin: 1rem 0;">The Complete<br>Experience</h2>
-          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem;">
-            From initial consultation to lifetime support, we handle every aspect of your aquascaping journey. Our expert team combines artistic vision with technical expertise to create aquariums that are not just beautiful, but thriving ecosystems.
-          </p>
-          <a href="services.html" class="btn btn-outline-light" style="padding: 0.8rem 1.5rem;">See Our Process</a>
+      <div class="row align-items-center g-0" style="background: var(--bg-secondary); border-radius: 40px; overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--border-color);">
+        <!-- Image Column -->
+        <div class="col-lg-7">
+          <div style="height: 650px; background-image: url('../assets/img/feature-experience.png'); background-size: cover; background-position: center; position: relative;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to right, rgba(0,0,0,0.3), transparent);"></div>
+          </div>
+        </div>
+        <!-- Content Column -->
+        <div class="col-lg-5">
+          <div style="padding: 5rem 4rem; position: relative;">
+            <span class="overline-text" style="color: var(--aqua-teal);">Signature Experience</span>
+            <h2 style="font-size: 3rem; text-transform: uppercase; margin: 1.5rem 0; line-height: 1.1;">The Art of<br>Nature</h2>
+            <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2.5rem; font-size: 1.1rem;">
+              We don't just build aquariums; we curate living experiences. Our signature process combines scientific precision with high-art aesthetics to transform your space.
+            </p>
+            
+            <ul style="list-style: none; padding: 0; margin-bottom: 3rem;">
+              <li style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                <span style="color: var(--aqua-teal); font-weight: bold; font-size: 1.2rem;">✦</span>
+                <div style="color: var(--text-primary); font-size: 0.95rem; font-weight: 500; letter-spacing: 0.5px;">Bespoke Design Consultation</div>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                <span style="color: var(--aqua-teal); font-weight: bold; font-size: 1.2rem;">✦</span>
+                <div style="color: var(--text-primary); font-size: 0.95rem; font-weight: 500; letter-spacing: 0.5px;">Rare Aquatic Flora Sourcing</div>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                <span style="color: var(--aqua-teal); font-weight: bold; font-size: 1.2rem;">✦</span>
+                <div style="color: var(--text-primary); font-size: 0.95rem; font-weight: 500; letter-spacing: 0.5px;">Precision Ecosystem Engineering</div>
+              </li>
+            </ul>
+
+            <a href="services.html" class="btn btn-primary" style="padding: 1.2rem 2.5rem; border-radius: 8px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; font-weight: 700;">Explore Our Work</a>
+          </div>
         </div>
       </div>
     </div>
@@ -348,8 +372,14 @@
   <!-- ============================================
      CORE SERVICES
      ============================================ -->
-  <section class="section-padding" style="background: var(--bg-secondary);">
-    <div class="container-custom">
+  <section class="section-padding" style="background: var(--bg-secondary); position: relative; overflow: hidden;">
+    <div
+      style="position: absolute; top: -10%; right: -10%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(46, 196, 182, 0.05) 0%, transparent 70%); z-index: 0;">
+    </div>
+    <div
+      style="position: absolute; bottom: -10%; left: -10%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(255, 127, 80, 0.03) 0%, transparent 70%); z-index: 0;">
+    </div>
+    <div class="container-custom" style="position: relative; z-index: 1;">
       <div style="text-align: center; margin-bottom: 4rem;">
         <span class="overline-text">Specialties</span>
         <h2 style="font-size: 2.5rem; text-transform: uppercase;">Featured Aquascaping Specialties</h2>
@@ -362,7 +392,8 @@
           <div class="elegant-card-centered">
             <div class="elegant-icon-centered">🌿</div>
             <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Design & Planning</h4>
-            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Bespoke aquascape designs tailored to your space and aesthetic preferences. Multiple mockups included.</p>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Bespoke aquascape designs
+              tailored to your space and aesthetic preferences. Multiple mockups included.</p>
           </div>
         </div>
 
@@ -371,7 +402,8 @@
           <div class="elegant-card-centered">
             <div class="elegant-icon-centered">⚙️</div>
             <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Installation</h4>
-            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Professional, stress-free installation. Equipment setup, landscaping, planting, and water conditioning.</p>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Professional, stress-free
+              installation. Equipment setup, landscaping, planting, and water conditioning.</p>
           </div>
         </div>
 
@@ -380,18 +412,20 @@
           <div class="elegant-card-centered">
             <div class="elegant-icon-centered">💧</div>
             <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Maintenance</h4>
-            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Monthly or bi-weekly maintenance packages. Keep your aquarium thriving with our expert care.</p>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Monthly or bi-weekly
+              maintenance packages. Keep your aquarium thriving with our expert care.</p>
           </div>
         </div>
       </div>
-      
+
       <div class="row g-4 mt-1 justify-content-center">
         <!-- Card 4 -->
         <div class="col-lg-4 col-md-6">
           <div class="elegant-card-centered">
             <div class="elegant-icon-centered">📊</div>
             <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Tracking & Support</h4>
-            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Access our client dashboard for real-time monitoring, growth tracking, and scheduling.</p>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Access our client dashboard for
+              real-time monitoring, growth tracking, and scheduling.</p>
           </div>
         </div>
 
@@ -400,7 +434,157 @@
           <div class="elegant-card-centered">
             <div class="elegant-icon-centered">🔬</div>
             <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Eco-Friendly</h4>
-            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Sustainable, nature-inspired designs that promote healthy ecosystems and thriving aquatic life.</p>
+            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Sustainable, nature-inspired
+              designs that promote healthy ecosystems and thriving aquatic life.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ============================================
+     DESIGN JOURNEY (TIMELINE PROCESS)
+     ============================================ -->
+  <section class="section-padding" style="background: var(--bg-primary); position: relative; overflow: hidden;">
+    <div class="container-custom">
+      <div style="text-align: center; margin-bottom: 6rem;">
+        <span class="overline-text" style="color: var(--aqua-teal);">Methodology</span>
+        <h2 style="font-size: 2.8rem; text-transform: uppercase;">Our Design Journey</h2>
+        <div class="section-title-underline"></div>
+      </div>
+
+      <div class="row g-0 justify-content-center">
+        <!-- Step 1 -->
+        <div class="col-lg-4">
+          <div style="text-align: center; position: relative; padding: 2rem;">
+            <!-- Connector Line (Desktop Only) -->
+            <div class="d-none d-lg-block"
+              style="position: absolute; top: 40px; left: 50%; width: 100%; height: 2px; background: linear-gradient(90deg, var(--aqua-teal), var(--coral-accent)); z-index: 0; opacity: 0.3;">
+            </div>
+
+            <div
+              style="width: 80px; height: 80px; background: var(--bg-secondary); border: 2px solid var(--aqua-teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2.5rem; position: relative; z-index: 1; box-shadow: 0 0 30px rgba(46, 196, 182, 0.2);">
+              <span
+                style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--aqua-teal);">01</span>
+            </div>
+            <h4
+              style="text-transform: uppercase; letter-spacing: 3px; font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text-primary);">
+              Conceptualization</h4>
+            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.8; padding: 0 1rem;">
+              Understanding your vision through detailed consultations and bespoke mood boards to define the artistic
+              direction.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="col-lg-4">
+          <div style="text-align: center; position: relative; padding: 2rem;">
+            <!-- Connector Line (Desktop Only) -->
+            <div class="d-none d-lg-block"
+              style="position: absolute; top: 40px; left: 50%; width: 100%; height: 2px; background: linear-gradient(90deg, var(--coral-accent), var(--aqua-light)); z-index: 0; opacity: 0.3;">
+            </div>
+
+            <div
+              style="width: 80px; height: 80px; background: var(--bg-secondary); border: 2px solid var(--coral-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2.5rem; position: relative; z-index: 1; box-shadow: 0 0 30px rgba(255, 127, 80, 0.2);">
+              <span
+                style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--coral-accent);">02</span>
+            </div>
+            <h4
+              style="text-transform: uppercase; letter-spacing: 3px; font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text-primary);">
+              Architectural Build</h4>
+            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.8; padding: 0 1rem;">
+              Precision engineering meets artistic hardscaping, building the foundation with technical excellence.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="col-lg-4">
+          <div style="text-align: center; position: relative; padding: 2rem;">
+            <div
+              style="width: 80px; height: 80px; background: var(--bg-secondary); border: 2px solid var(--aqua-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2.5rem; position: relative; z-index: 1; box-shadow: 0 0 30px rgba(110, 221, 216, 0.2);">
+              <span
+                style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--aqua-light);">03</span>
+            </div>
+            <h4
+              style="text-transform: uppercase; letter-spacing: 3px; font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text-primary);">
+              Life & Cultivation</h4>
+            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.8; padding: 0 1rem;">
+              Expert biological cycling and planting to ensure a thriving, balanced ecosystem for years to come.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ============================================
+     PRECISION ENGINEERING SECTION
+     ============================================ -->
+  <section class="section-padding" style="background: var(--bg-secondary); position: relative; overflow: hidden;">
+    <!-- Background Accents -->
+    <div
+      style="position: absolute; top: -10%; left: -10%; width: 40%; height: 40%; background: radial-gradient(circle, rgba(46, 196, 182, 0.05) 0%, transparent 70%); z-index: 0;">
+    </div>
+
+    <div class="container-custom" style="position: relative; z-index: 1;">
+      <!-- Section Heading -->
+      <div style="text-align: center; margin-bottom: 5rem;">
+        <span class="overline-text" style="color: var(--aqua-teal);">Quality Assurance</span>
+        <h2 style="font-size: 2.5rem; text-transform: uppercase;">Engineering Excellence</h2>
+        <div class="section-title-underline"></div>
+      </div>
+
+      <div class="row align-items-center g-5">
+        <!-- Image Column -->
+        <div class="col-lg-6">
+          <div class="feature-image"
+            style="background-image: url('../assets/img/service-maintenance.png'); height: 500px; border-radius: 30px; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+            <div
+              style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2.5rem; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: white;">
+              <p
+                style="margin: 0; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;">
+                Crafted with medical-grade precision</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Column -->
+        <div class="col-lg-6">
+          <div
+            style="background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 30px; padding: 3.5rem;">
+            <span class="overline-text" style="color: var(--aqua-teal);">Technical Excellence</span>
+            <h3 style="font-size: 2.2rem; text-transform: uppercase; margin: 1.5rem 0; color: white;">
+              Precision<br>Engineering</h3>
+            <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2.5rem; font-size: 1.05rem;">
+              Our aquariums are masterpieces of engineering. We use ultra-clear low-iron glass, silent filtration
+              systems, and professional-grade LED lighting to ensure your ecosystem stays vibrant and healthy with
+              minimal maintenance.
+            </p>
+
+            <div class="row g-4">
+              <div class="col-sm-6">
+                <div style="border-left: 3px solid var(--aqua-teal); padding-left: 1.5rem;">
+                  <h5 style="font-size: 0.95rem; text-transform: uppercase; color: white; margin-bottom: 0.5rem;">
+                    Ultra-Clear</h5>
+                  <p style="font-size: 0.85rem; color: var(--text-tertiary); margin: 0;">99.9% Light transmission for
+                    true-to-life colors.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div style="border-left: 3px solid var(--aqua-teal); padding-left: 1.5rem;">
+                  <h5 style="font-size: 0.95rem; text-transform: uppercase; color: white; margin-bottom: 0.5rem;">Silent
+                    Flow</h5>
+                  <p style="font-size: 0.85rem; color: var(--text-tertiary); margin: 0;">Decibel-optimized plumbing for
+                    whisper-quiet operation.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -431,8 +615,9 @@
       <div class="footer-grid">
         <!-- Brand Section -->
         <div class="footer-brand">
-          <a href="../index.html" style="text-decoration: none;">
-            <h2>🌊 AquaDesign</h2>
+          <a href="../index.html" class="navbar-brand"
+            style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+            🌊 AquaDesign
           </a>
           <p>
             Crafting living masterpieces for discerning clients. Our passion for aquascaping combines nature's beauty
@@ -440,8 +625,10 @@
           </p>
           <div class="social-icons-v2">
             <a href="#" class="social-icon-v2" title="Facebook">f</a>
-            <a href="#" class="social-icon-v2" title="Instagram">📷</a>
-            <a href="#" class="social-icon-v2" title="YouTube">🎬</a>
+            <a href="#" class="social-icon-v2" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="social-icon-v2" title="Twitter">𝕏</a>
             <a href="#" class="social-icon-v2" title="LinkedIn">in</a>
           </div>
         </div>

@@ -1,23 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Client Dashboard | AquaDesign</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" />
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
-  <link rel="stylesheet" href="../assets/css/style.css">
-
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
   <style>
     body {
       background: var(--bg-primary);
       min-height: 100vh;
       display: flex;
+      margin: 0;
+      padding: 0;
     }
 
     .dashboard-container {
@@ -26,145 +29,134 @@
       min-height: 100vh;
     }
 
-    /* Sidebar Styles */
     .dashboard-sidebar {
-      width: 280px;
-      min-width: 280px;
+      width: 320px;
+      min-width: 320px;
       background: var(--dark-navy);
       color: white;
       height: 100vh;
       position: sticky;
       top: 0;
-      padding: 2.5rem 1.5rem;
+      padding: 2.5rem 0;
       display: flex;
       flex-direction: column;
       border-right: 1px solid rgba(255, 255, 255, 0.05);
       z-index: 1000;
+      transition: transform 0.3s ease;
     }
 
     .sidebar-brand {
       font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--white-pure);
+      color: var(--aqua-teal) !important;
       text-decoration: none;
-      margin-bottom: 3rem;
-      display: block;
-    }
-
-    .sidebar-profile {
-      text-align: center;
       margin-bottom: 2.5rem;
-    }
-
-    .profile-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: var(--aqua-teal);
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      margin: 0 auto 1rem;
-      border: 3px solid rgba(255, 255, 255, 0.1);
+      gap: 0.8rem;
+      padding: 0 1.5rem;
     }
 
-    .profile-name {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
 
-    .profile-tier {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--aqua-teal);
-      font-weight: 700;
-    }
 
     .sidebar-category {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
       color: rgba(255, 255, 255, 0.3);
-      margin: 1.5rem 0 1rem;
+      margin: 1.25rem 0 0.75rem;
+      padding: 0 1.5rem;
+      opacity: 0.6;
+      font-weight: 600;
+      letter-spacing: 1.5px;
     }
 
     .sidebar-link {
       background: transparent;
       border: 1px solid transparent;
       color: rgba(255, 255, 255, 0.6);
-      width: 100%;
+      width: calc(100% - 2rem);
       text-align: left;
-      padding: 0.85rem 1.25rem;
-      border-radius: var(--radius-md);
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-      transition: all var(--transition-fast);
+      padding: 0.8rem 1.25rem;
+      border-radius: 12px;
+      margin: 0 1rem 0.4rem;
+      font-size: 0.9rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       align-items: center;
       gap: 1rem;
+      font-family: var(--font-body);
     }
 
     .sidebar-link:hover {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.06);
       color: white;
     }
 
     .sidebar-link.active {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.1);
+      background: rgba(46, 196, 182, 0.15);
+      border-color: rgba(46, 196, 182, 0.3);
       color: white;
-      box-shadow: var(--shadow-sm);
     }
 
-    /* Content Area Styles */
+    .sidebar-link .icon {
+      font-size: 1.1rem;
+      width: 24px;
+      flex-shrink: 0;
+    }
+
     .dashboard-main {
       flex: 1;
-      padding: 2.5rem 3rem;
+      padding: 1.5rem;
       background: var(--bg-secondary);
-      max-width: calc(100% - 280px);
+      overflow-y: auto;
     }
 
     .welcome-banner {
       background: var(--gradient-aqua);
       border-radius: var(--radius-lg);
-      padding: 3.5rem;
+      padding: 2.5rem 3rem;
       color: white;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       box-shadow: var(--shadow-lg);
       position: relative;
       overflow: hidden;
     }
 
+    .welcome-banner::after {
+      content: "🌊";
+      position: absolute;
+      right: -20px;
+      top: -40px;
+      font-size: 12rem;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
     .welcome-banner h1 {
       font-family: var(--font-display);
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
+      font-size: 2.4rem;
+      margin-bottom: 0.75rem;
       font-weight: 700;
       color: white;
-      /* Explicitly set to white */
     }
 
     .welcome-banner p {
-      font-size: 1.1rem;
-      opacity: 1;
-      /* Increased opacity for visibility */
+      font-size: 1rem;
       max-width: 600px;
       line-height: 1.6;
-      color: rgba(255, 255, 255, 0.95);
-      /* Explicitly set to light color */
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0;
     }
 
     .stats-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+      padding: 0;
     }
 
     .stat-card-v2 {
@@ -172,57 +164,72 @@
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
       padding: 1.5rem;
-      transition: transform var(--transition-normal);
+      transition: all 0.3s ease;
     }
 
     .stat-card-v2:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       box-shadow: var(--shadow-md);
     }
 
-    .stat-card-v2 .icon {
-      width: 40px;
-      height: 40px;
-      background: var(--gray-light);
+    .stat-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(46, 196, 182, 0.12);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.25rem;
-      font-size: 1.25rem;
-      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
     }
 
     .stat-card-v2 .value {
-      font-size: 2rem;
+      font-size: 1.9rem;
       font-family: var(--font-display);
       font-weight: 700;
       color: var(--text-primary);
       display: block;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
 
     .stat-card-v2 .label {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--text-tertiary);
       font-weight: 600;
     }
 
-    /* Project Detail Card */
+    .dashboard-tab {
+      display: none;
+    }
+
+    .dashboard-tab.active {
+      display: block;
+      animation: fadeIn 0.35s ease;
+    }
+
+    .tab-title {
+      font-family: var(--font-display);
+      color: var(--text-primary);
+      margin-bottom: 1.75rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
     .project-card-v2 {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       box-shadow: var(--shadow-sm);
     }
 
     .project-header {
       background: var(--bg-tertiary);
-      padding: 1.5rem 2.5rem;
+      padding: 1.25rem 2rem;
       border-bottom: 1px solid var(--border-color);
       display: flex;
       justify-content: space-between;
@@ -231,48 +238,65 @@
 
     .project-title {
       font-family: var(--font-display);
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 600;
       color: var(--text-primary);
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem;
     }
 
     .status-badge {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
-      padding: 0.4rem 0.85rem;
+      padding: 0.35rem 0.8rem;
       border-radius: 100px;
       background: var(--dark-navy);
-      color: var(--white-pure);
+      color: white;
       letter-spacing: 1px;
     }
 
+    .status-badge.approved {
+      background: rgba(46, 196, 182, 0.2);
+      color: var(--aqua-teal);
+    }
+
+    .status-badge.pending {
+      background: rgba(255, 193, 7, 0.2);
+      color: #ffc107;
+    }
+
+    .status-badge.revision {
+      background: rgba(255, 127, 80, 0.2);
+      color: var(--coral-accent);
+    }
+
     .project-body {
-      padding: 2.5rem;
+      padding: 2rem;
       display: flex;
       justify-content: space-between;
+      gap: 2rem;
     }
 
     .project-info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2.5rem 4rem;
+      gap: 2rem 3rem;
+      flex: 1;
     }
 
     .info-group label {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--text-tertiary);
       font-weight: 600;
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .info-group p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--text-primary);
       margin: 0;
@@ -280,25 +304,28 @@
 
     .countdown-timer {
       text-align: center;
-      padding-left: 3rem;
+      padding-left: 2.5rem;
       border-left: 1px solid var(--border-color);
       display: flex;
       flex-direction: column;
       justify-content: center;
+      min-width: 180px;
     }
 
     .countdown-label {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 2px;
       color: var(--text-tertiary);
       margin-bottom: 1rem;
       font-weight: 600;
+      display: block;
     }
 
     .timer-units {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.25rem;
+      justify-content: center;
     }
 
     .timer-unit {
@@ -308,95 +335,547 @@
     .timer-unit .num {
       display: block;
       font-family: var(--font-display);
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      color: var(--text-primary);
+      color: var(--aqua-teal);
     }
 
     .timer-unit .txt {
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--text-tertiary);
     }
 
-    .dashboard-tab {
-      display: none;
+    .form-card {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
     }
 
-    .dashboard-tab.active {
+    .form-section-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .form-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
       display: block;
-      animation: fadeIn 0.4s ease;
     }
 
-    @media (max-width: 1200px) {
-      .stats-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .project-body {
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      .countdown-timer {
-        padding-left: 0;
-        border-left: none;
-        padding-top: 2rem;
-        border-top: 1px solid var(--border-color);
-      }
+    .form-control {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      width: 100%;
+      transition: border-color 0.2s ease;
     }
 
-    @media (max-width: 992px) {
-      .dashboard-sidebar {
-        width: 80px;
-        min-width: 80px;
-        padding: 2rem 0.5rem;
-        align-items: center;
-      }
-
-      .sidebar-brand,
-      .sidebar-profile,
-      .sidebar-category,
-      .sidebar-link span {
-        display: none;
-      }
-
-      .sidebar-link {
-        justify-content: center;
-        padding: 1rem;
-      }
-
-      .dashboard-main {
-        max-width: calc(100% - 80px);
-        padding: 2rem;
-      }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--aqua-teal);
     }
 
-    @media (max-width: 768px) {
-      .dashboard-container {
-        flex-direction: column;
-      }
-
-      .dashboard-sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        flex-direction: row;
-        overflow-x: auto;
-        padding: 1rem;
-      }
-
-      .dashboard-main {
-        max-width: 100%;
-      }
-
-      .stats-row {
-        grid-template-columns: 1fr;
-      }
+    .dim-visual {
+      background: linear-gradient(135deg,
+          rgba(46, 196, 182, 0.1),
+          rgba(10, 37, 64, 0.3));
+      border: 2px dashed rgba(46, 196, 182, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
     }
 
-    /* Logout Modal Styles */
+    .dim-visual .tank-svg {
+      max-width: 280px;
+      width: 100%;
+    }
+
+    .dim-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--aqua-teal);
+      font-weight: 700;
+    }
+
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .mockup-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mockup-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .mockup-thumb {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .mockup-thumb .badge-status {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+
+    .mockup-info {
+      padding: 1.25rem;
+    }
+
+    .mockup-info h6 {
+      font-family: var(--font-display);
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .mockup-info p {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+      margin: 0 0 1rem;
+    }
+
+    .mockup-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-approve {
+      background: rgba(46, 196, 182, 0.15);
+      color: var(--aqua-teal);
+      border: 1px solid rgba(46, 196, 182, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-approve:hover {
+      background: var(--aqua-teal);
+      color: var(--dark-navy);
+    }
+
+    .btn-reject {
+      background: rgba(255, 127, 80, 0.1);
+      color: var(--coral-accent);
+      border: 1px solid rgba(255, 127, 80, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-reject:hover {
+      background: var(--coral-accent);
+      color: white;
+    }
+
+    .approval-timeline {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+
+    .approval-timeline h6 {
+      font-family: var(--font-display);
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--aqua-teal);
+      flex-shrink: 0;
+    }
+
+    .timeline-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .timeline-date {
+      margin-left: auto;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+
+    .schedule-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .schedule-step {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .schedule-step:hover {
+      border-color: rgba(46, 196, 182, 0.3);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(46, 196, 182, 0.12);
+      color: var(--aqua-teal);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-info {
+      flex: 1;
+    }
+
+    .step-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .step-date {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+    }
+
+    .step-chip {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      font-weight: 700;
+    }
+
+    .chip-done {
+      background: rgba(46, 196, 182, 0.15);
+      color: var(--aqua-teal);
+    }
+
+    .chip-upcoming {
+      background: rgba(255, 127, 80, 0.12);
+      color: var(--coral-accent);
+    }
+
+    .chip-pending {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text-tertiary);
+    }
+
+    .growth-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .growth-stat {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .growth-stat .big {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--aqua-teal);
+      display: block;
+    }
+
+    .growth-stat .lbl {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+      font-weight: 600;
+    }
+
+    .growth-table {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .growth-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .growth-table th {
+      background: var(--bg-tertiary);
+      padding: 0.9rem 1.25rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+      font-weight: 700;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .growth-table td {
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .growth-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .health-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: var(--border-color);
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .health-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: var(--aqua-teal);
+    }
+
+    .health-good {
+      color: var(--aqua-teal);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .health-fair {
+      color: #ffc107;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .reminder-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .reminder-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .reminder-card:hover {
+      border-color: rgba(46, 196, 182, 0.3);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .reminder-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .reminder-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(46, 196, 182, 0.12);
+      color: var(--aqua-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .reminder-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .reminder-freq {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+
+    .reminder-due {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .reminder-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-mark-done {
+      background: rgba(46, 196, 182, 0.12);
+      color: var(--aqua-teal);
+      border: 1px solid rgba(46, 196, 182, 0.25);
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-mark-done:hover {
+      background: var(--aqua-teal);
+      color: var(--dark-navy);
+    }
+
+    .alerts-section {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 193, 7, 0.25);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+
+    .alerts-section h6 {
+      font-family: var(--font-display);
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .alert-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .alert-item:last-child {
+      border-bottom: none;
+    }
+
+    .alert-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-warn {
+      background: #ffc107;
+    }
+
+    .dot-ok {
+      background: var(--aqua-teal);
+    }
+
+    .chip-icon {
+      width: 14px;
+      height: 14px;
+      margin-right: 4px;
+      vertical-align: middle;
+      margin-top: -2px;
+    }
+
+    .sidebar-link i {
+      width: 20px;
+      height: 20px;
+    }
+
+    .stat-icon i {
+      width: 24px;
+      height: 24px;
+    }
+
+    .tab-title i,
+    .project-title i,
+    .form-section-title i {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+      vertical-align: bottom;
+    }
+
     .logout-modal-overlay {
       position: fixed;
       top: 0;
@@ -409,7 +888,6 @@
       align-items: center;
       justify-content: center;
       z-index: 2000;
-      animation: fadeIn 0.3s ease;
     }
 
     .logout-modal-card {
@@ -425,29 +903,29 @@
 
     .logout-brand-logo {
       font-family: var(--font-display);
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 700;
-      color: var(--white-pure);
-      margin-bottom: 2rem;
+      color: var(--aqua-teal);
+      margin-bottom: 1.5rem;
       display: inline-block;
     }
 
     .logout-modal-card h3 {
       font-family: var(--font-display);
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: white;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .logout-modal-card p {
       color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 2.5rem;
-      font-size: 1rem;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
     }
 
     .logout-btn-group {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.25rem;
       justify-content: center;
     }
 
@@ -455,14 +933,15 @@
       background: transparent;
       border: 1px solid rgba(255, 255, 255, 0.2);
       color: white;
-      padding: 0.85rem 2rem;
-      border-radius: var(--radius-md);
+      padding: 0.8rem 1.75rem;
+      border-radius: 8px;
       font-weight: 600;
-      transition: all var(--transition-fast);
+      transition: all 0.2s ease;
+      cursor: pointer;
     }
 
     .btn-logout-stay:hover {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.06);
       border-color: white;
     }
 
@@ -470,106 +949,445 @@
       background: var(--coral-accent);
       border: 1px solid var(--coral-accent);
       color: white;
-      padding: 0.85rem 2rem;
-      border-radius: var(--radius-md);
+      padding: 0.8rem 1.75rem;
+      border-radius: 8px;
       font-weight: 600;
-      transition: all var(--transition-fast);
+      transition: all 0.2s ease;
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .btn-logout-confirm:hover {
-      background: #FF6B35;
+      background: #ff6b35;
       transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(255, 127, 80, 0.3);
+    }
+
+    .dashboard-mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: var(--dark-navy);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 9999;
+    }
+
+    .mobile-nav-brand {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--aqua-teal);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .mobile-hamburger {
+      background: transparent;
+      border: none;
+      color: white !important;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
+    .mobile-hamburger i {
+      width: 24px;
+      height: 24px;
+      color: white !important;
+      display: block !important;
+    }
+
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-save {
+      background: var(--aqua-teal);
+      color: var(--dark-navy);
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: all 0.2s ease;
+      margin-top: 1.5rem;
+    }
+
+    .btn-save:hover {
+      background: var(--aqua-light);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1200px) {
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .project-body {
+        flex-direction: column;
+      }
+
+      .countdown-timer {
+        padding-left: 0;
+        border-left: none;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-color);
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      .mockup-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .reminder-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .dashboard-mobile-nav {
+        display: flex;
+      }
+
+      .dashboard-main {
+        padding-top: 90px !important;
+      }
+
+      .dashboard-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        transform: translateX(-100%);
+        z-index: 1000;
+      }
+
+      .dashboard-sidebar.open {
+        transform: translateX(0);
+      }
+
+      .sidebar-overlay.show {
+        display: block;
+      }
+
+      .dashboard-main {
+        max-width: 100%;
+        padding: 2rem 1.5rem;
+      }
+
+      .growth-summary {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-main {
+        padding: 5rem 1rem 1.5rem;
+      }
+
+      .welcome-banner {
+        padding: 3.5rem 1.5rem !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+
+      .welcome-banner h1 {
+        font-size: 2rem !important;
+        text-transform: uppercase !important;
+        margin: 1rem 0 !important;
+      }
+
+      .welcome-banner p {
+        margin: 0 auto !important;
+      }
+
+      .form-card {
+        padding: 2rem 1.25rem !important;
+        text-align: center !important;
+      }
+
+      .form-section-title {
+        justify-content: center !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .form-label {
+        text-align: center !important;
+      }
+
+      .form-control {
+        text-align: center !important;
+      }
+
+      .dim-visual {
+        padding: 1.5rem 1rem !important;
+      }
+
+      /* Grid for dimensions */
+      div[style*="grid-template-columns: repeat(3, 1fr)"],
+      div[style*="grid-template-columns: repeat(3, 1fr)"]+div,
+      .mockup-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      .stats-row {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      .stat-card-v2 {
+        text-align: center !important;
+        padding: 2.5rem 1.5rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+
+      .stat-icon {
+        margin: 0 0 1.25rem 0 !important;
+      }
+
+      .stat-card-v2 .value {
+        font-size: 2.4rem !important;
+      }
+
+      .stat-card-v2 .label {
+        font-size: 0.75rem !important;
+      }
+
+      /* Inner grids on overview tab */
+      #tab-overview>div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      .mockup-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .growth-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .reminder-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule-step {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 2.5rem 1.5rem !important;
+        gap: 1.25rem !important;
+      }
+
+      .step-info {
+        text-align: center !important;
+      }
+
+      .step-title {
+        font-size: 1.1rem !important;
+      }
+
+      /* Growth table mobile conversion */
+      .growth-table {
+        background: transparent !important;
+        border: none !important;
+      }
+
+      .growth-table table,
+      .growth-table thead,
+      .growth-table tbody,
+      .growth-table th,
+      .growth-table td,
+      .growth-table tr {
+        display: block !important;
+        width: 100% !important;
+      }
+
+      .growth-table thead {
+        display: none !important;
+      }
+
+      .growth-table tr {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color) !important;
+        border-radius: 16px !important;
+        margin-bottom: 1.25rem !important;
+        padding: 1.5rem !important;
+        text-align: center !important;
+      }
+
+      .growth-table td {
+        border-bottom: none !important;
+        padding: 0.4rem 0 !important;
+      }
+
+      .growth-table td:first-child {
+        font-family: var(--font-display);
+        font-size: 1.2rem !important;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .growth-table td:not(:first-child)::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-tertiary);
+        margin-bottom: 0.2rem;
+      }
+
+      .health-bar {
+        margin: 8px auto 0 !important;
+        max-width: 150px;
+      }
     }
   </style>
 </head>
 
 <body>
-
+  <header class="dashboard-mobile-nav">
+    <div class="mobile-nav-brand">
+      <span style="font-size: 1.5rem; line-height: 1;">🌊</span> AquaDesign
+    </div>
+    <button class="mobile-hamburger" onclick="toggleSidebar()" aria-label="Toggle Navigation">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </header>
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
   <div class="dashboard-container">
-    <!-- Sidebar Navigation -->
-    <aside class="dashboard-sidebar">
-      <a href="../index.html" class="sidebar-brand">🌊 AquaDesign</a>
-
-      <div class="sidebar-profile">
-        <div class="profile-avatar">👤</div>
-        <div class="profile-name">Sarah Jenkins</div>
-        <div class="profile-tier">Elite Enthusiast</div>
-      </div>
-
-      <div class="sidebar-category">Main</div>
-      <button class="sidebar-link active" onclick="switchTab('overview', this)">
-        <span>📊 Dashboard Overview</span>
-      </button>
-      <button class="sidebar-link" onclick="switchTab('tank', this)">
-        <span>🌿 Tank Specifications</span>
-      </button>
-      <button class="sidebar-link" onclick="switchTab('design', this)">
-        <span>🎨 Design Approval</span>
+    <aside class="dashboard-sidebar" id="dashboardSidebar">
+      <a href="../index.html" class="sidebar-brand">
+        <span style="font-size: 1.5rem; line-height: 1;">🌊</span> AquaDesign
+      </a>
+      <div class="sidebar-category">General</div>
+      <button class="sidebar-link active" id="link-overview" onclick="switchTab('overview', this)">
+        <span class="icon"><i data-lucide="layout-dashboard"></i></span><span>Dashboard Overview</span>
       </button>
 
-      <div style="margin-top: auto; padding-top: 2rem;">
-        <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; padding: 0 0.5rem;">
-          <button class="theme-toggle" title="Toggle Theme"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-              height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
+      <div class="sidebar-category">Project Phase</div>
+      <button class="sidebar-link" id="link-tank" onclick="switchTab('tank', this)">
+        <span class="icon"><i data-lucide="box"></i></span><span>Tank Dimensions</span>
+      </button>
+      <button class="sidebar-link" id="link-design" onclick="switchTab('design', this)">
+        <span class="icon"><i data-lucide="palette"></i></span><span>Design Mockups</span>
+      </button>
+      <button class="sidebar-link" id="link-schedule" onclick="switchTab('schedule', this)">
+        <span class="icon"><i data-lucide="calendar"></i></span><span>Schedule Installation</span>
+      </button>
+
+      <div class="sidebar-category">Lifecycle Care</div>
+      <button class="sidebar-link" id="link-growth" onclick="switchTab('growth', this)">
+        <span class="icon"><i data-lucide="sprout"></i></span><span>Plant Growth Tracker</span>
+      </button>
+      <button class="sidebar-link" id="link-maintenance" onclick="switchTab('maintenance', this)">
+        <span class="icon"><i data-lucide="clock"></i></span><span>Maintenance Reminders</span>
+      </button>
+      <div style="margin-top: auto; padding-top: 1.5rem">
+        <div class="sidebar-category">Account</div>
+        <div style="
+              display: flex;
+              gap: 0.75rem;
+              margin-bottom: 1rem;
+              padding: 0 1.5rem;
+            ">
+          <button class="theme-toggle" title="Toggle Theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-            </svg></button>
-          <button class="rtl-toggle" title="Toggle RTL">RTL</button>
+            </svg></button><button class="rtl-toggle" title="Toggle RTL">RTL</button>
         </div>
-        <button onclick="toggleLogoutModal(true)" class="sidebar-link"
-          style="color: var(--coral-accent); background: transparent; border: none;">
-          <span>🚪 Logout</span>
+        <button onclick="toggleLogoutModal(true)" class="sidebar-link" style="color: var(--coral-accent)">
+          <span class="icon"><i data-lucide="log-out"></i></span>
+          <span>Logout</span>
         </button>
       </div>
     </aside>
-
-    <!-- Main Content Area -->
     <main class="dashboard-main">
       <div class="welcome-banner">
-        <p
-          style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 0.5rem; color: white;">
-          Welcome back,</p>
-        <h1>Good Morning, Sarah</h1>
-        <p>Your Rainforest Canopy Aquascape is currently in <strong>Peak Growth Phase</strong>. Your next maintenance
-          visit is scheduled for <strong>April 26</strong>. Take a moment to review the latest biological statistics
-          below.</p>
+        <p style="
+              text-transform: uppercase;
+              letter-spacing: 2px;
+              font-weight: 700;
+              margin-bottom: 0.4rem;
+              font-size: 0.8rem;
+              color: rgba(255, 255, 255, 0.8);
+            ">
+          Welcome back,
+        </p>
+        <h1>Good Morning, Sarah <i data-lucide="sun" class="d-inline-block"
+            style="width:32px;height:32px;vertical-align:middle;margin-top:-5px"></i></h1>
+        <p>
+          Your <strong>Rainforest Canopy Aquascape</strong> is in Peak Growth
+          Phase. Next maintenance visit: <strong>May 12, 2025</strong>. Review
+          your stats below.
+        </p>
       </div>
-
       <div class="stats-row">
         <div class="stat-card-v2">
-          <div class="icon">📅</div>
-          <span class="value">42</span>
-          <span class="label">Days Active</span>
+          <div class="stat-icon"><i data-lucide="calendar"></i></div>
+          <span class="value">42</span><span class="label">Days Active</span>
         </div>
         <div class="stat-card-v2">
-          <div class="icon">🌿</div>
-          <span class="value">85%</span>
-          <span class="label">Growth Target</span>
+          <div class="stat-icon"><i data-lucide="trending-up"></i></div>
+          <span class="value">85%</span><span class="label">Growth Target</span>
         </div>
         <div class="stat-card-v2">
-          <div class="icon">💧</div>
-          <span class="value">7.2</span>
-          <span class="label">pH Level</span>
+          <div class="stat-icon"><i data-lucide="droplets"></i></div>
+          <span class="value">7.2</span><span class="label">pH Level</span>
         </div>
         <div class="stat-card-v2">
-          <div class="icon">🏆</div>
-          <span class="value">EXCL.</span>
-          <span class="label">Care Plan Active</span>
+          <div class="stat-icon"><i data-lucide="shield-check"></i></div>
+          <span class="value">EXCL.</span><span class="label">Care Plan Active</span>
         </div>
       </div>
-
-      <!-- Overview Tab -->
       <div class="dashboard-tab active" id="tab-overview">
-        <!-- Active Project Card -->
         <div class="project-card-v2">
           <div class="project-header">
             <div class="project-title">
-              <span
-                style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-tertiary); display: block; margin-bottom: 0.2rem;">Currently
-                Managing</span>
-              Rainforest Canopy Masterpiece
+              <span style="
+                    font-size: 0.65rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    color: var(--text-tertiary);
+                    display: block;
+                    margin-bottom: 0.15rem;
+                  ">Currently Managing</span>Rainforest Canopy Masterpiece
             </div>
             <span class="status-badge">In Progress</span>
           </div>
@@ -585,139 +1403,664 @@
               </div>
               <div class="info-group">
                 <label>Est. Maturity</label>
-                <p>June 15, 2024</p>
+                <p>June 15, 2025</p>
               </div>
               <div class="info-group">
                 <label>Project ID</label>
                 <p>AD-2024-0847</p>
               </div>
             </div>
-
             <div class="countdown-timer">
               <span class="countdown-label">Days to Next Service</span>
               <div class="timer-units">
                 <div class="timer-unit">
-                  <span class="num">02</span>
-                  <span class="txt">Days</span>
+                  <span class="num" id="timer-days">14</span><span class="txt">Days</span>
                 </div>
                 <div class="timer-unit">
-                  <span class="num">14</span>
-                  <span class="txt">Hours</span>
+                  <span class="num" id="timer-hours">08</span><span class="txt">Hours</span>
                 </div>
                 <div class="timer-unit">
-                  <span class="num">35</span>
-                  <span class="txt">Mins</span>
+                  <span class="num" id="timer-mins">32</span><span class="txt">Mins</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 1.25rem;
+              margin-top: 0.5rem;
+            ">
+          <div class="project-card-v2" style="margin-bottom: 0">
+            <div class="project-header">
+              <div class="project-title"><i data-lucide="activity"></i> Water Parameters</div>
+            </div>
+            <div style="
+                  padding: 1.5rem;
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 1rem;
+                ">
+              <div class="info-group">
+                <label>Temperature</label>
+                <p>26�C</p>
+              </div>
+              <div class="info-group">
+                <label>Nitrate (NO3)</label>
+                <p>8 ppm</p>
+              </div>
+              <div class="info-group">
+                <label>KH</label>
+                <p>4 dKH</p>
+              </div>
+              <div class="info-group">
+                <label>CO2</label>
+                <p>28 ppm</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-card-v2" style="margin-bottom: 0">
+            <div class="project-header">
+              <div class="project-title"><i data-lucide="image"></i> Project Gallery</div>
+            </div>
+            <div style="
+                  padding: 1.5rem;
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 0.75rem;
+                ">
+              <div style="
+                    height: 80px;
+                    border-radius: 8px;
+                    background-image: url(&quot;../assets/img/feature-custom-design.png&quot;);
+                    background-size: cover;
+                    background-position: center;
+                  "></div>
+              <div style="
+                    height: 80px;
+                    border-radius: 8px;
+                    background-image: url(&quot;../assets/img/feature-installation.png&quot;);
+                    background-size: cover;
+                    background-position: center;
+                  "></div>
+              <div style="
+                    height: 80px;
+                    border-radius: 8px;
+                    background-image: url(&quot;../assets/img/feature-maintenance.png&quot;);
+                    background-size: cover;
+                    background-position: center;
+                  "></div>
+              <div style="
+                    height: 80px;
+                    border-radius: 8px;
+                    background-image: url(&quot;../assets/img/feature-experience.png&quot;);
+                    background-size: cover;
+                    background-position: center;
+                  "></div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Tank Specifications Tab -->
       <div class="dashboard-tab" id="tab-tank">
-        <h2 style="font-family: var(--font-display); margin-bottom: 2rem;">Tank Specifications</h2>
-        <div
-          style="background: var(--card-bg); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
-          <form id="tankForm">
-            <div class="form-section"
-              style="border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; margin-bottom: 2rem;">
-              <h4 style="font-family: var(--font-display);"><span style="color: var(--aqua-teal);">🌿</span> Tank
-                Dimensions</h4>
-              <div class="row mt-4">
-                <div class="col-md-4"><label class="form-label">Length</label><input type="text" class="form-control"
-                    value="48 inches" readonly></div>
-                <div class="col-md-4"><label class="form-label">Width</label><input type="text" class="form-control"
-                    value="24 inches" readonly></div>
-                <div class="col-md-4"><label class="form-label">Height</label><input type="text" class="form-control"
-                    value="18 inches" readonly></div>
+        <h2 class="tab-title"><i data-lucide="box"></i> Tank Dimensions</h2>
+        <div class="dim-visual">
+          <svg class="tank-svg" viewBox="0 0 300 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="40" width="260" height="130" rx="4" stroke="rgba(46,196,182,0.7)" stroke-width="2.5"
+              fill="rgba(46,196,182,0.06)" />
+            <line x1="20" y1="40" x2="0" y2="20" stroke="rgba(46,196,182,0.4)" stroke-width="1.5" />
+            <line x1="280" y1="40" x2="300" y2="20" stroke="rgba(46,196,182,0.4)" stroke-width="1.5" />
+            <line x1="0" y1="20" x2="300" y2="20" stroke="rgba(46,196,182,0.4)" stroke-width="1.5"
+              stroke-dasharray="4 3" />
+            <line x1="280" y1="40" x2="300" y2="20" stroke="rgba(46,196,182,0.4)" stroke-width="1.5" />
+            <rect x="20" y="140" width="260" height="4" rx="2" fill="rgba(46,196,182,0.2)" />
+            <text x="150" y="25" text-anchor="middle" font-size="11" fill="rgba(46,196,182,0.9)"
+              font-family="Poppins,sans-serif">
+              48 in � Length
+            </text>
+            <text x="294" y="100" text-anchor="middle" font-size="10" fill="rgba(46,196,182,0.9)"
+              font-family="Poppins,sans-serif" transform="rotate(-90,294,100)">
+              18 in
+            </text>
+            <text x="150" y="165" text-anchor="middle" font-size="11" fill="rgba(46,196,182,0.9)"
+              font-family="Poppins,sans-serif">
+              Volume: ~110 gal
+            </text>
+          </svg>
+          <div class="dim-label" style="margin-top: 0.5rem">
+            Tank Visual � Rainforest Canopy Masterpiece
+          </div>
+        </div>
+        <div class="form-card">
+          <div style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.25rem;
+                margin-bottom: 1.5rem;
+              ">
+            <div>
+              <label class="form-label">Length</label><input type="text" class="form-control" value="48 inches"
+                id="tankLength" />
+            </div>
+            <div>
+              <label class="form-label">Width</label><input type="text" class="form-control" value="24 inches"
+                id="tankWidth" />
+            </div>
+            <div>
+              <label class="form-label">Height</label><input type="text" class="form-control" value="18 inches"
+                id="tankHeight" />
+            </div>
+          </div>
+          <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.25rem;
+                margin-bottom: 1.5rem;
+              ">
+            <div>
+              <label class="form-label">Water Volume (Auto-Calculated)</label><input type="text" class="form-control"
+                value="~110 gallons" id="tankVolume" readonly />
+            </div>
+            <div>
+              <label class="form-label">Location</label><input type="text" class="form-control"
+                value="Main Reception Hall" id="tankLocation" />
+            </div>
+          </div>
+          <div style="
+                border-top: 1px solid var(--border-color);
+                padding-top: 1.5rem;
+                margin-top: 0.5rem;
+              ">
+            <div class="form-section-title"><i data-lucide="settings"></i> System Setup</div>
+            <div style="
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 1.25rem;
+                ">
+              <div>
+                <label class="form-label">Substrate Type</label><input type="text" class="form-control"
+                  value="ADA Amazonia II" />
               </div>
-              <div class="mt-4">
-                <label class="form-label">Location</label>
-                <p class="text-secondary">Main Reception Hall - Aquatic Centerpiece</p>
+              <div>
+                <label class="form-label">Filtration System</label><input type="text" class="form-control"
+                  value="EHEIM Professionel 4+ 600" />
+              </div>
+              <div>
+                <label class="form-label">Lighting System</label><input type="text" class="form-control"
+                  value="ADA Solar RGB" />
               </div>
             </div>
-            <div class="form-section">
-              <h4 style="font-family: var(--font-display);"><span style="color: var(--aqua-teal);">⚙️</span> Filtration
-                & Lighting</h4>
-              <p class="text-secondary mt-3">Using EHEIM Professionel 4+ 600 Canister and ADA Solar RGB System.</p>
-            </div>
-          </form>
+          </div>
+          <button class="btn-save" onclick="alert('Changes saved successfully!')">
+            <i data-lucide="save"></i> Save Changes
+          </button>
         </div>
       </div>
-
-      <!-- Design Approval Tab -->
       <div class="dashboard-tab" id="tab-design">
-        <h2 style="font-family: var(--font-display); margin-bottom: 2rem;">Design Concepts & Approval</h2>
-        <div class="gallery-thumbs">
-          <div class="thumb"
-            style="background-image: url('../assets/img/portfolio/aquatic_meadow.png'); background-size: cover; background-position: center;">
+        <h2 class="tab-title"><i data-lucide="palette"></i> Design Mockups</h2>
+        <div class="mockup-grid">
+          <div class="mockup-card">
+            <div class="mockup-thumb" style="
+                  background-image: url(&quot;../assets/img/feature-custom-design.png&quot;);
+                ">
+              <span class="badge-status status-badge approved"><i data-lucide="check-circle" class="chip-icon"></i>
+                Approved</span>
+            </div>
+            <div class="mockup-info">
+              <h6>Nature Aquarium � Driftwood Layout</h6>
+              <p>
+                Dense moss coverage with driftwood focal point and high-stem
+                background
+              </p>
+              <div class="mockup-actions">
+                <button class="btn-approve" disabled>? Approved</button>
+              </div>
+            </div>
           </div>
-          <div class="thumb"
-            style="background-image: url('../assets/img/portfolio/stone_garden.png'); background-size: cover; background-position: center;">
+          <div class="mockup-card">
+            <div class="mockup-thumb" style="
+                  background-image: url(&quot;../assets/img/card-design.png&quot;);
+                ">
+              <span class="badge-status status-badge pending"><i data-lucide="clock" class="chip-icon"></i>
+                Pending</span>
+            </div>
+            <div class="mockup-info">
+              <h6>Iwagumi � Stone Garden Variant</h6>
+              <p>
+                Minimalist stone layout with carpet plants and open swim space
+              </p>
+              <div class="mockup-actions">
+                <button class="btn-approve" onclick="approveMockup(this)">
+                  Approve</button><button class="btn-reject" onclick="rejectMockup(this)">
+                  Reject
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="thumb"
-            style="background-image: url('../assets/img/portfolio/grand_display.png'); background-size: cover; background-position: center;">
+          <div class="mockup-card">
+            <div class="mockup-thumb" style="
+                  background-image: url(&quot;../assets/img/portfolio-jungle.png&quot;);
+                ">
+              <span class="badge-status status-badge revision"><i data-lucide="refresh-cw" class="chip-icon"></i>
+                Revision</span>
+            </div>
+            <div class="mockup-info">
+              <h6>Jungle Scape � High-density Flora</h6>
+              <p>
+                Lush multi-species planting with emergent growth and canopy
+                effect
+              </p>
+              <div class="mockup-actions">
+                <button class="btn-approve" onclick="approveMockup(this)">
+                  Approve</button><button class="btn-reject" onclick="rejectMockup(this)">
+                  Reject
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="project-card-v2 mt-4" style="padding: 2.5rem;">
-          <h5 style="font-family: var(--font-display);">Nature Aquarium Style</h5>
-          <p class="text-secondary">Your approved design focuses on a driftwood-centric layout with heavy moss coverage
-            and high-density stem plants in the background.</p>
-          <div class="alert alert-success mt-4">
-            <span>✓</span>
-            <div>Design approved by Sarah on April 1, 2024</div>
+        <div class="approval-timeline">
+          <h6><i data-lucide="history"></i> Approval Timeline</h6>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-text">
+              Nature Aquarium layout approved by Sarah
+            </div>
+            <div class="timeline-date">Apr 1, 2025</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: #ffc107"></div>
+            <div class="timeline-text">
+              Iwagumi variant submitted for review
+            </div>
+            <div class="timeline-date">Apr 18, 2025</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--coral-accent)"></div>
+            <div class="timeline-text">
+              Jungle Scape sent back for color revision
+            </div>
+            <div class="timeline-date">Apr 22, 2025</div>
           </div>
         </div>
       </div>
-
-
+      <div class="dashboard-tab" id="tab-schedule">
+        <h2 class="tab-title"><i data-lucide="calendar"></i> Schedule Installation</h2>
+        <div class="schedule-steps">
+          <div class="schedule-step">
+            <div class="step-num">1</div>
+            <div class="step-info">
+              <div class="step-title">Site Assessment & Measurement</div>
+              <div class="step-date">Mar 1, 2025</div>
+            </div>
+            <span class="step-chip chip-done"><i data-lucide="check-circle" class="chip-icon"></i> Completed</span>
+          </div>
+          <div class="schedule-step">
+            <div class="step-num">2</div>
+            <div class="step-info">
+              <div class="step-title">Tank Delivery & Positioning</div>
+              <div class="step-date">Mar 8, 2025</div>
+            </div>
+            <span class="step-chip chip-done"><i data-lucide="check-circle" class="chip-icon"></i> Completed</span>
+          </div>
+          <div class="schedule-step">
+            <div class="step-num">3</div>
+            <div class="step-info">
+              <div class="step-title">
+                Hardscape Setup � Rocks & Driftwood
+              </div>
+              <div class="step-date">Mar 15, 2025</div>
+            </div>
+            <span class="step-chip chip-done"><i data-lucide="check-circle" class="chip-icon"></i> Completed</span>
+          </div>
+          <div class="schedule-step">
+            <div class="step-num">4</div>
+            <div class="step-info">
+              <div class="step-title">Planting Day � Flora Installation</div>
+              <div class="step-date">Mar 22, 2025</div>
+            </div>
+            <span class="step-chip chip-done"><i data-lucide="check-circle" class="chip-icon"></i> Completed</span>
+          </div>
+          <div class="schedule-step">
+            <div class="step-num">5</div>
+            <div class="step-info">
+              <div class="step-title">First Fill & System Calibration</div>
+              <div class="step-date">Apr 1, 2025</div>
+            </div>
+            <span class="step-chip chip-done">? Completed</span>
+          </div>
+          <div class="schedule-step" style="border-color: rgba(46, 196, 182, 0.4)">
+            <div class="step-num" style="background: rgba(46, 196, 182, 0.2)">
+              6
+            </div>
+            <div class="step-info">
+              <div class="step-title">Client Handover & Training Session</div>
+              <div class="step-date">May 20, 2025</div>
+            </div>
+            <span class="step-chip chip-upcoming"><i data-lucide="calendar" class="chip-icon"></i> Upcoming</span>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-tab" id="tab-growth">
+        <h2 class="tab-title"><i data-lucide="sprout"></i> Plant Growth Tracker</h2>
+        <div class="growth-summary">
+          <div class="growth-stat">
+            <span class="big">12</span><span class="lbl">Species Tracked</span>
+          </div>
+          <div class="growth-stat">
+            <span class="big" style="color: var(--aqua-teal)">92%</span><span class="lbl">Overall Health</span>
+          </div>
+          <div class="growth-stat">
+            <span class="big">+3.2cm</span><span class="lbl">Avg Growth / Week</span>
+          </div>
+        </div>
+        <div class="growth-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Plant Species</th>
+                <th>Height (cm)</th>
+                <th>Weekly Growth</th>
+                <th>Health</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Eleocharis Parvula</td>
+                <td data-label="Height (cm)">
+                  6.5 cm
+                  <div class="health-bar">
+                    <div class="health-bar-fill" style="width: 90%"></div>
+                  </div>
+                </td>
+                <td data-label="Weekly Growth">+0.8 cm</td>
+                <td data-label="Health"><span class="health-good">Excellent</span></td>
+                <td data-label="Notes">Carpet forming well</td>
+              </tr>
+              <tr>
+                <td>Hemianthus Callitrichoides</td>
+                <td data-label="Height (cm)">
+                  3.2 cm
+                  <div class="health-bar">
+                    <div class="health-bar-fill" style="width: 85%"></div>
+                  </div>
+                </td>
+                <td data-label="Weekly Growth">+0.5 cm</td>
+                <td data-label="Health"><span class="health-good">Excellent</span></td>
+                <td data-label="Notes">Dense foreground coverage</td>
+              </tr>
+              <tr>
+                <td>Rotala Rotundifolia</td>
+                <td data-label="Height (cm)">
+                  24 cm
+                  <div class="health-bar">
+                    <div class="health-bar-fill" style="width: 80%"></div>
+                  </div>
+                </td>
+                <td data-label="Weekly Growth">+2.5 cm</td>
+                <td data-label="Health"><span class="health-good">Good</span></td>
+                <td data-label="Notes">Due for trimming</td>
+              </tr>
+              <tr>
+                <td>Anubias Nana</td>
+                <td data-label="Height (cm)">
+                  12 cm
+                  <div class="health-bar">
+                    <div class="health-bar-fill" style="width: 95%"></div>
+                  </div>
+                </td>
+                <td data-label="Weekly Growth">+0.3 cm</td>
+                <td data-label="Health"><span class="health-good">Excellent</span></td>
+                <td data-label="Notes">Attached to driftwood</td>
+              </tr>
+              <tr>
+                <td>Java Moss</td>
+                <td data-label="Height (cm)">
+                  8 cm
+                  <div class="health-bar">
+                    <div class="health-bar-fill" style="width: 70%"></div>
+                  </div>
+                </td>
+                <td data-label="Weekly Growth">+1.1 cm</td>
+                <td data-label="Health"><span class="health-fair">Fair</span></td>
+                <td data-label="Notes">Slight algae on tips</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="dashboard-tab" id="tab-maintenance">
+        <h2 class="tab-title"><i data-lucide="clock"></i> Maintenance Reminders</h2>
+        <div class="reminder-grid">
+          <div class="reminder-card">
+            <div class="reminder-header">
+              <div class="reminder-icon"><i data-lucide="droplets"></i></div>
+              <div>
+                <div class="reminder-title">Water Change (30%)</div>
+                <div class="reminder-freq">Every 7 days</div>
+              </div>
+            </div>
+            <div class="reminder-due">
+              <i data-lucide="clock"></i> Due:
+              <strong style="color: var(--coral-accent)">May 2, 2025</strong>
+            </div>
+            <div class="reminder-footer">
+              <span class="step-chip chip-upcoming">? Due Soon</span><button class="btn-mark-done"
+                onclick="markDone(this)">
+                <i data-lucide="check-circle"></i> Mark Done
+              </button>
+            </div>
+          </div>
+          <div class="reminder-card">
+            <div class="reminder-header">
+              <div class="reminder-icon"><i data-lucide="flame"></i></div>
+              <div>
+                <div class="reminder-title">CO2 Cylinder Refill</div>
+                <div class="reminder-freq">Every 30 days</div>
+              </div>
+            </div>
+            <div class="reminder-due">
+              ?? Due: <strong>May 15, 2025</strong>
+            </div>
+            <div class="reminder-footer">
+              <span class="step-chip chip-done">? Scheduled</span><button class="btn-mark-done"
+                onclick="markDone(this)">
+                <i data-lucide="check-circle"></i> Mark Done
+              </button>
+            </div>
+          </div>
+          <div class="reminder-card">
+            <div class="reminder-header">
+              <div class="reminder-icon"><i data-lucide="leaf"></i></div>
+              <div>
+                <div class="reminder-title">Fertilizer Dosing</div>
+                <div class="reminder-freq">Every 3 days</div>
+              </div>
+            </div>
+            <div class="reminder-due">
+              <i data-lucide="clock"></i> Due:
+              <strong style="color: var(--coral-accent)">May 1, 2025</strong>
+            </div>
+            <div class="reminder-footer">
+              <span class="step-chip chip-upcoming">? Due Soon</span><button class="btn-mark-done"
+                onclick="markDone(this)">
+                <i data-lucide="check-circle"></i> Mark Done
+              </button>
+            </div>
+          </div>
+          <div class="reminder-card">
+            <div class="reminder-header">
+              <div class="reminder-icon"><i data-lucide="filter"></i></div>
+              <div>
+                <div class="reminder-title">Filter Media Clean</div>
+                <div class="reminder-freq">Every 60 days</div>
+              </div>
+            </div>
+            <div class="reminder-due">
+              ?? Due: <strong>June 10, 2025</strong>
+            </div>
+            <div class="reminder-footer">
+              <span class="step-chip chip-pending">Upcoming</span><button class="btn-mark-done"
+                onclick="markDone(this)">
+                <i data-lucide="check-circle"></i> Mark Done
+              </button>
+            </div>
+          </div>
+          <div class="reminder-card">
+            <div class="reminder-header">
+              <div class="reminder-icon"><i data-lucide="scissors"></i></div>
+              <div>
+                <div class="reminder-title">Plant Trimming</div>
+                <div class="reminder-freq">Every 14 days</div>
+              </div>
+            </div>
+            <div class="reminder-due">
+              ?? Due: <strong>May 10, 2025</strong>
+            </div>
+            <div class="reminder-footer">
+              <span class="step-chip chip-pending">Upcoming</span><button class="btn-mark-done"
+                onclick="markDone(this)">
+                <i data-lucide="check-circle"></i> Mark Done
+              </button>
+            </div>
+          </div>
+          <div class="reminder-card">
+            <div class="reminder-header">
+              <div class="reminder-icon"><i data-lucide="sparkles"></i></div>
+              <div>
+                <div class="reminder-title">Glass Algae Wipe</div>
+                <div class="reminder-freq">Every 3 days</div>
+              </div>
+            </div>
+            <div class="reminder-due">
+              ?? Due:
+              <strong style="color: var(--coral-accent)">May 1, 2025</strong>
+            </div>
+            <div class="reminder-footer">
+              <span class="step-chip chip-upcoming">? Due Soon</span><button class="btn-mark-done"
+                onclick="markDone(this)">
+                ? Mark Done
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="alerts-section">
+          <h6><i data-lucide="bell"></i> Upcoming Alerts</h6>
+          <div class="alert-item">
+            <div class="alert-dot dot-warn"></div>
+            Fertilizer dosing is due tomorrow � do not skip during growth
+            phase
+          </div>
+          <div class="alert-item">
+            <div class="alert-dot dot-warn"></div>
+            Water change window closes in 2 days � pH may drift
+          </div>
+          <div class="alert-item">
+            <div class="alert-dot dot-ok"></div>
+            CO2 refill booked with AquaDesign team for May 15
+          </div>
+          <div class="alert-item">
+            <div class="alert-dot dot-ok"></div>
+            All parameters within normal range as of last check
+          </div>
+        </div>
+      </div>
     </main>
   </div>
-
-  <!-- Logout Confirmation Modal -->
   <div class="logout-modal-overlay" id="logoutModal">
     <div class="logout-modal-card">
-      <div class="logout-brand-logo">🌊 AquaDesign</div>
+      <div class="logout-brand-logo"><i data-lucide="waves"></i> AquaDesign</div>
       <h3>Wait, leaving so soon?</h3>
-      <p>Are you sure you want to end your session? We'll be here whenever you're ready to grow your masterpiece.</p>
+      <p>
+        Are you sure you want to end your session? We will be here whenever
+        you are ready to grow your masterpiece.
+      </p>
       <div class="logout-btn-group">
-        <button class="btn-logout-stay" onclick="toggleLogoutModal(false)">Stay</button>
-        <a href="../index.html" class="btn-logout-confirm">Log out</a>
+        <button class="btn-logout-stay" onclick="toggleLogoutModal(false)">
+          Stay</button><a href="../index.html" class="btn-logout-confirm">Log out</a>
       </div>
     </div>
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/script.js"></script>
-
   <script>
     function toggleLogoutModal(show) {
-      const modal = document.getElementById('logoutModal');
-      modal.style.display = show ? 'flex' : 'none';
+      const m = document.getElementById("logoutModal");
+      m.style.display = show ? "flex" : "none";
     }
-
-    function switchTab(tabName, element) {
-      // Hide all tabs
-      document.querySelectorAll('.dashboard-tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
-
-      // Remove active from all sidebar links
-      document.querySelectorAll('.sidebar-link').forEach(link => {
-        link.classList.remove('active');
-      });
-
-      // Show selected tab
-      const targetTab = document.getElementById('tab-' + tabName);
-      if (targetTab) {
-        targetTab.classList.add('active');
-      }
-
-      if (element) {
-        element.classList.add('active');
-      }
+    function switchTab(name, el) {
+      document
+        .querySelectorAll(".dashboard-tab")
+        .forEach((t) => t.classList.remove("active"));
+      document
+        .querySelectorAll(".sidebar-link")
+        .forEach((l) => l.classList.remove("active"));
+      const t = document.getElementById("tab-" + name);
+      if (t) t.classList.add("active");
+      if (el) el.classList.add("active");
+      closeSidebar();
     }
+    function toggleSidebar() {
+      const s = document.getElementById("dashboardSidebar");
+      const o = document.getElementById("sidebarOverlay");
+      s.classList.toggle("open");
+      o.classList.toggle("show");
+    }
+    function closeSidebar() {
+      document.getElementById("dashboardSidebar").classList.remove("open");
+      document.getElementById("sidebarOverlay").classList.remove("show");
+    }
+    function markDone(btn) {
+      const card = btn.closest(".reminder-card");
+      card.style.opacity = "0.5";
+      btn.innerHTML = '<i data-lucide="check-circle" class="chip-icon"></i> Done';
+      btn.disabled = true;
+      const chip = card.querySelector(".step-chip");
+      chip.innerHTML = '<i data-lucide="check-circle" class="chip-icon"></i> Done';
+      chip.className = "step-chip chip-done";
+      lucide.createIcons();
+    }
+    function approveMockup(btn) {
+      const card = btn.closest(".mockup-card");
+      const badge = card.querySelector(".badge-status");
+      badge.innerHTML = '<i data-lucide="check-circle" class="chip-icon"></i> Approved';
+      badge.className = "badge-status status-badge approved";
+      btn.innerHTML = '<i data-lucide="check-circle" class="chip-icon"></i> Approved';
+      btn.disabled = true;
+      const rej = btn.nextElementSibling;
+      if (rej) rej.style.display = "none";
+      lucide.createIcons();
+    }
+    function rejectMockup(btn) {
+      const card = btn.closest(".mockup-card");
+      const badge = card.querySelector(".badge-status");
+      badge.innerHTML = '<i data-lucide="refresh-cw" class="chip-icon"></i> Revision';
+      badge.className = "badge-status status-badge revision";
+      lucide.createIcons();
+    }
+    (function startTimer() {
+      const targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + 14);
+      function update() {
+        const now = new Date();
+        const diff = targetDate - now;
+        if (diff <= 0) return;
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const de = document.getElementById("timer-days");
+        const he = document.getElementById("timer-hours");
+        const me = document.getElementById("timer-mins");
+        if (de) de.textContent = String(d).padStart(2, "0");
+        if (he) he.textContent = String(h).padStart(2, "0");
+        if (me) me.textContent = String(m).padStart(2, "0");
+      }
+      update();
+      erval(update, 60000);
+    })();
+    // Initialize Lucide Icons
+    lucide.createIcons();
   </script>
 </body>
 

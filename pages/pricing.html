@@ -286,6 +286,28 @@
       .pricing-toggle {
         flex-direction: column;
       }
+
+      .pricing-grid-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      .table-responsive-wrapper {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 2rem;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .price-table {
+        min-width: 700px !important;
+      }
+
+      .pricing-card {
+        padding: 2rem 1rem !important;
+        width: 100% !important;
+      }
     }
   </style>
 </head>
@@ -295,9 +317,8 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-custom">
-      <a class="navbar-brand" href="../index.html">
-        <div class="navbar-logo-icon">🌊</div>
-        AquaDesign
+      <a class="navbar-brand" href="../index.html" style="display: flex; align-items: center; gap: 0.5rem;">
+        🌊 AquaDesign
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -320,9 +341,6 @@
             <a class="nav-link" href="portfolio.html">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="maintenance.html">Maintenance</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link active" href="pricing.html">Pricing</a>
           </li>
           <li class="nav-item">
@@ -334,7 +352,8 @@
           <a href="login.html" class="btn-login-nav">Login</a>
           <button class="rtl-toggle" title="Toggle RTL">RTL</button>
           <button class="theme-toggle" title="Toggle Theme">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
             </svg>
           </button>
@@ -356,7 +375,7 @@
     <div class="container-custom">
       <h2 style="text-align: center; margin-bottom: 3rem;">Design & Installation Packages</h2>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+      <div class="pricing-grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
         <!-- Starter -->
         <div class="pricing-card">
           <div class="package-name">Starter</div>
@@ -426,60 +445,62 @@
         All prices are starting prices. Final quotes depend on tank size, complexity, and location.
       </p>
 
-      <table class="price-table">
-        <thead>
-          <tr>
-            <th>Service</th>
-            <th>Small Tank (10-30gal)</th>
-            <th>Medium Tank (30-60gal)</th>
-            <th>Large Tank (60+gal)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Design Consultation</strong></td>
-            <td>$150</td>
-            <td>$200</td>
-            <td>$300</td>
-          </tr>
-          <tr>
-            <td><strong>Design & Mockups</strong></td>
-            <td>$300</td>
-            <td>$450</td>
-            <td>$600</td>
-          </tr>
-          <tr>
-            <td><strong>Installation (per hour)</strong></td>
-            <td>$100</td>
-            <td>$150</td>
-            <td>$200</td>
-          </tr>
-          <tr>
-            <td><strong>Equipment Setup</strong></td>
-            <td>$150-300</td>
-            <td>$300-500</td>
-            <td>$500+</td>
-          </tr>
-          <tr>
-            <td><strong>Water Chemistry Testing</strong></td>
-            <td>$50</td>
-            <td>$75</td>
-            <td>$100</td>
-          </tr>
-          <tr>
-            <td><strong>Monthly Maintenance</strong></td>
-            <td>$150-200</td>
-            <td>$250-350</td>
-            <td>$400+</td>
-          </tr>
-          <tr>
-            <td><strong>Emergency Support (per hour)</strong></td>
-            <td>$75</td>
-            <td>$100</td>
-            <td>$150</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive-wrapper">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Small Tank (10-30gal)</th>
+              <th>Medium Tank (30-60gal)</th>
+              <th>Large Tank (60+gal)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Design Consultation</strong></td>
+              <td>$150</td>
+              <td>$200</td>
+              <td>$300</td>
+            </tr>
+            <tr>
+              <td><strong>Design & Mockups</strong></td>
+              <td>$300</td>
+              <td>$450</td>
+              <td>$600</td>
+            </tr>
+            <tr>
+              <td><strong>Installation (per hour)</strong></td>
+              <td>$100</td>
+              <td>$150</td>
+              <td>$200</td>
+            </tr>
+            <tr>
+              <td><strong>Equipment Setup</strong></td>
+              <td>$150-300</td>
+              <td>$300-500</td>
+              <td>$500+</td>
+            </tr>
+            <tr>
+              <td><strong>Water Chemistry Testing</strong></td>
+              <td>$50</td>
+              <td>$75</td>
+              <td>$100</td>
+            </tr>
+            <tr>
+              <td><strong>Monthly Maintenance</strong></td>
+              <td>$150-200</td>
+              <td>$250-350</td>
+              <td>$400+</td>
+            </tr>
+            <tr>
+              <td><strong>Emergency Support (per hour)</strong></td>
+              <td>$75</td>
+              <td>$100</td>
+              <td>$150</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -494,7 +515,7 @@
         <span class="toggle-label">Annual (Save 10%)</span>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+      <div class="pricing-grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
         <!-- Monthly -->
         <div class="pricing-card">
           <div class="package-name">Monthly</div>
@@ -555,7 +576,7 @@
         No hidden fees. Here's what you get with every service
       </p>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+      <div class="pricing-grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
         <div
           style="background: var(--card-bg); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
           <div style="font-size: 2rem; margin-bottom: 1rem;">📋</div>
@@ -604,8 +625,9 @@
       <div class="footer-grid">
         <!-- Brand Section -->
         <div class="footer-brand">
-          <a href="../index.html" style="text-decoration: none;">
-            <h2>🌊 AquaDesign</h2>
+          <a href="../index.html" class="navbar-brand"
+            style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+            🌊 AquaDesign
           </a>
           <p>
             Crafting living masterpieces for discerning clients. Our passion for aquascaping combines nature's beauty
@@ -613,8 +635,10 @@
           </p>
           <div class="social-icons-v2">
             <a href="#" class="social-icon-v2" title="Facebook">f</a>
-            <a href="#" class="social-icon-v2" title="Instagram">📷</a>
-            <a href="#" class="social-icon-v2" title="YouTube">🎬</a>
+            <a href="#" class="social-icon-v2" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="social-icon-v2" title="Twitter">𝕏</a>
             <a href="#" class="social-icon-v2" title="LinkedIn">in</a>
           </div>
         </div>
