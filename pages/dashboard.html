@@ -7,7 +7,7 @@
   <title>Client Dashboard | AquaDesign</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -47,7 +47,6 @@
     }
 
     .sidebar-brand {
-      font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--aqua-teal) !important;
@@ -92,7 +91,6 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      font-family: var(--font-body);
     }
 
     .sidebar-link:hover {
@@ -142,7 +140,6 @@
     }
 
     .welcome-banner h1 {
-      font-family: var(--font-display);
       font-size: 2.4rem;
       margin-bottom: 0.75rem;
       font-weight: 700;
@@ -192,7 +189,6 @@
 
     .stat-card-v2 .value {
       font-size: 1.9rem;
-      font-family: var(--font-display);
       font-weight: 700;
       color: var(--text-primary);
       display: block;
@@ -217,7 +213,6 @@
     }
 
     .tab-title {
-      font-family: var(--font-display);
       color: var(--text-primary);
       margin-bottom: 1.75rem;
       font-size: 1.6rem;
@@ -243,7 +238,6 @@
     }
 
     .project-title {
-      font-family: var(--font-display);
       font-size: 1.15rem;
       font-weight: 600;
       color: var(--text-primary);
@@ -340,7 +334,6 @@
 
     .timer-unit .num {
       display: block;
-      font-family: var(--font-display);
       font-size: 2.2rem;
       font-weight: 700;
       color: var(--aqua-teal);
@@ -361,7 +354,6 @@
     }
 
     .form-section-title {
-      font-family: var(--font-display);
       font-size: 1rem;
       color: var(--text-primary);
       margin-bottom: 1.25rem;
@@ -386,7 +378,6 @@
       color: var(--text-primary);
       border-radius: 8px;
       padding: 0.7rem 1rem;
-      font-family: var(--font-body);
       font-size: 0.9rem;
       width: 100%;
       transition: border-color 0.2s ease;
@@ -615,6 +606,14 @@
       padding: 0.3rem 0.75rem;
       border-radius: 100px;
       font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .step-chip i {
+      width: 14px;
+      height: 14px;
     }
 
     .chip-done {
@@ -628,8 +627,13 @@
     }
 
     .chip-pending {
-      background: rgba(255, 255, 255, 0.07);
-      color: var(--text-tertiary);
+      background: rgba(10, 37, 64, 0.05);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    [data-theme="dark"] .chip-pending {
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .growth-summary {
@@ -818,7 +822,6 @@
     }
 
     .alerts-section h6 {
-      font-family: var(--font-display);
       color: var(--text-primary);
       margin-bottom: 1rem;
       display: flex;
@@ -908,7 +911,6 @@
     }
 
     .logout-brand-logo {
-      font-family: var(--font-display);
       font-size: 2rem;
       font-weight: 700;
       color: var(--aqua-teal) !important;
@@ -922,7 +924,6 @@
 
 
     .logout-modal-card h3 {
-      font-family: var(--font-display);
       font-size: 1.8rem;
       color: white;
       margin-bottom: 0.75rem;
@@ -1021,7 +1022,6 @@
 
     .top-nav-welcome h5 {
       margin: 0;
-      font-family: var(--font-display);
       font-size: 1.1rem;
       color: white;
       font-weight: 600;
@@ -1035,7 +1035,6 @@
     }
 
     .top-nav-brand {
-      font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--aqua-teal) !important;
@@ -1130,7 +1129,6 @@
     }
 
     .mobile-nav-brand {
-      font-family: var(--font-display);
       font-size: 1.3rem;
       font-weight: 700;
       color: var(--aqua-teal);
@@ -1177,7 +1175,6 @@
       border-radius: 8px;
       font-weight: 700;
       cursor: pointer;
-      font-family: var(--font-body);
       transition: all 0.2s ease;
       margin-top: 1.5rem;
     }
@@ -1401,7 +1398,6 @@
       }
 
       .growth-table td:first-child {
-        font-family: var(--font-display);
         font-size: 1.2rem !important;
         color: var(--text-primary);
         margin-bottom: 0.5rem;
@@ -2067,7 +2063,7 @@
               <i data-lucide="clock"></i> Due: <strong>June 10, 2025</strong>
             </div>
             <div class="reminder-footer">
-              <span class="step-chip chip-pending">Upcoming</span><button class="btn-mark-done"
+              <span class="step-chip chip-pending"><i data-lucide="calendar-days"></i> Upcoming</span><button class="btn-mark-done"
                 onclick="markDone(this)">
                 <i data-lucide="check-circle"></i> Mark Done
               </button>
@@ -2085,7 +2081,7 @@
               <i data-lucide="clock"></i> Due: <strong>May 10, 2025</strong>
             </div>
             <div class="reminder-footer">
-              <span class="step-chip chip-pending">Upcoming</span><button class="btn-mark-done"
+              <span class="step-chip chip-pending"><i data-lucide="calendar-days"></i> Upcoming</span><button class="btn-mark-done"
                 onclick="markDone(this)">
                 <i data-lucide="check-circle"></i> Mark Done
               </button>
