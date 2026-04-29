@@ -472,6 +472,8 @@ a:hover {
 .nav-link:hover::after,
 .nav-link.active::after {
   width: 100%;
+  background: var(--aqua-teal);
+  box-shadow: 0 0 10px var(--aqua-teal);
 }
 
 .nav-link:hover {

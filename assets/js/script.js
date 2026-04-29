@@ -141,23 +141,66 @@ class Navigation {
 
   setupNavActiveState() {
     const navLinks = document.querySelectorAll('.nav-link');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      const sections = document.querySelectorAll('section[id]');
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (window.pageYOffset >= sectionTop - 200) {
-          current = section.getAttribute('id');
-        }
-      });
+    const sections = document.querySelectorAll('section[id], header[id], footer[id]');
+    
+    // Safety check: Exit if no navigation links exist
+    if (navLinks.length === 0) return;
 
+    /**
+     * Helper to update the active class on nav links
+     * @param {string} targetIdentifier - Can be a hash (#section) or a filename (about.html)
+     */
+    const updateActiveLink = (targetIdentifier) => {
+      if (!targetIdentifier) return;
+      
       navLinks.forEach(link => {
+        const href = link.getAttribute('href') || '';
+        // Remove active class from all first
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
+        
+        // Match conditions: 
+        // 1. Exact match
+        // 2. Ends with the identifier (e.g. href="pages/about.html" matches "about.html")
+        // 3. Special case for Home: if identifier is #home, match index.html or /
+        const isHomeMatch = (targetIdentifier === '#home' || targetIdentifier === 'index.html') && 
+                           (href.endsWith('index.html') || href === '../index.html' || href === '#' || href === '#home');
+
+        if (href === targetIdentifier || href.endsWith(targetIdentifier) || isHomeMatch) {
           link.classList.add('active');
         }
       });
-    });
+    };
+
+    // 1. INITIAL STATE & DEEP LINKING
+    const currentHash = window.location.hash;
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+    if (currentHash) {
+      updateActiveLink(currentHash);
+    } else {
+      updateActiveLink(currentPath);
+    }
+
+    // 2. INTERSECTION OBSERVER (For Home Page/Single Page Scrollspy)
+    if (sections.length > 0 && 'IntersectionObserver' in window) {
+      const observerOptions = {
+        root: null,
+        rootMargin: '-25% 0px -65% 0px',
+        threshold: 0
+      };
+
+      const observerCallback = (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            if (id) updateActiveLink(`#${id}`);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+      sections.forEach(section => observer.observe(section));
+    }
   }
 }
 
