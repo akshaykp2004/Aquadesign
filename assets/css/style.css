@@ -2671,9 +2671,23 @@ footer::before {
    ============================================ */
 
 @media (max-width: 991px) {
+  .navbar {
+    padding: 0.75rem 1.25rem !important;
+  }
+
   .navbar .container-custom {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
+    width: 100%;
+    gap: 0;
+  }
+
+  .navbar-brand {
+    max-width: 75%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.25rem !important;
   }
 
   .navbar-collapse {
