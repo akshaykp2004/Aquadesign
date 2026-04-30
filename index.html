@@ -11,7 +11,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+    rel="stylesheet">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -46,7 +48,8 @@
     }
 
     .feature-card h4,
-    .service-item h4 {
+    .service-item h4,
+    h4, h5, h6 {
       color: var(--text-primary) !important;
       margin-bottom: 1rem;
     }
@@ -300,7 +303,6 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
@@ -317,37 +319,42 @@
     }
 
     .testimonial-quote {
-      font-size: 1.1rem;
+      font-family: var(--font-secondary);
+      font-size: 1.15rem;
       line-height: 1.8;
-      font-style: italic;
       color: var(--text-primary);
-      margin: 1.5rem 0;
+      margin: 1rem 0 0;
       position: relative;
       z-index: 1;
+    }
+
+    .testimonial-meta h5 {
+      color: var(--text-primary) !important;
     }
 
     .testimonial-patron {
       display: flex;
       align-items: center;
       gap: 1.2rem;
-      margin-top: 2rem;
-      padding-top: 2rem;
+      margin-top: 1rem;
+      padding-top: 1.5rem;
       border-top: 1px solid var(--border-color);
     }
 
-    .testimonial-initials {
+    .testimonial-avatar-img {
       width: 50px;
       height: 50px;
-      background: linear-gradient(135deg, var(--aqua-teal), var(--aqua-light));
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 1rem;
+      overflow: hidden;
       flex-shrink: 0;
+      border: 2px solid var(--aqua-teal);
       box-shadow: 0 5px 15px rgba(46, 196, 182, 0.3);
+    }
+
+    .testimonial-avatar-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .stars {
@@ -382,7 +389,7 @@
     }
 
     .newsletter-premium-image {
-      background-image: url('https://images.unsplash.com/photo-1520004434532-668416a08753?q=80&w=2070&auto=format&fit=crop') !important;
+      background-image: url('assets/img/newsletter-journal.png') !important;
       background-size: cover;
       background-position: center;
       position: relative;
@@ -696,12 +703,15 @@
               <h4>Aquascaping Design & Setup</h4>
               <p>Complete aquascaping service from concept to completion. We design and build stunning underwater
                 landscapes using premium plants, rocks, and driftwood.</p>
-              <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
+              <ul style="list-style: none; padding: 0; color: var(--text-secondary); margin-bottom: 3rem;">
                 <li>✓ Consultation & design mockups</li>
                 <li>✓ Premium plant & hardscape selection</li>
                 <li>✓ Professional installation</li>
                 <li>✓ Cycling & stabilization</li>
               </ul>
+              <a href="pages/services.html" class="btn btn-primary"
+                style="padding: 0.8rem 1.8rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Start
+                Design</a>
             </div>
           </div>
         </div>
@@ -716,12 +726,15 @@
               <h4>Custom Aquarium Design</h4>
               <p>Full aquarium setup for any space. From nano cube aquariums to large displays, we handle tank
                 selection, equipment setup, and initial design.</p>
-              <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
+              <ul style="list-style: none; padding: 0; color: var(--text-secondary); margin-bottom: 3rem;">
                 <li>✓ Tank & equipment recommendations</li>
                 <li>✓ Hardscape & substrate design</li>
                 <li>✓ Water system setup</li>
                 <li>✓ Initial stocking guidance</li>
               </ul>
+              <a href="pages/portfolio.html" class="btn btn-primary"
+                style="padding: 0.8rem 1.8rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Get
+                Quote</a>
             </div>
           </div>
         </div>
@@ -736,12 +749,15 @@
               <h4>Professional Installation</h4>
               <p>Stress-free installation service. We handle all setup at your location, including positioning,
                 equipment installation, and initial water preparation.</p>
-              <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
+              <ul style="list-style: none; padding: 0; color: var(--text-secondary); margin-bottom: 3rem;">
                 <li>✓ On-site setup & testing</li>
                 <li>✓ Equipment testing</li>
                 <li>✓ Safety checks</li>
                 <li>✓ Owner training included</li>
               </ul>
+              <a href="pages/contact.html" class="btn btn-primary"
+                style="padding: 0.8rem 1.8rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Book
+                Install</a>
             </div>
           </div>
         </div>
@@ -756,7 +772,7 @@
               <h4>Ongoing Maintenance Plans</h4>
               <p>Hassle-free maintenance. Choose from weekly, bi-weekly, or monthly service plans. We keep your aquarium
                 pristine and thriving.</p>
-              <ul style="list-style: none; padding: 0; color: var(--text-secondary); margin-bottom: 2rem;">
+              <ul style="list-style: none; padding: 0; color: var(--text-secondary); margin-bottom: 3rem;">
                 <li>✓ Water changes & testing</li>
                 <li>✓ Plant trimming & CO2 management</li>
                 <li>✓ Equipment servicing</li>
@@ -914,11 +930,13 @@
             <div>
               <div class="stars">★★★★★</div>
               <p class="testimonial-quote">"My grand entryway felt empty until AquaDesign installed their custom
-                300-gallon reef tank. The dashboard keeps me updated, and their white-glove maintenance is flawless."
+                300-gallon reef tank. The dashboard keeps me updated, and their white-glove."
               </p>
             </div>
             <div class="testimonial-patron">
-              <div class="testimonial-initials">MH</div>
+              <div class="testimonial-avatar-img">
+                <img src="assets/img/avatar-margaret.png" alt="Margaret Harrington">
+              </div>
               <div class="testimonial-meta">
                 <h5 style="margin: 0; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">Margaret
                   Harrington</h5>
@@ -937,7 +955,9 @@
                 condition. The before-and-after photographs they provided are themselves a work of art."</p>
             </div>
             <div class="testimonial-patron">
-              <div class="testimonial-initials">RP</div>
+              <div class="testimonial-avatar-img">
+                <img src="assets/img/avatar-robert.png" alt="Robert Pemberton">
+              </div>
               <div class="testimonial-meta">
                 <h5 style="margin: 0; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">Robert
                   Pemberton</h5>
@@ -956,7 +976,9 @@
                 zen garden is now the centrepiece of our family home and brings us daily peace."</p>
             </div>
             <div class="testimonial-patron">
-              <div class="testimonial-initials">EC</div>
+              <div class="testimonial-avatar-img">
+                <img src="assets/img/avatar-eleanor.png" alt="Eleanor Crawford">
+              </div>
               <div class="testimonial-meta">
                 <h5 style="margin: 0; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">Eleanor
                   Crawford</h5>
