@@ -2106,6 +2106,10 @@ footer .social-icon-v2 {
   background: transparent !important;
 }
 
+.cta-dark-gradient h2 {
+  color: var(--white-pure) !important;
+}
+
 .cta-dark-gradient .btn-white:hover {
   background: var(--white-pure) !important;
   color: var(--primary-dark) !important;
