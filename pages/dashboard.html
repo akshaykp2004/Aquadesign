@@ -271,17 +271,24 @@
     }
 
     .project-body {
-      padding: 2rem;
+      padding: 2.5rem;
       display: flex;
-      justify-content: space-between;
-      gap: 2rem;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+      text-align: center;
     }
 
     .project-info-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem 3rem;
-      flex: 1;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem 4rem;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .info-group {
+      text-align: center;
     }
 
     .info-group label {
@@ -303,12 +310,14 @@
 
     .countdown-timer {
       text-align: center;
-      padding-left: 2.5rem;
-      border-left: 1px solid var(--border-color);
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-color);
+      width: 100%;
+      max-width: 600px;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: center;
-      min-width: 180px;
     }
 
     .countdown-label {
@@ -1209,6 +1218,11 @@
       .reminder-grid {
         grid-template-columns: 1fr;
       }
+
+      .params-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
     }
 
     @media (max-width: 992px) {
@@ -1296,12 +1310,19 @@
       div[style*="grid-template-columns: repeat(3, 1fr)"],
       div[style*="grid-template-columns: repeat(3, 1fr)"]+div,
       .mockup-grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 1.5rem !important;
       }
 
+      .mockup-grid > .mockup-card:last-child {
+        grid-column: span 2 !important;
+        justify-self: center !important;
+        width: 100% !important;
+        max-width: 500px !important;
+      }
+
       .stats-row {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 1.5rem !important;
       }
 
@@ -1331,12 +1352,17 @@
         gap: 1.5rem !important;
       }
 
-      .mockup-grid {
-        grid-template-columns: 1fr;
-      }
 
       .growth-summary {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+      }
+
+      .growth-summary > .growth-stat:last-child {
+        grid-column: span 2 !important;
+        justify-self: center !important;
+        width: 100% !important;
+        max-width: 500px !important;
       }
 
       .reminder-grid {
@@ -1345,6 +1371,54 @@
 
       .project-info-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem !important;
+      }
+
+      .project-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1.25rem !important;
+        padding: 2.5rem 1.5rem !important;
+      }
+
+      .project-title {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+
+      .project-title span {
+        justify-content: center !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.4rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      .status-badge {
+        margin: 0 auto !important;
+        padding: 0.5rem 1.2rem !important;
+        font-size: 0.7rem !important;
+      }
+
+      .info-group {
+        text-align: center !important;
+      }
+
+      .info-group label {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      .countdown-timer {
+        min-width: 100% !important;
+        border-left: none !important;
+        border-top: 1px solid var(--border-color) !important;
+        padding: 2.5rem 0 0 !important;
+        margin-top: 1rem !important;
       }
 
       .schedule-step {
@@ -1597,7 +1671,7 @@
             <div class="project-header">
               <div class="project-title"><i data-lucide="activity"></i> Water Parameters</div>
             </div>
-            <div style="
+            <div class="params-grid" style="
                   padding: 1.5rem;
                   display: grid;
                   grid-template-columns: 1fr 1fr;
@@ -1605,7 +1679,7 @@
                 ">
               <div class="info-group">
                 <label><i data-lucide="thermometer"></i> Temperature</label>
-                <p>26�C</p>
+                <p>26&deg;C</p>
               </div>
               <div class="info-group">
                 <label><i data-lucide="flask-conical"></i> Nitrate (NO3)</label>
@@ -1764,8 +1838,6 @@
             <div class="mockup-thumb" style="
                   background-image: url(&quot;../assets/img/feature-custom-design.png&quot;);
                 ">
-              <span class="badge-status status-badge approved"><i data-lucide="check-circle" class="chip-icon"></i>
-                Approved</span>
             </div>
             <div class="mockup-info">
               <h6>Nature Aquarium � Driftwood Layout</h6>
@@ -1782,8 +1854,6 @@
             <div class="mockup-thumb" style="
                   background-image: url(&quot;../assets/img/card-design.png&quot;);
                 ">
-              <span class="badge-status status-badge pending"><i data-lucide="clock" class="chip-icon"></i>
-                Pending</span>
             </div>
             <div class="mockup-info">
               <h6>Iwagumi � Stone Garden Variant</h6>
@@ -1802,8 +1872,6 @@
             <div class="mockup-thumb" style="
                   background-image: url(&quot;../assets/img/portfolio-jungle.png&quot;);
                 ">
-              <span class="badge-status status-badge revision"><i data-lucide="refresh-cw" class="chip-icon"></i>
-                Revision</span>
             </div>
             <div class="mockup-info">
               <h6>Jungle Scape � High-density Flora</h6>
@@ -2226,18 +2294,6 @@
     // Initialize Lucide Icons
     lucide.createIcons();
   </script>
-</body>
-
-</html> if (de) de.textContent = String(d).padStart(2, "0");
-if (he) he.textContent = String(h).padStart(2, "0");
-if (me) me.textContent = String(m).padStart(2, "0");
-}
-update();
-setInterval(update, 60000);
-})();
-// Initialize Lucide Icons
-lucide.createIcons();
-</script>
 </body>
 
 </html>

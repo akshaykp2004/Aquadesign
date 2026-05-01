@@ -11,6 +11,9 @@
     rel="stylesheet">
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <link rel="stylesheet" href="../assets/css/style.css">
 
   <style>
@@ -187,6 +190,122 @@
     .value-card h4 {
       margin-bottom: 0.5rem;
     }
+
+    /* Technical Mastery Premium Styles */
+    .mastery-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.2rem;
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      z-index: 1;
+    }
+
+    [data-theme="light"] .mastery-card {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .mastery-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      border-color: var(--aqua-teal);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="light"] .mastery-card:hover {
+      background: #ffffff;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .mastery-icon-box {
+      width: 60px;
+      height: 60px;
+      background: rgba(46, 196, 182, 0.1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--aqua-teal);
+      margin-bottom: 2rem;
+      border: 1px solid rgba(46, 196, 182, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .mastery-icon-box svg {
+      width: 28px;
+      height: 28px;
+      stroke-width: 2;
+    }
+
+    .mastery-card:hover .mastery-icon-box {
+      background: var(--aqua-teal);
+      color: var(--dark-navy);
+      transform: rotate(10deg) scale(1.1);
+    }
+
+    .mastery-card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      color: var(--text-primary);
+    }
+
+    .mastery-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .mastery-number {
+      position: absolute;
+      top: -20px;
+      right: -10px;
+      font-size: 8rem;
+      font-weight: 900;
+      color: var(--aqua-teal);
+      opacity: 0.03;
+      pointer-events: none;
+      transition: all 0.5s ease;
+    }
+
+    .mastery-card:hover .mastery-number {
+      opacity: 0.08;
+      transform: translateX(-20px);
+    }
+
+    .mastery-learn-more {
+      margin-top: auto;
+      padding-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--aqua-teal);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease;
+    }
+
+    .mastery-card:hover .mastery-learn-more {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 
@@ -273,42 +392,65 @@
   </section>
 
   <!-- Expertise -->
-  <section class="section-padding" style="background: var(--bg-secondary);">
-    <div class="container-custom">
-      <div style="text-align: center; margin-bottom: 4rem;">
-        <span class="overline-text">Our Network</span>
-        <h2 style="font-size: 2.5rem; text-transform: uppercase;">Technical Mastery</h2>
-        <div class="section-title-underline"></div>
+  <section class="section-padding" style="background: var(--bg-secondary); position: relative; overflow: hidden;">
+    <!-- Subtle Background Elements -->
+    <div style="position: absolute; top: -10%; left: -10%; width: 40%; height: 40%; background: radial-gradient(circle, rgba(46, 196, 182, 0.03) 0%, transparent 70%); z-index: 0;"></div>
+    <div style="position: absolute; bottom: -10%; right: -10%; width: 40%; height: 40%; background: radial-gradient(circle, rgba(255, 127, 80, 0.03) 0%, transparent 70%); z-index: 0;"></div>
+    
+    <div class="container-custom" style="position: relative; z-index: 1;">
+      <div style="text-align: center; margin-bottom: 5rem;">
+        <span class="overline-text" style="color: var(--aqua-teal);">OUR NETWORK</span>
+        <h2 style="font-size: clamp(2rem, 5vw, 3rem); text-transform: uppercase; margin: 1rem 0;">Technical Mastery</h2>
+        <div class="section-title-underline" style="margin: 1.5rem auto;"></div>
+        <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary);">Precision in every detail, from the molecular balance of water to the artistic placement of every stone.</p>
       </div>
 
-      <div class="row g-4">
+      <div class="row g-4 justify-content-center">
+        <!-- Planted Tanks -->
         <div class="col-lg-4 col-md-6">
-          <div class="elegant-card-left">
-            <span class="overline-text" style="color: var(--text-secondary); margin-bottom: 0.5rem;">BOTANICAL
-              DESIGN</span>
-            <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Planted Tanks</h4>
-            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Expert design and CO2
-              management for lush, thriving planted aquariums from nano to large formats.</p>
+          <div class="mastery-card">
+            <div class="mastery-number">01</div>
+            <div class="mastery-icon-box">
+              <i data-lucide="sprout"></i>
+            </div>
+            <span class="overline-text" style="color: var(--aqua-teal); font-size: 0.75rem; margin-bottom: 0.5rem;">BOTANICAL DESIGN</span>
+            <h4>Planted Tanks</h4>
+            <p>Expert design and CO2 management for lush, thriving planted aquariums from nano to large formats. We focus on nutrient balance and sustainable growth.</p>
+            <div class="mastery-learn-more">
+              Explore Botanical <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+            </div>
           </div>
         </div>
 
+        <!-- Hardscape Design -->
         <div class="col-lg-4 col-md-6">
-          <div class="elegant-card-left">
-            <span class="overline-text" style="color: var(--text-secondary); margin-bottom: 0.5rem;">STRUCTURAL
-              DESIGN</span>
-            <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Hardscape Design</h4>
-            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Beautiful rocky landscapes with
-              driftwood and stone. Japanese style and nature-inspired layouts.</p>
+          <div class="mastery-card">
+            <div class="mastery-number">02</div>
+            <div class="mastery-icon-box">
+              <i data-lucide="layers"></i>
+            </div>
+            <span class="overline-text" style="color: var(--aqua-teal); font-size: 0.75rem; margin-bottom: 0.5rem;">STRUCTURAL DESIGN</span>
+            <h4>Hardscape Design</h4>
+            <p>Beautiful rocky landscapes with driftwood and stone. Specializing in Japanese Iwagumi and nature-inspired layouts with geological precision.</p>
+            <div class="mastery-learn-more">
+              View Structures <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+            </div>
           </div>
         </div>
 
+        <!-- Water Chemistry -->
         <div class="col-lg-4 col-md-6">
-          <div class="elegant-card-left">
-            <span class="overline-text" style="color: var(--text-secondary); margin-bottom: 0.5rem;">BIOLOGICAL
-              BALANCE</span>
-            <h4 style="font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;">Water Chemistry</h4>
-            <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">Advanced understanding of pH,
-              hardness, nutrients, and water parameters for specific aquatic needs.</p>
+          <div class="mastery-card">
+            <div class="mastery-number">03</div>
+            <div class="mastery-icon-box">
+              <i data-lucide="droplets"></i>
+            </div>
+            <span class="overline-text" style="color: var(--aqua-teal); font-size: 0.75rem; margin-bottom: 0.5rem;">BIOLOGICAL BALANCE</span>
+            <h4>Water Chemistry</h4>
+            <p>Advanced understanding of pH, hardness, nutrients, and water parameters. We create stable ecosystems that thrive with minimal intervention.</p>
+            <div class="mastery-learn-more">
+              Analyze Balance <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+            </div>
           </div>
         </div>
       </div>

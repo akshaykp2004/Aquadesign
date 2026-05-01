@@ -117,6 +117,14 @@ body {
   transition: background-color var(--transition-normal), color var(--transition-normal);
   line-height: 1.6;
   overflow-x: hidden;
+  padding-top: 72px;
+  /* Accommodate fixed navbar */
+}
+
+@media (max-width: 991px) {
+  body {
+    padding-top: 60px;
+  }
 }
 
 h1,
@@ -409,8 +417,10 @@ a:hover {
 .navbar {
   backdrop-filter: blur(10px);
   padding: 1rem var(--spacing-lg);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: var(--z-sticky);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
@@ -2690,9 +2700,62 @@ footer .social-icon-v2 {
    17. MOBILE NAVIGATION OVERHAUL
    ============================================ */
 
+@media (min-width: 992px) and (max-width: 1150px) {
+  .navbar {
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  .navbar .container-custom {
+    gap: 0.25rem !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .navbar-brand {
+    font-size: 1.1rem !important;
+    margin-right: 0.25rem !important;
+  }
+
+  .navbar-nav {
+    gap: 0.15rem !important;
+  }
+
+  .navbar .nav-link {
+    padding: 0.5rem 0.3rem !important;
+    font-size: 0.75rem !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .nav-utility {
+    gap: 0.35rem !important;
+  }
+
+  .btn-dashboard-nav,
+  .btn-login-nav {
+    padding: 0.3rem 0.6rem !important;
+    font-size: 0.7rem !important;
+    min-height: 30px !important;
+  }
+
+  .theme-toggle,
+  .rtl-toggle {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 0.7rem !important;
+  }
+
+  .theme-toggle svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+}
+
 @media (max-width: 991px) {
   .navbar {
     padding: 0.75rem 1.25rem !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
   }
 
   .navbar .container-custom {
