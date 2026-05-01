@@ -512,13 +512,13 @@ a:hover {
 }
 
 .theme-toggle {
-  background: #EDF2F7;
-  color: #4A5568 !important;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
 }
 
 [data-theme="dark"] .theme-toggle {
-  background: #2D3748;
-  color: #F6E05E !important;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--aqua-teal);
 }
 
 .rtl-toggle {
@@ -2430,7 +2430,7 @@ footer .social-icon-v2 {
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 500px;
+  min-height: 650px;
   margin: 4rem 0;
 }
 
@@ -2451,7 +2451,11 @@ footer .social-icon-v2 {
   z-index: 2;
   width: 50%;
   background: var(--card-bg);
-  padding: 4rem;
+  padding: 6rem 5rem;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);

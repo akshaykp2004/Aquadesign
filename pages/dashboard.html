@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Client Dashboard | AquaDesign</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+    rel="stylesheet" />
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="icon"
@@ -63,10 +65,9 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.6);
       margin: 1.25rem 0 0.75rem;
       padding: 0 1.5rem;
-      opacity: 0.6;
       font-weight: 600;
       letter-spacing: 1.5px;
     }
@@ -110,7 +111,7 @@
 
     .dashboard-main {
       flex: 1;
-      padding: 0 3rem 3rem;
+      padding: 2.5rem 3rem 3rem;
       margin-top: 0 !important;
       background: var(--bg-secondary);
       overflow-y: auto;
@@ -1078,7 +1079,7 @@
     .mobile-toggles .theme-toggle {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      color: white;
+      color: white !important;
     }
 
     .top-nav-utility .rtl-toggle,
@@ -2061,8 +2062,8 @@
               <i data-lucide="clock"></i> Due: <strong>June 10, 2025</strong>
             </div>
             <div class="reminder-footer">
-              <span class="step-chip chip-pending"><i data-lucide="calendar-days"></i> Upcoming</span><button class="btn-mark-done"
-                onclick="markDone(this)">
+              <span class="step-chip chip-pending"><i data-lucide="calendar-days"></i> Upcoming</span><button
+                class="btn-mark-done" onclick="markDone(this)">
                 <i data-lucide="check-circle"></i> Mark Done
               </button>
             </div>
@@ -2079,8 +2080,8 @@
               <i data-lucide="clock"></i> Due: <strong>May 10, 2025</strong>
             </div>
             <div class="reminder-footer">
-              <span class="step-chip chip-pending"><i data-lucide="calendar-days"></i> Upcoming</span><button class="btn-mark-done"
-                onclick="markDone(this)">
+              <span class="step-chip chip-pending"><i data-lucide="calendar-days"></i> Upcoming</span><button
+                class="btn-mark-done" onclick="markDone(this)">
                 <i data-lucide="check-circle"></i> Mark Done
               </button>
             </div>
@@ -2225,6 +2226,18 @@
     // Initialize Lucide Icons
     lucide.createIcons();
   </script>
+</body>
+
+</html> if (de) de.textContent = String(d).padStart(2, "0");
+if (he) he.textContent = String(h).padStart(2, "0");
+if (me) me.textContent = String(m).padStart(2, "0");
+}
+update();
+setInterval(update, 60000);
+})();
+// Initialize Lucide Icons
+lucide.createIcons();
+</script>
 </body>
 
 </html>
